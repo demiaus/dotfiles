@@ -1,0 +1,46 @@
+# 
+# ~/.config/alacritty/alacritty.yml
+# 
+
+import:
+    - ~/.config/alacritty/themes/rose-pine.yml
+
+env:
+  TERM: alacritty
+
+window:
+  decorations: none
+  opacity: 0.93
+  startup_mode: Maximized
+  dynamic_title: true
+  class:
+    instance: Alacritty
+    general: Alacritty
+  gtk_theme_variant: dark
+
+#font:
+  #normal:
+    #family: monospace
+    #style: Regular
+  #bold:
+    #family: monospace
+    #style: Bold
+  #italic:
+    #family: monospace
+    #style: Italic
+  #bold_italic:
+    #family: monospace
+    #style: Bold Italic
+  #size: 13.0
+
+cursor:
+    blinking: On
+
+live_config_reload: true
+
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+
