@@ -1,0 +1,29 @@
+# 
+# ~/.config/tridactyl/tridactylrc
+# 
+
+" Make sure that unsetting an option here also resets it in the running session
+sanitise tridactyllocal tridactylsync
+
+" Rosé Pine
+colourscheme --url https://gitlab.com/krumeluu/dotfiles/-/raw/master/.config/tridactyl/themes/base16-rose-pine.css rose-pine
+
+" Make t open the selection with tabopen
+bind --mode=visual t composite js document.getSelection().toString() | fillcmdline tabopen
+
+bind gd tabdetach
+bind gD composite tabduplicate; tabdetach
+unbind --mode=ex <C-c>
+
+set hintdelay 100
+
+set editorcmd kitty -e vim
+set modeindicatormodes.ignore false
+
+autocmd DocStart ^http(s?)://www.reddit.com js tri.excmds.urlmodify("-t", "www", "old")
+bindurl www.google.com f hint -Jc #search div:not(.action-menu) > a
+bindurl www.google.com F hint -Jbc #search div:not(.action-menu) > a
+bindurl ^https://duckduckgo.com f hint -Jc [data-testid="result-title-a"]
+bindurl ^https://duckduckgo.com F hint -Jbc [data-testid="result-title-a"]
+
+" vim: set filetype=tridactyl
