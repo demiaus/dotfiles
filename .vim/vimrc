@@ -1,0 +1,137 @@
+"
+" ~/.vim/vimrc
+"
+
+set nocompatible
+filetype on
+filetype plugin on
+filetype indent on
+syntax on
+
+set background=dark
+" colorscheme rose-pine-dark
+
+set viminfo+=n~/.vim/viminfo
+set hidden
+
+set number
+set relativenumber
+set cursorline
+set cursorcolumn
+
+highlight CursorLine   ctermbg=Black cterm=bold
+highlight CursorColumn ctermbg=Black cterm=bold
+
+set showcmd
+set showmode
+set noshowmatch
+
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+
+set scrolloff=5
+set nowrap
+set incsearch
+set ignorecase
+set smartcase
+set wildmenu
+set lazyredraw
+set listchars=tab:>-,trail:·,nbsp:_
+
+"///////////
+"/ PLUGINS /////////////////////////////////////////////////////////////////////
+"///////////
+
+call plug#begin()
+Plug 'glts/vim-magnum'
+Plug 'glts/vim-radical'
+Plug 'junegunn/vim-easy-align'
+Plug 'mattn/calendar-vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'svermeulen/vim-subversive'
+Plug 'svermeulen/vim-yoink'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tridactyl/vim-tridactyl'
+Plug 'vimwiki/vimwiki'
+call plug#end()
+
+"/////////////
+"/ FUNCTIONS ///////////////////////////////////////////////////////////////////
+"/////////////
+
+"///////////////////
+"/ CUSTOM MAPPINGS /////////////////////////////////////////////////////////////
+"///////////////////
+
+let mapleader = " "
+
+nnoremap j gj
+nnoremap k gk
+
+" Toggle show whitespace
+noremap <F3> :set list!<CR>
+"Remove all trailing whitespace
+nnoremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+"////////////////////
+"/ PLUG-IN MAPPINGS ////////////////////////////////////////////////////////////
+"////////////////////
+
+" EASY-ALIGN
+nmap gq <Plug>(EasyAlign)
+xmap gq <Plug>(EasyAlign)
+
+" SUBVERSIVE
+nmap <Leader><Leader>s  <Plug>(SubversiveSubvertRange)
+xmap <Leader><Leader>s  <Plug>(SubversiveSubvertRange)
+nmap <Leader><Leader>ss <Plug>(SubversiveSubvertWordRange)
+xmap s                  <Plug>(SubversiveSubstitute)
+xmap p                  <Plug>(SubversiveSubstitute)
+xmap P                  <Plug>(SubversiveSubstitute)
+
+" YOINK
+nmap <C-n> <Plug>(YoinkPostPasteSwapBack)
+nmap <C-p> <Plug>(YoinkPostPasteSwapForward)
+nmap p     <Plug>(YoinkPaste_p)
+nmap P     <Plug>(YoinkPaste_P)
+nmap gp    <Plug>(YoinkPaste_gp)
+nmap gP    <Plug>(YoinkPaste_gP)
+
+
+" MAGNUM
+" gA    - Shows the four representations of the number under the cursor (or selected in Visual mode).
+" crd   - Convert to decimal
+" crx   - Convert to hex
+" cro   - Convert to octal
+" crb   - Convert to binary
+
+" COMMENTARY
+" gcc   - Comment out a line
+
+"///////////
+"/ OPTIONS /////////////////////////////////////////////////////////////////////
+"///////////
+
+" Use .md files for vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+" Disable parenhesis highlighting
+let g:loaded_matchparen=1
+
+"////////////
+"/ AUTOCMDS ////////////////////////////////////////////////////////////////////
+"////////////
+
+command! Diary VimwikiDiaryIndex
+augroup vimwikigroup
+    autocmd!
+    " Automatically update links on read diary
+    autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
+augroup end
+
+" PHP File Types (WordPress, use tabs)
+autocmd FileType php set noexpandtab
