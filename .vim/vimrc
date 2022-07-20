@@ -19,9 +19,17 @@ set relativenumber
 set cursorline
 set cursorcolumn
 
-highlight CursorLine   ctermbg=Black cterm=bold
-highlight CursorColumn ctermbg=Black cterm=bold
-highlight Comment                    cterm=italic
+highlight CursorLine   ctermbg=Black                cterm=NONE
+highlight CursorColumn ctermbg=Black                cterm=NONE
+highlight Comment                                   cterm=italic
+highlight TabLineFill  ctermbg=Green ctermfg=Black
+highlight TabLine      ctermbg=Black ctermfg=Green
+highlight TabLineSel   ctermbg=Black ctermfg=Red
+highlight StatusLine   ctermbg=Red   ctermfg=Black
+highlight StatusLineNC ctermbg=Red   ctermfg=Black
+highlight VertSplit    ctermbg=Red   ctermfg=Black
+highlight LineNr       ctermbg=NONE  ctermfg=Red    cterm=NONE
+highlight CursorLineNr ctermbg=NONE  ctermfg=Red    cterm=italic
 
 set showcmd
 set showmode
