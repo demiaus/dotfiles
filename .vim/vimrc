@@ -21,6 +21,7 @@ set cursorcolumn
 
 highlight CursorLine   ctermbg=Black cterm=bold
 highlight CursorColumn ctermbg=Black cterm=bold
+highlight Comment                    cterm=italic
 
 set showcmd
 set showmode
