@@ -14,6 +14,7 @@ bind --mode=visual t composite js document.getSelection().toString() | fillcmdli
 bind gd tabdetach
 bind gD composite tabduplicate; tabdetach
 unbind --mode=ex <C-c>
+unbind <C-f>
 
 set hintdelay 100
 
