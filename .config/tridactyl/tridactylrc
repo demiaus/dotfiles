@@ -6,7 +6,7 @@
 sanitise tridactyllocal tridactylsync
 
 " Rosé Pine
-colourscheme --url https://gitlab.com/krumeluu/dotfiles/-/raw/master/.config/tridactyl/themes/base16-rose-pine.css rose-pine
+colourscheme --url https://gitlab.com/krumeluu/dotfiles/-/raw/main/.config/tridactyl/themes/base16-rose-pine.css rose-pine
 
 " Make t open the selection with tabopen
 bind --mode=visual t composite js document.getSelection().toString() | fillcmdline tabopen
