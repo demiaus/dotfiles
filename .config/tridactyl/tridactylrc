@@ -24,7 +24,7 @@ unbindurl youtube.com --mode=normal .
 
 set hintdelay 100
 
-set editorcmd kitty -e vim
+set editorcmd alacritty -e vim
 set modeindicatormodes.ignore false
 
 autocmd DocStart ^http(s?)://www.reddit.com js tri.excmds.urlmodify("-t", "www", "old")
