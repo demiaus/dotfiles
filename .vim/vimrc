@@ -13,6 +13,8 @@ set background=dark
 
 set viminfo+=n~/.vim/viminfo
 set hidden
+set undofile
+set undodir=~/.vim/undo/
 
 set number
 set relativenumber
