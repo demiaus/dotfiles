@@ -13,6 +13,11 @@ bind --mode=visual t composite js document.getSelection().toString() | fillcmdli
 
 bind gd tabdetach
 bind gD composite tabduplicate; tabdetach
+bind / fillcmdline find
+bind ? fillcmdline find -?
+bind n findnext 1
+bind N findnext -1
+bind <Space><Space> nohlsearch
 unbind --mode=ex <C-c>
 unbind <C-f>
 unbindurl youtube.com --mode=normal f
