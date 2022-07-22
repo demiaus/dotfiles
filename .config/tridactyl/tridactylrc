@@ -15,6 +15,12 @@ bind gd tabdetach
 bind gD composite tabduplicate; tabdetach
 unbind --mode=ex <C-c>
 unbind <C-f>
+unbindurl youtube.com --mode=normal f
+unbindurl youtube.com --mode=normal j
+unbindurl youtube.com --mode=normal k
+unbindurl youtube.com --mode=normal l
+unbindurl youtube.com --mode=normal ,
+unbindurl youtube.com --mode=normal .
 
 set hintdelay 100
 
