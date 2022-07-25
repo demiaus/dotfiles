@@ -56,19 +56,26 @@ set listchars=tab:>-,trail:·,nbsp:_
 "///////////
 
 call plug#begin()
+Plug 'amadeus/vim-convert-color-to'
 Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
+Plug 'jakerobers/vim-hexrgba'
 Plug 'junegunn/vim-easy-align'
 Plug 'mattn/calendar-vim'
+Plug 'psliwka/vim-smoothie'
+Plug 'sersorrel/vim-lilypond'
 Plug 'sheerun/vim-polyglot'
 Plug 'svermeulen/vim-subversive'
 Plug 'svermeulen/vim-yoink'
+Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tridactyl/vim-tridactyl'
+Plug 'vim-scripts/vis'
 Plug 'vimwiki/vimwiki'
+Plug 'wellle/targets.vim'
 call plug#end()
 
 "/////////////
@@ -123,6 +130,9 @@ nmap gP    <Plug>(YoinkPaste_gP)
 
 " COMMENTARY
 " gcc   - Comment out a line
+
+" HEXRGBA
+nnoremap <leader>h :HexRgba<CR>
 
 "///////////
 "/ OPTIONS /////////////////////////////////////////////////////////////////////
