@@ -11,7 +11,6 @@ colourscheme --url https://gitlab.com/krumeluu/dotfiles/-/raw/main/.config/trida
 " Make t open the selection with tabopen
 bind --mode=visual t composite js document.getSelection().toString() | fillcmdline tabopen
 
-" Detach a tab easily
 bind gd tabdetach
 bind gD composite tabduplicate; tabdetach
 
@@ -22,17 +21,13 @@ bind n findnext 1
 bind N findnext -1
 bind <Space><Space> nohlsearch
 
-" Emacs bindings
-bind --mode=ex     <C-a> text.beginning_of_line
-bind --mode=insert <C-a> text.beginning_of_line
-bind --mode=input  <C-a> text.beginning_of_line
+bind   --mode=ex <C-a> text.beginning_of_line
 unbind --mode=ex <C-c>
 
 " Don't need no new windows (Detach one if you need to)
 unbind w
 unbind W
 
-" Video controls in Youtube
 unbindurl youtube.com --mode=normal f
 unbindurl youtube.com --mode=normal j
 unbindurl youtube.com --mode=normal k
@@ -40,16 +35,16 @@ unbindurl youtube.com --mode=normal l
 unbindurl youtube.com --mode=normal ,
 unbindurl youtube.com --mode=normal .
 
-" Be fast and smooth
 set hintdelay 100
 set smoothscroll true
 
-" Use alacritty to open vim
+" Use alacritty to open vvm
 set editorcmd alacritty -e vim
 
 " Hide ignore-mode indicator
 set modeindicatormodes.ignore false
-
+Ami
+Kajan
 autocmd DocStart ^http(s?)://www.reddit.com js tri.excmds.urlmodify("-t", "www", "old")
 " bindurl www.google.com f hint -Jc #search div:not(.action-menu) > a
 " bindurl www.google.com F hint -Jbc #search div:not(.action-menu) > a
