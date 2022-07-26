@@ -10,10 +10,12 @@ window#whiskermenu-window treeview>* {
 	-gtk-icon-transform: scale(0.85) translateY(3px);
     color: #c4a7e7;
 }
+
 #pulseaudio-button image {
 	-gtk-icon-transform: scale(0.9);
     color: #c4a7e7;
 }
+
 #xfce4-power-manager-plugin image {
 	-gtk-icon-transform: scale(0.75);
     color: #c4a7e7;
@@ -42,4 +44,8 @@ VteTerminal, vte-terminal {
 #pager-4, #xfce-panel-toggle-button:hover {
     color: #c4a7e7;
     background-color: #26233a;
+}
+
+.tasklist > * > box {
+    color: #c4a7e7;
 }
