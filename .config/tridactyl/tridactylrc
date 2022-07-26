@@ -30,15 +30,15 @@ unbind --mode=ex <C-c>
 unbind w
 unbind W
 
-unbindurl youtube.com <Space>
-unbindurl youtube.com --mode=normal f
-unbindurl youtube.com --mode=normal j
-unbindurl youtube.com --mode=normal k
-unbindurl youtube.com --mode=normal l
-unbindurl youtube.com --mode=normal ,
-unbindurl youtube.com --mode=normal .
-bindurl   youtube.com j !s xdotool key Left
-bindurl   youtube.com l !s xdotool key Right
+unbindurl youtube\.com/watch\?v= <Space>
+unbindurl youtube\.com/watch\?v= f
+unbindurl youtube\.com/watch\?v= j
+unbindurl youtube\.com/watch\?v= k
+unbindurl youtube\.com/watch\?v= l
+unbindurl youtube\.com/watch\?v= ,
+unbindurl youtube\.com/watch\?v= .
+bindurl   youtube\.com/watch\?v= j !s xdotool key Left
+bindurl   youtube\.com/watch\?v= l !s xdotool key Right
 
 set hintdelay 100
 set smoothscroll true
