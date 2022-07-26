@@ -24,16 +24,19 @@ bind <Space><Space> nohlsearch
 bind   --mode=ex <C-a> text.beginning_of_line
 unbind --mode=ex <C-c>
 
-" Don't need no new windows (Detach one if you need to)
+" Don't need no new windows (Detach one if you must)
 unbind w
 unbind W
 
+unbindurl youtube.com <Space>
 unbindurl youtube.com --mode=normal f
 unbindurl youtube.com --mode=normal j
 unbindurl youtube.com --mode=normal k
 unbindurl youtube.com --mode=normal l
 unbindurl youtube.com --mode=normal ,
 unbindurl youtube.com --mode=normal .
+bindurl   youtube.com j !s xdotool key Left
+bindurl   youtube.com l !s xdotool key Right
 
 set hintdelay 100
 set smoothscroll true
