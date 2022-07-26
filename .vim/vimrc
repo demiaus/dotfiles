@@ -15,6 +15,7 @@ set viminfo+=n~/.vim/viminfo
 set hidden
 set undofile
 set undodir=~/.vim/undo/
+set clipboard=unnamedplus
 
 set number
 set relativenumber
@@ -57,6 +58,7 @@ set listchars=tab:>-,trail:·,nbsp:_
 
 call plug#begin()
 Plug 'amadeus/vim-convert-color-to'
+Plug 'ap/vim-css-color'
 Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
 Plug 'jakerobers/vim-hexrgba'
@@ -73,7 +75,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tridactyl/vim-tridactyl'
-Plug 'vim-css-color'
 Plug 'vim-scripts/vis'
 Plug 'vimwiki/vimwiki'
 Plug 'wellle/targets.vim'
@@ -106,6 +107,9 @@ nmap gq <Plug>(EasyAlign)
 xmap gq <Plug>(EasyAlign)
 
 " SUBVERSIVE
+nmap s                  <plug>(SubversiveSubstitute)
+nmap ss                 <plug>(SubversiveSubstituteLine)
+nmap S                  <plug>(SubversiveSubstituteToEndOfLine)
 nmap <Leader><Leader>s  <Plug>(SubversiveSubvertRange)
 xmap <Leader><Leader>s  <Plug>(SubversiveSubvertRange)
 nmap <Leader><Leader>ss <Plug>(SubversiveSubvertWordRange)
