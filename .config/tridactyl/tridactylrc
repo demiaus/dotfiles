@@ -6,7 +6,8 @@
 sanitise tridactyllocal tridactylsync
 
 " Rosé Pine
-colourscheme --url https://gitlab.com/krumeluu/dotfiles/-/raw/main/.config/tridactyl/themes/base16-rose-pine.css rose-pine
+#colourscheme --url https://gitlab.com/krumeluu/dotfiles/-/raw/main/.config/tridactyl/themes/rose-pine.css rose-pine
+colourscheme rose-pine
 set newtab about:blank
 
 " Make t open the selection with tabopen
