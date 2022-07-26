@@ -6,6 +6,11 @@
  * with hex from "Rosé Pine" by Emilia Dunfelt <sayhi@dunfelt.se>
  * https://github.com/edunfelt/base16-rose-pine-scheme/blob/main/rose-pine.yaml
  */
+    --tridactyl-font-family:          "CozetteVector Nerd Font";
+    --tridactyl-cmdl-font-family:     var(--tridactyl-font-family);
+    --tridactyl-hintspan-font-family: var(--tridactyl-font-family);
+    --tridactyl-vs-font-family:       var(--tridactyl-font-family);
+    --tridactyl-cmplt-font-family:    var(--tridactyl-font-family);
 
     --base00: #191724;
     --base01: #1f1d2e;
@@ -24,7 +29,16 @@
     --base0E: #c4a7e7;
     --base0F: #e5e5e5;
 
-    --tridactyl-fg: var(--base05);
+    --tridactyl-container-color-blue:      var(--base0C);
+    --tridactyl-container-color-turquoise: var(--base0D);
+    --tridactyl-container-color-green:     var(--base0D);
+    --tridactyl-container-color-yellow:    var(--base0A);
+    --tridactyl-container-color-orange:    var(--base0A);
+    --tridactyl-container-color-red:       var(--base09);
+    --tridactyl-container-color-pink:      var(--base09);
+    --tridactyl-container-color-purple:    var(--base0E);
+
+    --tridactyl-fg: var(--base0E);
     --tridactyl-bg: var(--base00);
     --tridactyl-url-fg: var(--base08);
     --tridactyl-url-bg: var(--base00);
@@ -33,7 +47,7 @@
 
     /* Hint character tags */
     --tridactyl-hintspan-fg: var(--base00) !important;
-    --tridactyl-hintspan-bg: var(--base0A) !important;
+    --tridactyl-hintspan-bg: var(--base0E) !important;
 
     /* Element Highlights */
     --tridactyl-hint-active-fg: none;
@@ -44,7 +58,7 @@
 }
 
 #command-line-holder {    order: 1;
-    border: 2px solid var(--base0B);
+    border: 2px solid var(--base0E);
     color: var(--tridactyl-bg);
 }
 
@@ -139,9 +153,9 @@
     bottom: 0 !important;
     background: var(--tridactyl-bg) !important;
     border: unset !important;
-    border: 1px var(--base0B) solid !important;
-    font-size: 12pt !important;
-    /*font-weight: 200 !important;*/
+    border: 1px var(--base0E) solid !important;
+    font-family: "CozetteVector Nerd Font" !important;
+    font-size: 14pt !important;
     padding: 0.8ex !important;
 }
 
@@ -152,10 +166,3 @@
 #completions .focused .url {    background: var(--base0B);
     color: var(--base00);
 }
-/* #Ocean-normal { */
-/*  border-color: green !important; */
-/* } */
-
-/* #Ocean-insert { */
-/*  border-color: yellow !important; */
-/* } */
