@@ -48,4 +48,5 @@ VteTerminal, vte-terminal {
 
 .tasklist > * > box {
     color: #c4a7e7;
+    background-color: #26233a;
 }
