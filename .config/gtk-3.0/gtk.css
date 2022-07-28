@@ -46,6 +46,11 @@ VteTerminal, vte-terminal {
     background-color: #26233a;
 }
 
+#pager-4, wnck-pager {
+    color: #c4a7e7;
+    background-color: #403d52;
+}
+
 .tasklist > * > box {
     color: #c4a7e7;
     background-color: #26233a;
