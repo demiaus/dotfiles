@@ -84,6 +84,15 @@ call plug#end()
 "/ FUNCTIONS ///////////////////////////////////////////////////////////////////
 "/////////////
 
+function! COptions()
+    setlocal commentstring=//\ %s
+    if filereadable(expand("./build.sh"))
+        setlocal makeprg=./buildh.sh\ %
+    elseif filereadable(expand("~/prog/c/build.sh"))
+        setlocal makeprg=~/prog/c/build.sh\ %
+    endif
+endfunction
+
 "///////////////////
 "/ CUSTOM MAPPINGS /////////////////////////////////////////////////////////////
 "///////////////////
@@ -161,3 +170,5 @@ augroup end
 
 " PHP File Types (WordPress, use tabs)
 autocmd FileType php set noexpandtab
+
+autocmd Filetype c call COptions()
