@@ -40,6 +40,10 @@ unbindurl ^https://www\.youtube\.com/watch\?v=.*$ .
 bindurl   ^https://www\.youtube\.com/watch\?v=.*$ j !s xdotool key Left
 bindurl   ^https://www\.youtube\.com/watch\?v=.*$ l !s xdotool key Right
 
+autocmd DocStart https://10fastfingers.com/ mode ignore
+autocmd DocStart https://monkeytype.com/    mode ignore
+
+
 set hintdelay 100
 set smoothscroll true
 
