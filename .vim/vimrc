@@ -9,7 +9,6 @@ filetype indent on
 syntax on
 
 set background=dark
-" colorscheme rose-pine-dark
 
 set viminfo+=n~/.vim/viminfo
 set hidden
@@ -42,7 +41,6 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
-
 set scrolloff=5
 set nowrap
 set incsearch
@@ -62,7 +60,6 @@ Plug 'ap/vim-css-color'
 Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
 Plug 'iamcco/markdown-preview.nvim'
-Plug 'jakerobers/vim-hexrgba'
 Plug 'junegunn/vim-easy-align'
 Plug 'mattn/calendar-vim'
 Plug 'psliwka/vim-smoothie'
@@ -76,7 +73,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tridactyl/vim-tridactyl'
-Plug 'vim-scripts/vis'
 Plug 'vimwiki/vimwiki'
 Plug 'wellle/targets.vim'
 call plug#end()
@@ -108,6 +104,11 @@ noremap <F3> :set list!<CR>
 "Remove all trailing whitespace
 nnoremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
+" Disable/enable automatic comments
+nnoremap <Leader>c :set formatoptions-=cro<CR>
+nnoremap <Leader>C :set formatoptions+=cro<CR>
+
+
 "////////////////////
 "/ PLUG-IN MAPPINGS ////////////////////////////////////////////////////////////
 "////////////////////
@@ -117,15 +118,20 @@ nmap gq <Plug>(EasyAlign)
 xmap gq <Plug>(EasyAlign)
 
 " SUBVERSIVE
-nmap s                  <plug>(SubversiveSubstitute)
-nmap ss                 <plug>(SubversiveSubstituteLine)
-nmap S                  <plug>(SubversiveSubstituteToEndOfLine)
-nmap <Leader><Leader>s  <Plug>(SubversiveSubvertRange)
-xmap <Leader><Leader>s  <Plug>(SubversiveSubvertRange)
-nmap <Leader><Leader>ss <Plug>(SubversiveSubvertWordRange)
-xmap s                  <Plug>(SubversiveSubstitute)
-xmap p                  <Plug>(SubversiveSubstitute)
-xmap P                  <Plug>(SubversiveSubstitute)
+" Normal:
+nmap s           <Plug>(SubversiveSubstitute)
+nmap ss          <Plug>(SubversiveSubstituteLine)
+nmap S           <Plug>(SubversiveSubstituteToEndOfLine)
+nmap <Leader>s   <Plug>(SubversiveSubvertRange)
+nmap <Leader>ss  <Plug>(SubversiveSubvertWordRange)
+nmap <Leader>cs  <Plug>(SubversiveSubstituteRangeConfirm)
+nmap <Leader>css <Plug>(SubversiveSubstituteWordRangeConfirm)
+" Visual:
+xmap <Leader>s  <Plug>(SubversiveSubvertRange)
+xmap s          <Plug>(SubversiveSubstitute)
+xmap p          <Plug>(SubversiveSubstitute)
+xmap P          <Plug>(SubversiveSubstitute)
+xmap <Leader>cs <Plug>(SubversiveSubstituteRangeConfirm)
 
 " YOINK
 nmap <C-n> <Plug>(YoinkPostPasteSwapBack)
@@ -142,26 +148,34 @@ nmap gP    <Plug>(YoinkPaste_gP)
 " crx - Convert to hex
 " cro - Convert to octal
 " crb - Convert to binary
-"
+
 " EXCHANGE
+" Normal:
 " cx + motion - Exchange
 " cxx         - Exchange line
+" Visual:
 " X           - Exchange selection
 
 " COMMENTARY
-" gcc   - Comment out a line
+" Normal:
+" gcc - Comment out a line
+" Visual:
+" gc  - Comment out a selection
 
-" HEXRGBA
-nnoremap <leader>h :HexRgba<CR>
 
 "///////////
 "/ OPTIONS /////////////////////////////////////////////////////////////////////
 "///////////
 
+" VIMWIKI
 " Use .md files for vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 " Disable parenhesis highlighting
 let g:loaded_matchparen=1
+
+" EASY-ALIGN
+" Also align comments
+let g:easy_align_ignore_unmatched = 0
 
 "////////////
 "/ AUTOCMDS ////////////////////////////////////////////////////////////////////
