@@ -61,6 +61,7 @@ Plug 'amadeus/vim-convert-color-to'
 Plug 'ap/vim-css-color'
 Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
+Plug 'iamcco/markdown-preview.nvim'
 Plug 'jakerobers/vim-hexrgba'
 Plug 'junegunn/vim-easy-align'
 Plug 'mattn/calendar-vim'
@@ -136,11 +137,16 @@ nmap gP    <Plug>(YoinkPaste_gP)
 
 
 " MAGNUM
-" gA    - Shows the four representations of the number under the cursor (or selected in Visual mode).
-" crd   - Convert to decimal
-" crx   - Convert to hex
-" cro   - Convert to octal
-" crb   - Convert to binary
+" gA  - Shows the four representations of the number under the cursor (or selected in Visual mode).
+" crd - Convert to decimal
+" crx - Convert to hex
+" cro - Convert to octal
+" crb - Convert to binary
+"
+" EXCHANGE
+" cx + motion - Exchange
+" cxx         - Exchange line
+" X           - Exchange selection
 
 " COMMENTARY
 " gcc   - Comment out a line
