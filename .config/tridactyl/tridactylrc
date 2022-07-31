@@ -30,6 +30,9 @@ unbind --mode=ex <C-c>
 unbind w
 unbind W
 
+bind > tabmove +1
+bind < tabmove -1
+
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ f
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ j
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ k
