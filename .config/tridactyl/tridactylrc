@@ -10,6 +10,10 @@ sanitise tridactyllocal tridactylsync
 colourscheme rose-pine
 set newtab about:blank
 
+" Type link names to narrow down hints and only use home row keys
+set hintfiltermode vimperator
+set hintchars asdfjklö
+
 " Make t open the selection with tabopen
 bind --mode=visual t composite js document.getSelection().toString() | fillcmdline tabopen
 
