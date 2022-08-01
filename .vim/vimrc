@@ -57,6 +57,7 @@ set listchars=tab:>-,trail:·,nbsp:_
 call plug#begin()
 Plug 'amadeus/vim-convert-color-to'
 Plug 'ap/vim-css-color'
+Plug 'dylanaraps/fff.vim'
 Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
 Plug 'junegunn/vim-easy-align'
