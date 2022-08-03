@@ -8,18 +8,23 @@ filetype plugin on
 filetype indent on
 syntax on
 
-set background=dark
-
-set viminfo+=n~/.vim/viminfo
+set clipboard=unnamedplus
 set hidden
 set undofile
-set undodir=~/.vim/undo/
-set clipboard=unnamedplus
-
 set number
 set relativenumber
 set cursorline
 set cursorcolumn
+
+if has('nvim')
+	set undodir=~/.config/nvim/undo/
+	set viminfo+=n~/.config/nvim/viminfo
+else
+	set undodir=~/.vim/undo
+	set viminfo+=n~/.vim/viminfo
+endif
+
+set background=dark
 
 highlight CursorLine   ctermbg=Black                cterm=NONE
 highlight CursorColumn ctermbg=Black                cterm=NONE
@@ -37,9 +42,9 @@ set showcmd
 set showmode
 set noshowmatch
 
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set shiftwidth=8
+set tabstop=8
+set softtabstop=8
 set expandtab
 set scrolloff=5
 set nowrap
@@ -53,6 +58,13 @@ set listchars=tab:>-,trail:·,nbsp:_
 "///////////
 "/ PLUGINS /////////////////////////////////////////////////////////////////////
 "///////////
+
+" Download and install vim-plug if not found
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+        silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin()
 Plug 'amadeus/vim-convert-color-to'
@@ -76,7 +88,28 @@ Plug 'tpope/vim-surround'
 Plug 'tridactyl/vim-tridactyl'
 Plug 'vimwiki/vimwiki'
 Plug 'wellle/targets.vim'
+if has('nvim')
+        Plug 'themercorp/themer.lua'
+        Plug 'nvim-lualine/lualine.nvim'
+        Plug 'kyazdani42/nvim-web-devicons'
+endif
 call plug#end()
+
+" THEMER
+if has('nvim')
+lua << EOF
+      require("themer").setup({
+          colorscheme = "rose_pine",
+          styles = {
+                ["function"] = { style = 'italic' },
+                functionbuiltin = { style = 'italic' },
+                variable = { style = 'italic' },
+                variableBuiltIn = { style = 'italic' },
+                parameter  = { style = 'italic' },
+          },
+      })
+EOF
+endif
 
 "/////////////
 "/ FUNCTIONS ///////////////////////////////////////////////////////////////////
@@ -109,6 +142,8 @@ nnoremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <Leader>c :set formatoptions-=cro<CR>
 nnoremap <Leader>C :set formatoptions+=cro<CR>
 
+" Hide seach highlights
+nnoremap <Leader><Leader> :nohls<CR>
 
 "////////////////////
 "/ PLUG-IN MAPPINGS ////////////////////////////////////////////////////////////
@@ -193,3 +228,4 @@ augroup end
 autocmd FileType php set noexpandtab
 
 autocmd Filetype c call COptions()
+
