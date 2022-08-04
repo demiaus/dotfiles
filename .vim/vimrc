@@ -89,9 +89,10 @@ Plug 'tridactyl/vim-tridactyl'
 Plug 'vimwiki/vimwiki'
 Plug 'wellle/targets.vim'
 if has('nvim')
-        Plug 'themercorp/themer.lua'
-        Plug 'nvim-lualine/lualine.nvim'
+        Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
         Plug 'kyazdani42/nvim-web-devicons'
+        Plug 'nvim-lualine/lualine.nvim'
+        Plug 'themercorp/themer.lua'
 endif
 call plug#end()
 
