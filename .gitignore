@@ -1,0 +1,10 @@
+.cfg
+.bash_history
+.ssh/
+.yarn
+.log
+.cargo
+.cache
+.lesshst
+.npm
+.Xauthority
