@@ -10,9 +10,11 @@ sanitise tridactyllocal tridactylsync
 colourscheme rose-pine
 set newtab about:blank
 
-" Type link names to narrow down hints and only use home row keys
+" Type link names to narrow down hints and only use right-hand keys
+" Add right hand hint binding for one hand navigation
 set hintfiltermode vimperator
-set hintchars asdfjklö
+set hintchars jklöuiopmyhn
+bind <Space><Space> hint
 
 " Make t open the selection with tabopen
 bind --mode=visual t composite js document.getSelection().toString() | fillcmdline tabopen
@@ -25,7 +27,7 @@ bind / fillcmdline find
 bind ? fillcmdline find -?
 bind n findnext 1
 bind N findnext -1
-bind <Space><Space> nohlsearch
+bind <Space>s nohlsearch
 
 bind   --mode=ex <C-a> text.beginning_of_line
 unbind --mode=ex <C-c>
@@ -54,8 +56,8 @@ autocmd DocStart https://monkeytype.com/    mode ignore
 set hintdelay 100
 set smoothscroll true
 
-" Use alacritty to open vvm
-set editorcmd alacritty -e vim
+" Use st to open nvim
+set editorcmd st -e nvim
 
 " Hide ignore-mode indicator
 set modeindicatormodes.ignore false
