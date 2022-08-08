@@ -48,7 +48,7 @@
 
     /* Hint character tags */
     --tridactyl-hintspan-fg: var(--base00) !important;
-    --tridactyl-hintspan-bg: var(--base0E) !important;
+    --tridactyl-hintspan-bg: var(--base0D) !important;
 
     /* Element Highlights */
     --tridactyl-hint-active-fg:      none;
@@ -169,8 +169,9 @@
     position:    fixed                     !important;
     bottom:      0                         !important;
     background:  var(--tridactyl-bg)       !important;
+    color:       var(--base0B)             !important;
     border:      unset                     !important;
-    border:      1px var(--base0E) solid   !important;
+    border:      2px var(--base0D) solid   !important;
     font-family: "CozetteVector Nerd Font" !important;
     font-size:   14pt                      !important;
     padding:     0.8ex                     !important;
