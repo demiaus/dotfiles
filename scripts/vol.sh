@@ -18,7 +18,7 @@ case $1 in
         exit 1 ;;
 esac
 
-dunstify -r 69 $(pamixer --get-volume-human)
+dunstify -r 69 -u low $(pamixer --get-volume-human)
 canberra-gtk-play -i audio-volume-change -d "changeVolume"
 
 exit 0
