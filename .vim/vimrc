@@ -69,6 +69,7 @@ endif
 call plug#begin()
 Plug 'amadeus/vim-convert-color-to'
 Plug 'ap/vim-css-color'
+Plug 'cespare/vim-toml', { 'branch': 'main' }
 Plug 'dylanaraps/fff.vim'
 Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
@@ -145,6 +146,8 @@ nnoremap <Leader>C :set formatoptions+=cro<CR>
 
 " Hide seach highlights
 nnoremap <Leader><Leader> :nohls<CR>
+
+cnoremap Q q
 
 "////////////////////
 "/ PLUG-IN MAPPINGS ////////////////////////////////////////////////////////////
