@@ -9,3 +9,4 @@
 .npm
 .Xauthority
 test
+*.o
