@@ -1,12 +1,12 @@
 # krumeluu's dotfiles
-- OS: [arch](https://archlinux.org/)
-- WM: [dwm](https://dwm.suckless.org/)
-- Shell: [bash](https://www.gnu.org/software/bash/)
-- Terminal: [st](https://st.suckless.org/)
-- File manager: [fff](https://github.com/zeljkobekcic/fff)
-- Editor: [neovim](https://github.com/neovim/neovim)
-- Compositor: [picom](https://github.com/yshui/picom)
-- Browser: [librewolf](https://librewolf.net/)
-- Launcher: [dmenu](https://tools.suckless.org/dmenu/)
-- Colourscheme: [Rosé Pine](https://github.com/rose-pine/rose-pine-theme) <img src="https://raw.githubusercontent.com/rose-pine/rose-pine-theme/main/assets/palette.png" width="50" />
-- Font: [Cozette](https://github.com/slavfox/Cozette)
+- os: [arch](https://archlinux.org/)
+- wm: [dwm](https://dwm.suckless.org/)
+- shell: [bash](https://www.gnu.org/software/bash/)
+- terminal emulator: [st](https://st.suckless.org/)
+- file manager: [fff](https://github.com/zeljkobekcic/fff)
+- text editor: [vim](https://github.com/vim/vim)
+- compositor: [picom](https://github.com/yshui/picom)
+- web browser: [librewolf](https://librewolf.net/)
+- application launcher: [dmenu](https://tools.suckless.org/dmenu/)
+- colourscheme: [rosé pine](https://github.com/rose-pine/rose-pine-theme) <img src="https://raw.githubusercontent.com/rose-pine/rose-pine-theme/main/assets/palette.png" width="50" />
+- font: [cozette](https://github.com/slavfox/cozette)

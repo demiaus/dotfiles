@@ -8,8 +8,7 @@ alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vimrc="vim ~/.vim/vimrc"
-#alias vim="vim --servername VIMSERVER --remote-tab-silent"
-alias vim=nvim
+alias vim="vim --servername VIMSERVER --remote-tab-silent"
 alias :q=exit
 alias destroy="shred -zu"
 alias ww="vim ~/vimwiki/index.md"

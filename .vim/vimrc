@@ -73,6 +73,7 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 Plug 'dylanaraps/fff.vim'
 Plug 'glts/vim-magnum'
 Plug 'glts/vim-radical'
+" Plug 'iamcco/markdown-preview.nvim' " Installed from AUR
 Plug 'junegunn/vim-easy-align'
 Plug 'mattn/calendar-vim'
 Plug 'psliwka/vim-smoothie'
@@ -90,9 +91,6 @@ Plug 'tridactyl/vim-tridactyl'
 Plug 'vimwiki/vimwiki'
 Plug 'wellle/targets.vim'
 if has('nvim')
-        Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-        Plug 'kyazdani42/nvim-web-devicons'
-        Plug 'nvim-lualine/lualine.nvim'
         Plug 'themercorp/themer.lua'
 endif
 call plug#end()
@@ -221,6 +219,11 @@ let g:loaded_matchparen=1
 " EASY-ALIGN
 " Also align comments
 let g:easy_align_ignore_unmatched = 0
+
+" VIM MARKDOWN PREVIEW
+let vim_markdown_preview_toggle=2
+let vim_markdown_preview_hotkey='<A-m>'
+let vim_markdown_preview_browser='/usr/bin/librewolf'
 
 "////////////
 "/ AUTOCMDS ////////////////////////////////////////////////////////////////////
