@@ -132,8 +132,13 @@ endfunction
 
 let mapleader = " "
 
+" Move visual lines
 nnoremap j gj
 nnoremap k gk
+
+" Keep visual selection
+xnoremap > >gv
+xnoremap < <gv
 
 " Toggle show whitespace
 noremap <F3> :set list!<CR>
