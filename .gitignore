@@ -10,3 +10,5 @@
 .Xauthority
 test
 *.o
+*.orig
+*.rej
