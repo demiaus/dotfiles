@@ -1,0 +1,11 @@
+# krumeluu's dotfiles
+- OS: [arch](https://archlinux.org/)
+- WM: [dwm](https://dwm.suckless.org/)
+- Shell: [bash](https://www.gnu.org/software/bash/)
+- Terminal: [st](https://st.suckless.org/)
+- File manager: [fff](https://github.com/zeljkobekcic/fff)
+- Editor: [neovim](https://github.com/neovim/neovim)
+- Compositor: [picom](https://github.com/yshui/picom)
+- Browser: [librewolf](https://librewolf.net/)
+- Launcher: [dmenu](https://tools.suckless.org/dmenu/)
+- Colourscheme: [Rosé Pine]() <img src="https://raw.githubusercontent.com/rose-pine/rose-pine-theme/main/assets/palette.png" width="50" />
