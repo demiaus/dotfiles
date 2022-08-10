@@ -8,4 +8,5 @@
 - Compositor: [picom](https://github.com/yshui/picom)
 - Browser: [librewolf](https://librewolf.net/)
 - Launcher: [dmenu](https://tools.suckless.org/dmenu/)
-- Colourscheme: [Rosé Pine]() <img src="https://raw.githubusercontent.com/rose-pine/rose-pine-theme/main/assets/palette.png" width="50" />
+- Colourscheme: [Rosé Pine](https://github.com/rose-pine/rose-pine-theme) <img src="https://raw.githubusercontent.com/rose-pine/rose-pine-theme/main/assets/palette.png" width="50" />
+- Font: [Cozette](https://github.com/slavfox/Cozette)
