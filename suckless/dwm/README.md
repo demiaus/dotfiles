@@ -2,7 +2,7 @@
 ![License](https://img.shields.io/badge/license-MIT-brightgreen)
 <!-- badges: end -->
 
-# krumeluu's build of [dwm](https://dwm.suckless.org/)
+# krumeluu's suckless [dwm](https://dwm.suckless.org/) build
 
 ### Patches
 - [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/)
@@ -21,7 +21,7 @@
 ### Requirements
 - [dmenu](https://tools.suckless.org/dmenu/)
 - [Nerd Fonts patched Cozette font](https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf), or change the font in config.def.h
-- [They say](https://dev.suckless.narkive.com/aiW47B6Z/dwm-crash-with-emojis-on-title-bar) colour emoji in the title bar will crash dwm, but supposedly [libxft-bgra 2.3.4-1](https://aur.archlinux.org/packages/libxft-bgra) should fix it.
+- [They say](https://wiki.archlinux.org/title/st#Crashes_if_page_contains_emoji_characters) colour emoji in the title bar will crash dwm. As per Arch Wiki, you can install [Symbola](https://aur.archlinux.org/packages/ttf-symbola) font to fix this
 
 ## Official README by suckless:
 
