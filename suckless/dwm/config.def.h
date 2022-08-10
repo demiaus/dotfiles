@@ -38,7 +38,7 @@ static const Rule rules[] = {
 	 */
   /* class             instance     title           tags mask     switchtotag    isfloating  isterminal  noswallow  monitor notallowed */
 	{ "Gimp",            NULL,        NULL,           0,            1,             1,          0, 				 0,				  -1,     0 },
-	{ "st-256color",     NULL,        NULL,           1,            1,             0,          1, 				 0,					-1,     0 },
+	{ "st",              NULL,        NULL,           1,            1,             0,          1, 				 0,					-1,     0 },
 	{ "librewolf",       "Navigator", NULL,           1 << 1,       1,             0,          0, 				 0,					-1,     0 },
 	{ "Steam",           "Steam",     "Steam",        1 << 5,       1,             1,          0, 				 0,					-1,     0 },
 	{ "Steam",           "Steam",     "Steam - News", 1 << 5,       0,             1,          0, 				 0,					-1,     1 },
@@ -49,15 +49,15 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const float mfact          = 0.55; /* factor of master area size [0.05..0.95] */
+static const int   nmaster        = 1;    /* number of clients in master area */
+static const int   resizehints    = 1;    /* 1 means respect size hints in tiled resizals */
+static const int   lockfullscreen = 1;    /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[T]",      tile },    /* first entry is default */
-	{ "[F]",      NULL },    /* no layout function means floating behavior */
+	{ "[T]",      tile    }, /* first entry is default */
+	{ "[F]",      NULL    }, /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -75,31 +75,44 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]         = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_base, "-nf", col_rose, "-sb", col_base, "-sf", col_foam, NULL };
-static const char *termcmd[]          = { "st", NULL };
-/* custom command */
-static const char *screenshotcmd[]    = { "/home/krumeluu/scripts/screenshot_selection.sh", NULL };
-static const char *volmutetogglecmd[] = { "/home/krumeluu/scripts/vol.sh", "mute", NULL };
-static const char *voldowncmd[]       = { "/home/krumeluu/scripts/vol.sh", "down", NULL };
-static const char *volupcmd[]         = { "/home/krumeluu/scripts/vol.sh", "up",   NULL };
-static const char *monupcmd[]         = { "brightnessctl", "set", "+5%", NULL };
-static const char *mondowncmd[]       = { "brightnessctl", "set", "5%-", NULL };
-static const char *browsercmd[]       = { "/usr/bin/librewolf", NULL };
-static const char *rebootcmd[]        = { "/usr/bin/reboot", NULL };
-static const char *shutdowncmd[]      = { "/usr/bin/shutdown", "now", NULL };
+
+/* custom commands */
+/* apps */
+static const char *dmenucmd[]          = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_base, "-nf", col_rose, "-sb", col_base, "-sf", col_foam, NULL };
+static const char *termcmd[]           = { "st", NULL };
+static const char *browsercmd[]        = { "/usr/bin/librewolf",									 			   NULL };
+/* volume */
+static const char *volmutetogglecmd[]  = { "/home/krumeluu/scripts/vol.sh",        "mute", NULL };
+static const char *voldowncmd[]        = { "/home/krumeluu/scripts/vol.sh",        "down", NULL };
+static const char *volupcmd[]          = { "/home/krumeluu/scripts/vol.sh",        "up",   NULL };
+/* screen */
+static const char *brightnessupcmd[]   = { "/home/krumeluu/scripts/brightness.sh", "up",   NULL };
+static const char *brightnessdowncmd[] = { "/home/krumeluu/scripts/brightness.sh", "down", NULL };
+static const char *screenclipcmd[]     = { "/home/krumeluu/scripts/screenshot.sh", "clip", NULL };
+static const char *screensavecmd[]     = { "/home/krumeluu/scripts/screenshot.sh", "save", NULL };
+static const char *screenopencmd[]     = { "/home/krumeluu/scripts/screenshot.sh", "open", NULL };
+static const char *crosshaircmd[]      = { "/usr/bin/slop", "-r", "crosshair",					   NULL };
+static const char *boxzoomcmd[]        = { "/usr/bin/slop", "-r", "boxzoom",					     NULL };
+/* power */
+static const char *rebootcmd[]         = { "/usr/bin/reboot",											 			   NULL };
+static const char *shutdowncmd[]       = { "/usr/bin/shutdown",									   "now",  NULL };
 
 static Key keys[] = {
 	/* modifier                     key                       function          argument */
 	/* custom scripts' bindings */
-	{ 0,														XK_Print,                 spawn,            {.v = screenshotcmd    } },
-	{ 0,														XF86XK_AudioMute,         spawn,            {.v = volmutetogglecmd } },
-	{ 0,														XF86XK_AudioLowerVolume,  spawn,            {.v = voldowncmd       } },
-	{ 0,														XF86XK_AudioRaiseVolume,  spawn,            {.v = volupcmd         } },
-	{ 0,														XF86XK_MonBrightnessUp,   spawn,            {.v = monupcmd         } },
-	{ 0,														XF86XK_MonBrightnessDown, spawn,            {.v = mondowncmd       } },
-	{ MODKEY|ShiftMask,							XK_b,											spawn,            {.v = browsercmd       } },
-	{ MODKEY,											  XK_Delete,						    spawn,            {.v = rebootcmd        } },
-	{ MODKEY|ShiftMask,							XK_Delete,								spawn,            {.v = shutdowncmd      } },
+	{ 0,														XK_Print,                 spawn,            {.v = screenclipcmd     } },
+	{ 0|ShiftMask,								  XK_Print,                 spawn,            {.v = screensavecmd     } },
+	{ MODKEY|ShiftMask,						  XK_Print,                 spawn,            {.v = screenopencmd     } },
+	{ 0,														XF86XK_AudioMute,         spawn,            {.v = volmutetogglecmd  } },
+	{ 0,														XF86XK_AudioLowerVolume,  spawn,            {.v = voldowncmd        } },
+	{ 0,														XF86XK_AudioRaiseVolume,  spawn,            {.v = volupcmd          } },
+	{ 0,														XF86XK_MonBrightnessUp,   spawn,            {.v = brightnessupcmd   } },
+	{ 0,														XF86XK_MonBrightnessDown, spawn,            {.v = brightnessdowncmd } },
+	{ MODKEY,											  XK_z,						          spawn,            {.v = crosshaircmd      } },
+	{ MODKEY|ShiftMask,						  XK_z,						          spawn,            {.v = boxzoomcmd        } },
+	{ MODKEY|ShiftMask,							XK_b,											spawn,            {.v = browsercmd        } },
+	{ MODKEY,											  XK_Delete,						    spawn,            {.v = rebootcmd         } },
+	{ MODKEY|ShiftMask,							XK_Delete,								spawn,            {.v = shutdowncmd       } },
 	/* end of custom scripts' bindings */
 
 	{ MODKEY,                       XK_p,                     spawn,            {.v = dmenucmd } },

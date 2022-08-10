@@ -11,17 +11,19 @@ void main()
 {
     // adjustable parameters
     float circleSize = 128;
-    float borderSize = 2;
+    float borderSize = 3;
+
     // The smaller this value is, the more intense the magnification!
-    float magnifyNerf = 1.1;
-    vec4 borderColor = vec4(0,0,0,1);
-    bool crosshair = true;
+    float magnifyNerf = 1.5;
+    vec4 borderColor  = vec4(0.917, 0.734, 0.726, 1); // rose rgb(235, 188, 186)
+    bool crosshair    = false;
 
     // actual code
     vec2 mUV = vec2(mouse.x, -mouse.y)/screenSize + vec2(0,1);
     float du = distance(mUV,uvCoord);
     float dr = distance(mUV*screenSize,uvCoord*screenSize);
     vec4 color = vec4(0);
+
     if ( dr > circleSize+borderSize ) {
         color = texture2D( texture, uvCoord );
     } else if ( dr < circleSize ) {
@@ -29,8 +31,8 @@ void main()
             color = borderColor;
         } else {
             float t = 1-du;
-            vec2 b = uvCoord;
-            vec2 c = (mUV-uvCoord);
+            vec2 b  = uvCoord;
+            vec2 c  = (mUV-uvCoord);
             vec2 upsideDown = c/magnifyNerf*t*t+b;
 
             vec4 textureColor = texture2D( texture, upsideDown );

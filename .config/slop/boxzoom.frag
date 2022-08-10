@@ -10,19 +10,19 @@ varying vec2 uvCoord;
 void main()
 {
     // Adjustable parameters -------
-    vec2 boxOffset = vec2(-64,-64);
-    vec2 boxSize = vec2(128,128);
-    float magstrength = 5;
-    vec2 borderSize = vec2(1,1);
-    vec4 borderColor = vec4(0,0,0,1);
-    bool crosshair = true;
+    vec2 boxSize      = vec2(192,192);
+    vec2 boxOffset    = vec2(-(boxSize.y/2),-(boxSize.x/2));
+    float magstrength = 2.5;
+    vec2 borderSize   = vec2(3,3);
+    vec4 borderColor  = vec4(0.917, 0.734, 0.726, 1); // rose rgb(235, 188, 186)
+    bool crosshair    = false;
     //------------------------------
 
     // actual code (don't touch unless you're brave)
 
     // convert to UV space
-    boxOffset = boxOffset/screenSize;
-    boxSize = boxSize/screenSize;
+    boxOffset  = boxOffset/screenSize;
+    boxSize    = boxSize/screenSize;
     borderSize = borderSize/screenSize;
     // get mouse position in UV space
     vec2 mpos = vec2(mouse.x, -mouse.y)/screenSize + vec2(0,1);
