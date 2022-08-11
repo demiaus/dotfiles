@@ -17,26 +17,44 @@ set cursorline
 set cursorcolumn
 
 if has('nvim')
-	set undodir=~/.config/nvim/undo/
-	set viminfo+=n~/.config/nvim/viminfo
+        set undodir=~/.config/nvim/undo/
+        set viminfo+=n~/.config/nvim/viminfo
 else
-	set undodir=~/.vim/undo
-	set viminfo+=n~/.vim/viminfo
+        set undodir=~/.vim/undo
+        set viminfo+=n~/.vim/viminfo
 endif
+
+
+" COLOURS {{{///////////////////////////////////////////////////////////////////
 
 set background=dark
 
-highlight CursorLine   ctermbg=Black                cterm=NONE
-highlight CursorColumn ctermbg=Black                cterm=NONE
-highlight Comment                                   cterm=italic
-highlight TabLineFill  ctermbg=Green ctermfg=Black
-highlight TabLine      ctermbg=Black ctermfg=Green
-highlight TabLineSel   ctermbg=Black ctermfg=Red
-highlight StatusLine   ctermbg=Red   ctermfg=Black
-highlight StatusLineNC ctermbg=Red   ctermfg=Black
-highlight VertSplit    ctermbg=Red   ctermfg=Black
-highlight LineNr       ctermbg=NONE  ctermfg=Red    cterm=NONE
-highlight CursorLineNr ctermbg=NONE  ctermfg=Red    cterm=italic
+" Rosé Pine https://rosepinetheme.com/palette
+" base = 0
+" love = 1
+" foam = 2
+" gold = 3
+" pine = 4
+" iris = 5
+" rose = 6
+" text = 7
+
+highlight CursorLine   ctermbg=0              cterm=NONE
+highlight CursorColumn ctermbg=0              cterm=NONE
+highlight Comment                             cterm=italic
+highlight TabLineFill  ctermbg=2    ctermfg=0
+highlight TabLine      ctermbg=0    ctermfg=2
+highlight TabLineSel   ctermbg=0    ctermfg=1
+highlight StatusLine   ctermbg=1    ctermfg=0
+highlight StatusLineNC ctermbg=1    ctermfg=0
+highlight VertSplit    ctermbg=1    ctermfg=0
+highlight LineNr       ctermbg=NONE ctermfg=1 cterm=NONE
+highlight CursorLineNr ctermbg=NONE ctermfg=1 cterm=italic
+highlight Visual       ctermbg=0    ctermfg=1 cterm=bold
+highlight Folded       ctermbg=NONE ctermfg=4
+highlight FoldColumn   ctermbg=NONE ctermfg=4
+
+"}}}////////////////////////////////////////////////////////////////////////////
 
 set showcmd
 set showmode
@@ -48,21 +66,23 @@ set softtabstop=8
 set expandtab
 set scrolloff=5
 set nowrap
+
 set incsearch
+set hlsearch
 set ignorecase
 set smartcase
 set wildmenu
 set lazyredraw
 set listchars=tab:>-,trail:·,nbsp:_
+set foldmethod=marker
 
-"///////////
-"/ PLUGINS /////////////////////////////////////////////////////////////////////
-"///////////
+" PLUGINS {{{///////////////////////////////////////////////////////////////////
 
 " Download and install vim-plug if not found
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-        silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs 
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
         autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -111,9 +131,9 @@ lua << EOF
 EOF
 endif
 
-"/////////////
-"/ FUNCTIONS ///////////////////////////////////////////////////////////////////
-"/////////////
+"}}}////////////////////////////////////////////////////////////////////////////
+
+" FUNCTIONS {{{/////////////////////////////////////////////////////////////////
 
 function! COptions()
     setlocal commentstring=//\ %s
@@ -124,9 +144,15 @@ function! COptions()
     endif
 endfunction
 
-"///////////////////
-"/ CUSTOM MAPPINGS /////////////////////////////////////////////////////////////
-"///////////////////
+" See what's changed after current buffer was opened
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+                  \ | wincmd p | diffthis
+endif
+
+" }}}///////////////////////////////////////////////////////////////////////////
+
+" CUSTOM MAPPINGS {{{///////////////////////////////////////////////////////////
 
 let mapleader = " "
 
@@ -152,9 +178,9 @@ nnoremap <Leader><Leader> :nohls<CR>
 
 cnoremap Q q
 
-"////////////////////
-"/ PLUG-IN MAPPINGS ////////////////////////////////////////////////////////////
-"////////////////////
+" }}}///////////////////////////////////////////////////////////////////////////
+
+" PLUG-IN MAPPINGS {{{//////////////////////////////////////////////////////////
 
 " EASY-ALIGN
 nmap gq <Plug>(EasyAlign)
@@ -205,10 +231,9 @@ nmap gP    <Plug>(YoinkPaste_gP)
 " Visual:
 " gc  - Comment out a selection
 
+" }}}///////////////////////////////////////////////////////////////////////////
 
-"///////////
-"/ OPTIONS /////////////////////////////////////////////////////////////////////
-"///////////
+" OPTIONS {{{///////////////////////////////////////////////////////////////////
 
 " VIMWIKI
 " Use .md files for vimwiki
@@ -225,9 +250,9 @@ let vim_markdown_preview_toggle=2
 let vim_markdown_preview_hotkey='<A-m>'
 let vim_markdown_preview_browser='/usr/bin/librewolf'
 
-"////////////
-"/ AUTOCMDS ////////////////////////////////////////////////////////////////////
-"////////////
+" }}}///////////////////////////////////////////////////////////////////////////
+
+" AUTOCMDS {{{//////////////////////////////////////////////////////////////////
 
 command! Diary VimwikiDiaryIndex
 augroup vimwikigroup
@@ -240,4 +265,6 @@ augroup end
 autocmd FileType php set noexpandtab
 
 autocmd Filetype c call COptions()
+
+" }}}///////////////////////////////////////////////////////////////////////////
 
