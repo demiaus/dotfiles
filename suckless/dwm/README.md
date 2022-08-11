@@ -1,7 +1,3 @@
-<!-- badges: start -->
-![License](https://img.shields.io/badge/license-MIT-brightgreen)
-<!-- badges: end -->
-
 # krumeluu's suckless [dwm](https://dwm.suckless.org/) build
 
 ### Patches
