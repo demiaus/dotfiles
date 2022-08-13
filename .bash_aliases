@@ -2,7 +2,7 @@
 # ~/.bash_aliases
 # 
 
-alias ls='ls --color=auto'
+alias ls='exa --color=auto'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
