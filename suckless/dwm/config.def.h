@@ -97,8 +97,8 @@ static const char *screenopencmd[]     = { "/home/krumeluu/scripts/screenshot.sh
 static const char *crosshaircmd[]      = { "/usr/bin/slop", "-r", "crosshair",					   NULL };
 static const char *boxzoomcmd[]        = { "/usr/bin/slop", "-r", "boxzoom",					     NULL };
 /* power */
-static const char *rebootcmd[]         = { "/usr/bin/reboot",											 			   NULL };
-static const char *shutdowncmd[]       = { "/usr/bin/shutdown",									   "now",  NULL };
+static const char *rebootcmd[]         = { "systemctl", "reboot",											 	   NULL };
+static const char *shutdowncmd[]       = { "systemctl", "shutdown",                        NULL };
 
 static Key keys[] = {
 	/* modifier                     key                       function          argument */
@@ -159,7 +159,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                                       6)
 	TAGKEYS(                        XK_8,                                       7)
 	TAGKEYS(                        XK_9,                                       8)
-	{ MODKEY|ShiftMask,             XK_r,                     quit,             {0} }, /* Reload */
+	{ MODKEY|ShiftMask,             XK_r,                     quit,             {0} }, /* "Reload" */
 };
 
 /* extra keysyms
