@@ -156,6 +156,9 @@ endif
 
 let mapleader = " "
 
+" Y you have to be such a snowflake
+nnoremap Y y$
+
 " Move visual lines
 nnoremap j gj
 nnoremap k gk
@@ -177,6 +180,9 @@ nnoremap <Leader>C :set formatoptions+=cro<CR>
 nnoremap <Leader><Leader> :nohls<CR>
 
 cnoremap Q q
+
+nnoremap <Leader>vi :tabe   $MYVIMRC<CR>
+nnoremap <Leader>so :source $MYVIMRC<CR>
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
