@@ -39,19 +39,20 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-  /* class             instance     title           tags mask     switchtotag    isfloating  isterminal  noswallow  monitor notallowed */
-	{ "Gimp",            NULL,        NULL,           0,            1,             1,          0, 				 0,				  -1,     0 },
-	{ "st",              NULL,        NULL,           1,            1,             0,          1, 				 0,					-1,     0 },
-	{ "librewolf",       "Navigator", NULL,           1 << 1,       1,             0,          0, 				 0,					-1,     0 },
-	{ "Steam",           "Steam",     "Steam",        1 << 5,       1,             0,          0, 				 0,					-1,     0 },
-	{ "Steam",           "Steam",     "Steam - News", 1 << 5,       0,             1,          0, 				 0,					-1,     1 },
-	{ "Steam",           "Steam",     "Friends List", 1 << 5,       0,             1,          0, 				 0,					-1,     1 },
-	{ "Signal",          NULL,        NULL,           1 << 6,       0,             0,          0, 				 0,					-1,     0 },
-	{ "TelegramDesktop", NULL,        NULL,           1 << 6,       0,             0,          0, 				 0,					-1,     0 },
-	{ "Anki",            "anki",      NULL,           1 << 7,       1,             0,          0, 				 0,					-1,     0 },
-	{ "Anki",            "anki",      "Browse",       1 << 7,       1,             1,          0, 				 0,					-1,     0 },
-	{ "MuseScore3",      "musescore", NULL,           1 << 8,       1,             0,          0, 				 0,					-1,     0 },
-  { NULL,              NULL,        "Event Tester", 0,            0,             0,          0,          1,         -1,     0 },
+  /* class             instance     title               tags mask     switchtotag    isfloating  isterminal  noswallow  monitor notallowed */
+	{ "Gimp",            NULL,        NULL,               0,            1,             1,          0, 				 0,				  -1,     0 },
+	{ "st",              NULL,        NULL,               1,            1,             0,          1, 				 0,					-1,     0 },
+	{ "librewolf",       "Navigator", NULL,               1 << 1,       1,             0,          0, 				 0,					-1,     0 },
+	{ "Steam",           "Steam",     "Steam",            1 << 5,       1,             0,          0, 				 0,					-1,     0 },
+	{ "Steam",           "Steam",     "Connection Error", 1 << 5,       1,             1,          0, 				 0,					-1,     0 },
+	{ "Steam",           "Steam",     "Steam - News",     1 << 5,       0,             1,          0, 				 0,					-1,     1 },
+	{ "Steam",           "Steam",     "Friends List",     1 << 5,       0,             1,          0, 				 0,					-1,     1 },
+	{ "Signal",          NULL,        NULL,               1 << 6,       0,             0,          0, 				 0,					-1,     0 },
+	{ "TelegramDesktop", NULL,        NULL,               1 << 6,       0,             0,          0, 				 0,					-1,     0 },
+	{ "Anki",            "anki",      NULL,               1 << 7,       1,             0,          0, 				 0,					-1,     0 },
+	{ "Anki",            "anki",      "Browse",           1 << 7,       1,             1,          0, 				 0,					-1,     0 },
+	{ "MuseScore3",      "musescore", NULL,               1 << 8,       1,             0,          0, 				 0,					-1,     0 },
+  { NULL,              NULL,        "Event Tester",     0,            0,             0,          0,          1,         -1,     0 },
 };
 
 /* layout(s) */
@@ -65,7 +66,7 @@ static const Layout layouts[] = {
 	{ "|+|",      tatami  }, /* first entry is default */
 	{ "[F]",      NULL    }, /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-	{ "[T]",      tile    },
+	/* { "[T]",      tile    }, */
 };
 
 /* key definitions */
@@ -141,9 +142,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_a,                     toggleopacity,    {0} },
 	{ MODKEY,                       XK_q,                     killclient,       {0} },
 	{ MODKEY,                       XK_y,									    setlayout,        {.v = &layouts[0]} },
-	{ MODKEY,                       XK_t,                     setlayout,        {.v = &layouts[1]} },
+	{ MODKEY,                       XK_m,                     setlayout,        {.v = &layouts[1]} },
 	{ MODKEY,                       XK_f,                     setlayout,        {.v = &layouts[2]} },
-	{ MODKEY,                       XK_m,                     setlayout,        {.v = &layouts[3]} },
+	/* { MODKEY,                       XK_t,                     setlayout,        {.v = &layouts[3]} }, */
 	{ MODKEY,                       XK_space,                 setlayout,        {0} },
 	{ MODKEY|ShiftMask,             XK_space,                 togglefloating,   {0} },
 	{ MODKEY,                       XK_0,                     view,             {.ui = ~0 } },
