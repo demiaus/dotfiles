@@ -168,22 +168,35 @@ xnoremap < <gv
 xnoremap <C-a> <C-a>gv
 xnoremap <C-x> <C-x>gv
 
+" For Finnish keyboards
+nnoremap , ;
+nnoremap ; ,
+
 " Toggle show whitespace
 noremap <F3> :set list!<CR>
 "Remove all trailing whitespace
 nnoremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Disable/enable automatic comments
+"
+
 nnoremap <Leader>c :set formatoptions-=cro<CR>
 nnoremap <Leader>C :set formatoptions+=cro<CR>
+inoremap <C-c> <Esc>:set formatoptions-=cro<CR>a<Space>
 
-" Hide seach highlights
+" Hide search highlights
 nnoremap <Leader><Leader> :nohls<CR>
 
 cnoremap Q q
 
 nnoremap <Leader>vi :tabe   $MYVIMRC<CR>
 nnoremap <Leader>so :source $MYVIMRC<CR>
+
+" Fix spelling
+inoremap <C-s> <Esc>:set spell<CR>a<C-x><C-s>
+" Autocomplete line
+inoremap <C-l> <C-x><C-l>
+
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
