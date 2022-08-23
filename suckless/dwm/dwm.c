@@ -2094,10 +2094,10 @@ unmanage(Client *c, int destroyed)
 		arrange(m);
 		updateclientlist();
 	}
-	if (c->switchtotag) {
-		Arg a = { .ui = c->switchtotag };
-		view(&a);
-	}
+	// if (c->switchtotag) {
+	// 	Arg a = { .ui = c->switchtotag };
+	// 	view(&a);
+	// }
 	free(c);
 }
 
