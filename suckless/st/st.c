@@ -210,6 +210,7 @@ static void tdefutf8(char);
 static int32_t tdefcolor(const int *, int *, int);
 static void tdeftran(char);
 static void tstrsequence(uchar);
+static int daddch(URLdfa *, char);
 
 static void drawregion(int, int, int, int);
 
@@ -2747,6 +2748,7 @@ daddch(URLdfa *dfa, char c)
 
 	return 0;
 }
+
 
 /*
 ** Select and copy the previous url on screen (do nothing if there's no url).

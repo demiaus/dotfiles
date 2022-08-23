@@ -44,7 +44,7 @@ static unsigned int doubleclicktimeout = 300;
 static unsigned int tripleclicktimeout = 600;
 
 /* alt screens */
-int allowaltscreen = 0;
+int allowaltscreen = 1;
 
 /* allow certain non-interactive (insecure) window operations such as:
    setting the clipboard text */
@@ -202,6 +202,7 @@ static MouseShortcut mshortcuts[] = {
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
+#define ALTMOD Mod4Mask
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
@@ -210,7 +211,9 @@ static Shortcut shortcuts[] = {
 	/* { ShiftMask,            XK_Print,       printscreen,    {.i =  0} }, */
 	/* { XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} }, */
 	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
+	{ TERMMOD,              XK_plus,        zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
+	{ TERMMOD,              XK_underscore,  zoom,           {.f = -1} },
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
@@ -220,6 +223,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_space,       normalMode,     {.i =  0} },
 	{ TERMMOD,              XK_Return,      newterm,        {.i =  0} },
 	{ TERMMOD,              XK_O,           opencopied,     {.v = "xdg-open"} },
+	{ TERMMOD,              XK_L,           copyurl,        {.i =  0} },
 };
 
 /*

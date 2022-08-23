@@ -66,12 +66,13 @@ static const Layout layouts[] = {
 	{ "|+|",      tatami  }, /* first entry is default */
 	{ "[F]",      NULL    }, /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-	/* { "[T]",      tile    }, */
+	{ "[T]",      tile    },
 };
 
 /* key definitions */
 #define MODKEY  Mod4Mask
 #define MODKEY2 Mod1Mask
+#define TERMMOD (ControlMask|ShiftMask)
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -86,24 +87,33 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 
 /* custom commands */
 /* apps */
-static const char *dmenucmd[]          = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_base, "-nf", col_rose, "-sb", col_base, "-sf", col_foam, NULL };
-static const char *termcmd[]           = { "st", NULL };
-static const char *browsercmd[]        = { "/usr/bin/librewolf",									 			   NULL };
+static const char *dmenucmd[]          = { "dmenu_run",
+																						"-m",  dmenumon,
+																						"-fn", dmenufont,
+																						"-nb", col_base,
+																						"-nf", col_rose,
+																						"-sb", col_base,
+																						"-sf", col_foam,
+																						NULL };
+
+static const char *termcmd[]           = { "/usr/local/bin/st",  NULL };
+static const char *browsercmd[]        = { "/usr/bin/librewolf", NULL };
 /* volume */
-static const char *volmutetogglecmd[]  = { "/home/krumeluu/scripts/vol.sh",        "mute", NULL };
-static const char *voldowncmd[]        = { "/home/krumeluu/scripts/vol.sh",        "down", NULL };
-static const char *volupcmd[]          = { "/home/krumeluu/scripts/vol.sh",        "up",   NULL };
+static const char *volmutetogglecmd[]  = { "vol.sh", "mute", NULL };
+static const char *voldowncmd[]        = { "vol.sh", "down", NULL };
+static const char *volupcmd[]          = { "vol.sh", "up",   NULL };
 /* screen */
-static const char *brightnessupcmd[]   = { "/home/krumeluu/scripts/brightness.sh", "up",   NULL };
-static const char *brightnessdowncmd[] = { "/home/krumeluu/scripts/brightness.sh", "down", NULL };
-static const char *screenclipcmd[]     = { "/home/krumeluu/scripts/screenshot.sh", "clip", NULL };
-static const char *screensavecmd[]     = { "/home/krumeluu/scripts/screenshot.sh", "save", NULL };
-static const char *screenopencmd[]     = { "/home/krumeluu/scripts/screenshot.sh", "open", NULL };
-static const char *crosshaircmd[]      = { "/usr/bin/slop", "-r", "crosshair",					   NULL };
-static const char *boxzoomcmd[]        = { "/usr/bin/slop", "-r", "boxzoom",					     NULL };
-/* power */
-static const char *rebootcmd[]         = { "systemctl", "reboot",											 	   NULL };
-static const char *shutdowncmd[]       = { "systemctl", "shutdown",                        NULL };
+static const char *brightnessupcmd[]   = { "brightness.sh", "up",   NULL };
+static const char *brightnessdowncmd[] = { "brightness.sh", "down", NULL };
+static const char *screenclipcmd[]     = { "screenshot.sh", "clip", NULL };
+static const char *screensavecmd[]     = { "screenshot.sh", "save", NULL };
+static const char *screenopencmd[]     = { "screenshot.sh", "open", NULL };
+/* zoom / magnify */
+static const char *crosshaircmd[]      = { "/usr/bin/slop", "-r", "crosshair", NULL };
+static const char *boxzoomcmd[]        = { "/usr/bin/slop", "-r", "boxzoom",   NULL };
+/* power (they don't work yet) */
+static const char *rebootcmd[]         = { "systemctl", "reboot",   NULL };
+static const char *shutdowncmd[]       = { "systemctl", "shutdown", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                       function          argument */
@@ -124,7 +134,7 @@ static Key keys[] = {
 	/* end of custom scripts' bindings */
 
 	{ MODKEY,                       XK_p,                     spawn,            {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return,                spawn,            {.v = termcmd } },
+	{ TERMMOD,                      XK_Return,                spawn,            {.v = termcmd } },
   { MODKEY|ControlMask,           XK_space,							    focusmaster,      {0} },
 	{ MODKEY,                       XK_b,                     togglebar,        {0} },
 	{ MODKEY,                       XK_j,                     focusstack,       {.i = +1 } },
@@ -144,7 +154,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_y,									    setlayout,        {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,                     setlayout,        {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,                     setlayout,        {.v = &layouts[2]} },
-	/* { MODKEY,                       XK_t,                     setlayout,        {.v = &layouts[3]} }, */
+	{ MODKEY,                       XK_t,                     setlayout,        {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,                 setlayout,        {0} },
 	{ MODKEY|ShiftMask,             XK_space,                 togglefloating,   {0} },
 	{ MODKEY,                       XK_0,                     view,             {.ui = ~0 } },
@@ -168,7 +178,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r,                     quit,             {0} }, /* "Reload" */
 };
 
-/* extra keysyms
+/* extra keysyms to be mapped?
 XF86XK_AudioPlay
 XF86XK_AudioStop
 XF86XK_AudioPrev
