@@ -124,6 +124,7 @@ static const char *colorname[] = {
 	"#191724", /* 0 base */
 	"#9ccfd8", /* 2 foam */
 	"#ebbcba", /* 6 rose */
+	"#e0def4", /* 7 text */
 };
 
 
@@ -131,27 +132,40 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultbg =   256; /* base */ 
-unsigned int defaultfg =   257; /* foam */
-unsigned int defaultcs =   258; /* rose */
-unsigned int defaultrcs =  256; /* base */
-unsigned int const currentBg = 0, currentFg = 6, buffSize = 2048;
+unsigned int defaultbg       = 256; /* base */
+unsigned int defaultfg       = 259; /* foam */
+unsigned int defaultcs       = 258; /* rose */
+unsigned int defaultrcs      = 256; /* base */
+unsigned int const currentBg = 2;   /* foam */
+unsigned int const currentFg = 6;   /* rose */
+unsigned int const buffSize  = 2048;
 
 /// [Vim Browse] Colors for search results currently on screen.
-unsigned int const highlightBg = 0, highlightFg = 1; /* base, love */
+unsigned int const highlightBg = 0; /* base */
+unsigned int const highlightFg = 1; /* love */
 
 Glyph styleSearch = {' ', ATTR_ITALIC | ATTR_BOLD_FAINT, 0, 0};
 /// String in low right corner, styles by mode  ([yank, visual, visualLine, no operation]).
-Glyph style[] = {{' ', ATTR_ITALIC|ATTR_FAINT, 0, 0}, {' ', ATTR_ITALIC, 0, 0},
-                 {' ', ATTR_ITALIC, 0, 0}, {' ', ATTR_ITALIC, 0, 0}};
+Glyph style[] = {{' ', ATTR_ITALIC|ATTR_FAINT, 0, 0},
+								 {' ', ATTR_ITALIC, 0, 0},
+                 {' ', ATTR_ITALIC, 0, 0},
+								 {' ', ATTR_ITALIC, 0, 0}};
 
 /// Enable double / triple click yanking / selection of word / line.
-int const mouseYank = 1, mouseSelect = 1;
+int const mouseYank   = 1;
+int const mouseSelect = 1;
 
-char const wDelS[] = "!\"#$%&'()*+,-./:;<=>?@[\\]^`{|}~", wDelL[] = " \t";
-char *nmKeys [] = {              ///< Shortcusts executed in normal mode
-  "R/Building\nN", "r/Building\n", "X/juli@machine\nN", "x/juli@machine\n",
-  "Q?[Leaving vim, starting execution]\n","F/: error:\nN", "f/: error:\n", "DQf"
+char const wDelS[] = "!\"#$%&'()*+,-./:;<=>?@[\\]^`{|}~";
+char const wDelL[] = " \t";
+///< Shortcusts executed in normal mode
+char *nmKeys [] = { "R/Building\nN",
+										"r/Building\n",
+										"X/juli@machine\nN",
+										"x/juli@machine\n",
+										"Q?[Leaving vim,starting execution]\n",
+										"F/: error:\nN",
+										"f/: error:\n",
+										"DQf"
 };
 
 unsigned int const amountNmKeys = sizeof(nmKeys) / sizeof(*nmKeys);
@@ -205,10 +219,6 @@ static MouseShortcut mshortcuts[] = {
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
-	/* { XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} }, */
-	/* { ControlMask,          XK_Print,       toggleprinter,  {.i =  0} }, */
-	/* { ShiftMask,            XK_Print,       printscreen,    {.i =  0} }, */
-	/* { XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} }, */
 	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
 	{ TERMMOD,              XK_plus,        zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
