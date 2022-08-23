@@ -1,6 +1,6 @@
 {
-  "addon_more_overview_stats": "true",
-  "addon_advanced_review_bottom_bar": "true",
+  "addon_more_overview_stats": "false",
+  "addon_advanced_review_bottom_bar": "false",
   "font": "CozetteVector Nerd Font",
   "font_size": "16",
   "theme": "Rose-Pine",
