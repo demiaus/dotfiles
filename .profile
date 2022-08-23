@@ -2,4 +2,9 @@
 # ~/.profile
 #
 
-setxkbmap -config ~/.config/xkb/ficode/xkb.conf
+echo "" > ~/.log/rc.log
+
+[ -f ~/.config/path/path.env ] && source ~/.config/path/path.env
+
+echo "~/.profile $(date +%T)" >> ~/.log/rc.log
+
