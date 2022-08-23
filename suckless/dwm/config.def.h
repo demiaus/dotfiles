@@ -66,13 +66,13 @@ static const Layout layouts[] = {
 	{ "|+|",      tatami  }, /* first entry is default */
 	{ "[F]",      NULL    }, /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-	{ "[T]",      tile    },
+	/* { "[T]",      tile    }, */
 };
 
 /* key definitions */
 #define MODKEY  Mod4Mask
 #define MODKEY2 Mod1Mask
-#define TERMMOD (ControlMask|ShiftMask)
+#define TERMMOD ControlMask|ShiftMask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -111,9 +111,9 @@ static const char *screenopencmd[]     = { "screenshot.sh", "open", NULL };
 /* zoom / magnify */
 static const char *crosshaircmd[]      = { "/usr/bin/slop", "-r", "crosshair", NULL };
 static const char *boxzoomcmd[]        = { "/usr/bin/slop", "-r", "boxzoom",   NULL };
-/* power (they don't work yet) */
-static const char *rebootcmd[]         = { "systemctl", "reboot",   NULL };
-static const char *shutdowncmd[]       = { "systemctl", "shutdown", NULL };
+
+static const char *passcmd[]           = { "rofi-rbw",   NULL };
+static const char *roficmd[]           = { "rofi", "-show", "combi", "-modes", "combi", "-combi-modes", "window,drun,run",   NULL };
 
 static Key keys[] = {
 	/* modifier                     key                       function          argument */
@@ -129,8 +129,8 @@ static Key keys[] = {
 	{ MODKEY,											  XK_z,						          spawn,            {.v = crosshaircmd      } },
 	{ MODKEY|ShiftMask,						  XK_z,						          spawn,            {.v = boxzoomcmd        } },
 	{ MODKEY|ShiftMask,							XK_b,											spawn,            {.v = browsercmd        } },
-	{ MODKEY,											  XK_Delete,						    spawn,            {.v = rebootcmd         } },
-	{ MODKEY|ShiftMask,							XK_Delete,								spawn,            {.v = shutdowncmd       } },
+	{ TERMMOD,		                  XK_9,				              spawn,            {.v = passcmd           } },
+	{ TERMMOD,		                  XK_p,				              spawn,            {.v = roficmd           } },
 	/* end of custom scripts' bindings */
 
 	{ MODKEY,                       XK_p,                     spawn,            {.v = dmenucmd } },
@@ -151,10 +151,10 @@ static Key keys[] = {
 	{ MODKEY2|ShiftMask,            XK_Tab,                   shiftviewclients, {.i = -1} },
 	{ MODKEY,                       XK_a,                     toggleopacity,    {0} },
 	{ MODKEY,                       XK_q,                     killclient,       {0} },
-	{ MODKEY,                       XK_y,									    setlayout,        {.v = &layouts[0]} },
+	{ MODKEY,                       XK_t,									    setlayout,        {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,                     setlayout,        {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,                     setlayout,        {.v = &layouts[2]} },
-	{ MODKEY,                       XK_t,                     setlayout,        {.v = &layouts[3]} },
+	/* { MODKEY,                       XK_t,                     setlayout,        {.v = &layouts[3]} }, */
 	{ MODKEY,                       XK_space,                 setlayout,        {0} },
 	{ MODKEY|ShiftMask,             XK_space,                 togglefloating,   {0} },
 	{ MODKEY,                       XK_0,                     view,             {.ui = ~0 } },

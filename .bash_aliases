@@ -12,9 +12,6 @@ alias vim="vim --servername VIMSERVER --remote-tab-silent"
 alias :q=exit
 alias destroy="shred -zu"
 alias ww="vim ~/vimwiki/index.md"
-alias g='git'
-alias v='vim'
-alias l='less'
 
 echo "~/.bash_aliases $(date +%T)" >> ~/.log/rc.log
 
