@@ -6,7 +6,7 @@ set nocompatible
 filetype on
 filetype plugin on
 filetype indent on
-syntax on
+syntax   on
 
 set clipboard=unnamedplus
 set hidden
@@ -65,6 +65,8 @@ set tabstop=8
 set softtabstop=8
 set expandtab
 set nowrap
+set smartindent
+set shiftround
 
 set incsearch
 set hlsearch
@@ -74,6 +76,8 @@ set wildmenu
 set lazyredraw
 set listchars=tab:>-,trail:·,nbsp:_
 set foldmethod=marker
+set sidescroll=8
+set shortmess-=S
 
 " PLUGINS {{{///////////////////////////////////////////////////////////////////
 
@@ -158,9 +162,17 @@ let mapleader = " "
 " Y you have to be such a snowflake
 nnoremap Y y$
 
-" Move visual lines
+" Move per visual line
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
+" Move per real line
+nnoremap gj j
+nnoremap gk k
+vnoremap gj j
+vnoremap gk k
 
 " Keep visual selection
 xnoremap > >gv
@@ -173,15 +185,13 @@ nnoremap , ;
 nnoremap ; ,
 
 " Toggle show whitespace
-noremap <F3> :set list!<CR>
+nnoremap <F3> :set list!<CR>
 "Remove all trailing whitespace
 nnoremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Disable/enable automatic comments
-"
-
-nnoremap <Leader>c :set formatoptions-=cro<CR>
-nnoremap <Leader>C :set formatoptions+=cro<CR>
+nnoremap <Leader>c  :set formatoptions-=cro<CR>
+nnoremap <Leader>C  :set formatoptions+=cro<CR>
 inoremap <C-c> <Esc>:set formatoptions-=cro<CR>a<Space>
 
 " Hide search highlights
@@ -196,6 +206,10 @@ nnoremap <Leader>so :source $MYVIMRC<CR>
 inoremap <C-s> <Esc>:set spell<CR>a<C-x><C-s>
 " Autocomplete line
 inoremap <C-l> <C-x><C-l>
+
+" Keep search matches in the middle of the window
+nnoremap n nzz
+nnoremap N Nzz
 
 
 " }}}///////////////////////////////////////////////////////////////////////////
