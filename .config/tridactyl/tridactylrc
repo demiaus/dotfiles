@@ -57,13 +57,12 @@ autocmd DocStart https://monkeytype.com/    mode ignore
 set hintdelay 100
 set smoothscroll true
 
-" Use st to open nvim
-set editorcmd st -e nvim
+" Use st to open vim
+set editorcmd st -e vim
 
 " Hide ignore-mode indicator
 set modeindicatormodes.ignore false
-Ami
-Kajan
+
 autocmd DocStart ^http(s?)://www.reddit.com js tri.excmds.urlmodify("-t", "www", "old")
 " bindurl www.google.com f hint -Jc #search div:not(.action-menu) > a
 " bindurl www.google.com F hint -Jbc #search div:not(.action-menu) > a
