@@ -42,13 +42,7 @@ bind Space:magic-space
 # Turn on recursive globbing (enables ** to recurse all directories)
 shopt -s globstar 2> /dev/null
 
-# Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob;
-
 ## SMARTER TAB-COMPLETION (Readline bindings) ##
-
-# Perform file completion in a case insensitive fashion
-bind "set completion-ignore-case on"
 
 # Treat hyphens and underscores as equivalent
 bind "set completion-map-case on"
@@ -109,12 +103,9 @@ CDPATH=".:~:~/.config"
 # This allows you to bookmark your favorite places across the file system
 # Define a variable containing a path and you will be able to cd into it regardless of the directory you're in
 shopt -s cdable_vars
-
-# Examples:
-# export dotfiles="$HOME/dotfiles"
-# export projects="$HOME/projects"
-# export documents="$HOME/Documents"
-# export dropbox="$HOME/Dropbox"
+export anki="$HOME/.local/share/Anki2/addons21"
+export c="$HOME/prog/c"
+export euler="$HOME/prog/c/euler"
 
 echo "~/.bashrc $(date +%T)" >> ~/.log/rc.log
 
