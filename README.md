@@ -6,8 +6,9 @@
 - file manager: [fff](https://github.com/zeljkobekcic/fff)
 - text editor: [vim](https://github.com/vim/vim)
 - document viewer [zathura](https://git.pwmt.org/pwmt/zathura)
-- compositor: [picom](https://github.com/yshui/picom)
+- image viewer [imv](https://sr.ht/~exec64/imv/)
 - web browser: [librewolf](https://librewolf.net/)
 - application launcher: [dmenu](https://tools.suckless.org/dmenu/)
+- compositor: [picom](https://github.com/yshui/picom)
 - colourscheme: [rosé pine](https://github.com/rose-pine/rose-pine-theme) <img src="https://raw.githubusercontent.com/rose-pine/rose-pine-theme/main/assets/palette.png" width="50" />
 - font: [cozette](https://github.com/slavfox/cozette)
