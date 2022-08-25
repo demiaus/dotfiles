@@ -5,6 +5,7 @@
 - terminal emulator: [st](https://st.suckless.org/)
 - file manager: [fff](https://github.com/zeljkobekcic/fff)
 - text editor: [vim](https://github.com/vim/vim)
+- document viewer [zathura](https://git.pwmt.org/pwmt/zathura)
 - compositor: [picom](https://github.com/yshui/picom)
 - web browser: [librewolf](https://librewolf.net/)
 - application launcher: [dmenu](https://tools.suckless.org/dmenu/)
