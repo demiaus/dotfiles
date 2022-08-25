@@ -1,0 +1,7 @@
+#
+# ~/.xprofile
+#
+
+xset r rate 333 40
+
+echo "~/.xprofile $(date +%T)" >> ~/.log/rc.log
