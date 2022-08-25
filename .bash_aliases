@@ -7,12 +7,13 @@ alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias vimrc="vim ~/.vim/vimrc"
-alias vim="vim --servername VIMSERVER --remote-tab-silent"
+alias vimrc='vim ~/.vim/vimrc'
+alias vim='vim --servername VIMSERVER --remote-tab-silent'
 alias :q=exit
-alias destroy="shred -zu"
-alias ww="vim ~/vimwiki/index.md"
-alias o="xdg-open"
-
+alias :wq=exit
+alias destroy='shred -zu'
+alias ww='vim ~/vimwiki/index.md'
+alias o=xdg-open
+alias yt='yt-dlp -S "res:1080,ext" --prefer-free-formats --trim-filenames 32 --restrict-filenames'
 echo "~/.bash_aliases $(date +%T)" >> ~/.log/rc.log
 
