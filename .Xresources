@@ -1,0 +1,60 @@
+
+! black
+*Surface:    #1f1d2e
+*Overlay:    #26233a
+*background: #191724
+*color0:     #1f1d2e
+*color8:     #26233a
+
+! red
+*Love:   #eb6f92
+*color1: #eb6f92 
+*color9: #eb6f92
+
+! green
+*Iris:    #c4a7e7
+*color2:  #c4a7e7
+*color10: #c4a7e7
+
+! yellow
+*Gold:    #f6c177
+*color3:  #f6c177
+*color11: #f6c177
+
+! blue
+*Pine:    #31748f
+*color4:  #31748f
+*color12: #31748f
+
+! magenta
+*Rose:    #ebbcba
+*color5:  #ebbcba
+*color13: #ebbcba
+
+! cyan
+*Foam:    #9ccfd8
+*color6:  #9ccfd8
+*color14: #9ccfd8
+
+! white
+*Text:       #e0def4
+*color7:     #e0def4
+*color15:    #e0def4
+*foreground: #e0def4
+
+
+dwm.font: "CozetteVector Nerd Font:size=16"
+dwm.dmenufont: "CozetteVector Nerd Font:size=16"
+dwm.normbgcolor: #26233a
+dwm.normbordercolor: #c4a7e7
+dwm.normfgcolor: #e0def4
+dwm.selbgcolor: #6e6a86
+dwm.selbordercolor: #9ccfd8
+dwm.selfgcolor: #ebbcba
+dwm.borderpx: #9ccfd8
+dwm.snap: #26233a
+dwm.showbar: #26233a
+dwm.topbar: #26233a
+dwm.nmaster: #26233a
+dwm.resizehints: #26233a
+dwm.mfact: #26233a
