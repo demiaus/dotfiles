@@ -107,5 +107,11 @@ export anki="$HOME/.local/share/Anki2/addons21"
 export c="$HOME/prog/c"
 export euler="$HOME/prog/c/euler"
 
+# Disable CTRL-S
+if [[ -t 0 && $- = *i* ]]
+then
+    stty -ixon
+fi
+
 echo "~/.bashrc $(date +%T)" >> ~/.log/rc.log
 
