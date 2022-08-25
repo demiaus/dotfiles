@@ -16,6 +16,7 @@ alias ww='vim ~/vimwiki/index.md'
 alias o=xdg-open
 alias yt=yt-dlp
 alias yta='yt-dlp -x'
+alias spo=ncspot
 
 echo "~/.bash_aliases $(date +%T)" >> ~/.log/rc.log
 
