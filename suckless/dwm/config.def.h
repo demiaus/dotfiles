@@ -67,7 +67,6 @@ static const Layout layouts[] = {
   { "|+|",      tatami  }, /* first entry is default */
   { "[F]",      NULL    }, /* no layout function means floating behavior */
   { "[M]",      monocle },
-  /* { "[T]",      tile    }, */
 };
 
 /* key definitions */
@@ -140,7 +139,7 @@ static Key keys[] = {
   /* end of custom scripts' bindings */
 
   { MODKEY,                       XK_p,                     spawn,            {.v = dmenucmd } },
-  { TERMMOD,                      XK_Return,                spawn,            {.v = termcmd } },
+  { MODKEY|ShiftMask,             XK_Return,                spawn,            {.v = termcmd } },
   { MODKEY|ControlMask,           XK_space,                 focusmaster,      {0} },
   { MODKEY,                       XK_b,                     togglebar,        {0} },
   { MODKEY,                       XK_j,                     focusstack,       {.i = +1 } },
