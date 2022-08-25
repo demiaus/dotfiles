@@ -132,13 +132,13 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultbg       = 256; /* base */
-unsigned int defaultfg       = 259; /* foam */
-unsigned int defaultcs       = 258; /* rose */
-unsigned int defaultrcs      = 256; /* base */
-unsigned int const currentBg = 2;   /* foam */
-unsigned int const currentFg = 6;   /* rose */
-unsigned int const buffSize  = 2048;
+unsigned int       defaultbg  = 0; /* base */
+unsigned int       defaultfg  = 7; /* text */
+unsigned int       defaultcs  = 2; /* foam */
+unsigned int       defaultrcs = 0; /* base */
+unsigned int const currentBg  = 0; /* base */
+unsigned int const currentFg  = 5; /* foam */
+unsigned int const buffSize   = 2048;
 
 /// [Vim Browse] Colors for search results currently on screen.
 unsigned int const highlightBg = 0; /* base */
