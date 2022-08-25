@@ -14,6 +14,8 @@ alias :wq=exit
 alias destroy='shred -zu'
 alias ww='vim ~/vimwiki/index.md'
 alias o=xdg-open
-alias yt='yt-dlp -S "res:1080,ext" --prefer-free-formats --trim-filenames 32 --restrict-filenames'
+alias yt=yt-dlp
+alias yta='yt-dlp -x'
+
 echo "~/.bash_aliases $(date +%T)" >> ~/.log/rc.log
 
