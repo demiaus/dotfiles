@@ -197,8 +197,7 @@ inoremap <C-c> <Esc>:set formatoptions-=cro<CR>a<Space>
 " Hide search highlights
 nnoremap <Leader><Leader> :nohls<CR>
 
-cnoremap Q q
-
+" Open / source vimrc
 nnoremap <Leader>vi :tabe   $MYVIMRC<CR>
 nnoremap <Leader>so :source $MYVIMRC<CR>
 
@@ -211,6 +210,8 @@ inoremap <C-l> <C-x><C-l>
 nnoremap n nzz
 nnoremap N Nzz
 
+" Open non-existing file
+noremap <Leader>gf :tabe <cfile><CR>
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
