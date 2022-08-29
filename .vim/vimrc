@@ -15,6 +15,10 @@ set number
 set relativenumber
 set cursorline
 set cursorcolumn
+set colorcolumn=100
+set wildmenu
+set wildmode=list:longest,list:full
+
 
 if has('nvim')
         set undodir=~/.config/nvim/undo/
@@ -25,9 +29,13 @@ else
 endif
 
 
-" COLOURS {{{///////////////////////////////////////////////////////////////////
+" COLORS {{{///////////////////////////////////////////////////////////////////
 
+set termguicolors
 set background=dark
+colorscheme rose-pine-dark
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Rosé Pine https://rosepinetheme.com/palette
 " base = 0
@@ -39,20 +47,23 @@ set background=dark
 " rose = 6
 " text = 7
 
-highlight CursorLine   ctermbg=0              cterm=NONE
-highlight CursorColumn ctermbg=0              cterm=NONE
-highlight Comment                             cterm=italic
-highlight TabLineFill  ctermbg=2    ctermfg=0
-highlight TabLine      ctermbg=0    ctermfg=2
-highlight TabLineSel   ctermbg=0    ctermfg=1
-highlight StatusLine   ctermbg=1    ctermfg=0
-highlight StatusLineNC ctermbg=1    ctermfg=0
-highlight VertSplit    ctermbg=1    ctermfg=0
-highlight LineNr       ctermbg=NONE ctermfg=1 cterm=NONE
-highlight CursorLineNr ctermbg=NONE ctermfg=1 cterm=italic
-highlight Visual       ctermbg=0    ctermfg=1 cterm=bold
-highlight Folded       ctermbg=NONE ctermfg=4
-highlight FoldColumn   ctermbg=NONE ctermfg=4
+hi CursorLine   ctermbg=0              cterm=NONE
+hi CursorColumn ctermbg=0              cterm=NONE
+hi Comment                             cterm=italic
+hi TabLineFill  ctermbg=2    ctermfg=0
+hi TabLine      ctermbg=0    ctermfg=2
+hi TabLineSel   ctermbg=0    ctermfg=1
+hi StatusLine   ctermbg=1    ctermfg=0
+hi StatusLineNC ctermbg=1    ctermfg=0
+hi VertSplit    ctermbg=1    ctermfg=0
+hi LineNr       ctermbg=NONE ctermfg=1 cterm=NONE
+hi CursorLineNr ctermbg=NONE ctermfg=2 cterm=italic
+hi Visual       ctermbg=0    ctermfg=1 cterm=bold
+hi Folded       ctermbg=NONE ctermfg=4
+hi FoldColumn   ctermbg=NONE ctermfg=4
+hi Search       ctermbg=1    ctermfg=0
+
+hi ColorColumn  guifg=#eb6f92 guibg=NONE
 
 "}}}////////////////////////////////////////////////////////////////////////////
 
@@ -90,29 +101,32 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'amadeus/vim-convert-color-to'
-Plug 'ap/vim-css-color'
-Plug 'cespare/vim-toml', { 'branch': 'main' }
-Plug 'dylanaraps/fff.vim'
-Plug 'glts/vim-magnum'
-Plug 'glts/vim-radical'
-" Plug 'iamcco/markdown-preview.nvim' " Installed from AUR
-Plug 'junegunn/vim-easy-align'
-Plug 'mattn/calendar-vim'
-Plug 'psliwka/vim-smoothie'
-Plug 'sersorrel/vim-lilypond'
-Plug 'sheerun/vim-polyglot'
-Plug 'svermeulen/vim-subversive'
-Plug 'svermeulen/vim-yoink'
-Plug 'tommcdo/vim-exchange'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tridactyl/vim-tridactyl'
-Plug 'vimwiki/vimwiki'
-Plug 'wellle/targets.vim'
+ Plug 'amadeus/vim-convert-color-to'
+ Plug 'ap/vim-css-color'
+ Plug 'romainl/vim-cool'
+ Plug 'cespare/vim-toml', { 'branch': 'main' }
+ Plug 'chrisbra/Colorizer'
+ Plug 'dylanaraps/fff.vim'
+ Plug 'glts/vim-magnum'
+ Plug 'glts/vim-radical'
+ " Plug 'iamcco/markdown-preview.nvim' " Installed from AUR
+ Plug 'junegunn/vim-easy-align'
+ Plug 'mattn/calendar-vim'
+ Plug 'psliwka/vim-smoothie'
+ Plug 'christoomey/vim-titlecase'
+ Plug 'sersorrel/vim-lilypond'
+ Plug 'sheerun/vim-polyglot'
+ Plug 'svermeulen/vim-subversive'
+ Plug 'svermeulen/vim-yoink'
+ Plug 'tommcdo/vim-exchange'
+ Plug 'tpope/vim-abolish' " This is required by vim-subversive
+ Plug 'tpope/vim-commentary'
+ Plug 'tpope/vim-fugitive'
+ Plug 'tpope/vim-repeat'
+ Plug 'tpope/vim-surround'
+ Plug 'tridactyl/vim-tridactyl'
+ Plug 'vimwiki/vimwiki'
+ Plug 'wellle/targets.vim'
 if has('nvim')
         Plug 'themercorp/themer.lua'
 endif
@@ -213,15 +227,30 @@ nnoremap N Nzz
 " Open non-existing file
 noremap <Leader>gf :tabe <cfile><CR>
 
+" Open vim rose-pine-dark
+nnoremap <Leader>ro :tabe ~/.vim/colors/rose-pine-dark.vim<CR>
+" Check highlighting
+nnoremap <Leader>hi :so $VIMRUNTIME/syntax/hitest.vim<CR>
+
+" vim-surround
+nnoremap <Leader>' :execute "normal \<Plug>YsurroundiW'"<CR>
+nnoremap <Leader>" :execute "normal \<Plug>YsurroundiW\""<CR>
+nnoremap <Leader>) :execute "normal \<Plug>YsurroundiW)"<CR>
+nnoremap <Leader>( :execute "normal \<Plug>YsurroundiW("<CR>
+nnoremap <Leader>] :execute "normal \<Plug>YsurroundiW]"<CR>
+nnoremap <Leader>[ :execute "normal \<Plug>YsurroundiW["<CR>
+nnoremap <Leader>} :execute "normal \<Plug>YsurroundiW}"<CR>
+nnoremap <Leader>{ :execute "normal \<Plug>YsurroundiW{"<CR>
+
 " }}}///////////////////////////////////////////////////////////////////////////
 
 " PLUG-IN MAPPINGS {{{//////////////////////////////////////////////////////////
 
-" EASY-ALIGN
+" "EASY-ALIGN"
 nmap gq <Plug>(EasyAlign)
 xmap gq <Plug>(EasyAlign)
 
-" SUBVERSIVE
+" "SUBVERSIVE"
 " Normal:
 nmap s           <Plug>(SubversiveSubstitute)
 nmap ss          <Plug>(SubversiveSubstituteLine)
@@ -237,7 +266,7 @@ xmap p          <Plug>(SubversiveSubstitute)
 xmap P          <Plug>(SubversiveSubstitute)
 xmap <Leader>cs <Plug>(SubversiveSubstituteRangeConfirm)
 
-" YOINK
+" "YOINK"
 nmap <C-n> <Plug>(YoinkPostPasteSwapBack)
 nmap <C-p> <Plug>(YoinkPostPasteSwapForward)
 nmap p     <Plug>(YoinkPaste_p)
@@ -246,25 +275,32 @@ nmap gp    <Plug>(YoinkPaste_gp)
 nmap gP    <Plug>(YoinkPaste_gP)
 
 
-" MAGNUM
+" "MAGNUM"
 " gA  - Shows the four representations of the number under the cursor (or selected in Visual mode).
 " crd - Convert to decimal
 " crx - Convert to hex
 " cro - Convert to octal
 " crb - Convert to binary
 
-" EXCHANGE
+" "EXCHANGE"
 " Normal:
 " cx + motion - Exchange
 " cxx         - Exchange line
 " Visual:
 " X           - Exchange selection
 
-" COMMENTARY
+" "VIM-COMMENTARY"
 " Normal:
 " gcc - Comment out a line
 " Visual:
 " gc  - Comment out a selection
+
+" "VIM-TITLECASE"
+" Normal:
+" nmap <Leader>gz  <Plug>Titlecase
+" nmap <Leader>gzz <Plug>TitlecaseLine
+" Visual:
+" vmap <Leader>gz  <Plug>Titlecase
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
@@ -284,6 +320,9 @@ let g:easy_align_ignore_unmatched = 0
 let vim_markdown_preview_toggle=2
 let vim_markdown_preview_hotkey='<A-m>'
 let vim_markdown_preview_browser='/usr/bin/librewolf'
+
+" VIM-TITLECASE
+let g:titlecase_excluded_words = ["and", "as", "as if", "as long as", "at", "but", "by", "even if", "for", "from", "if", "if only", "in", "into", "like", "near", "now that", "nor", "of", "off", "on", "on top of", "once", "onto", "or", "out of", "over", "past", "so", "so that", "than", "that", "till", "to", "up", "upon", "with", "when", "yet"] 
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
@@ -305,6 +344,19 @@ autocmd Filetype c call COptions()
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+" Disable CursorLine/-Column in inactive windows
+augroup CursorLine
+    au!
+    au VimEnter * setlocal cursorline
+    au VimEnter * setlocal cursorcolumn
+    au WinEnter * setlocal cursorline
+    au WinEnter * setlocal cursorcolumn
+    au BufWinEnter * setlocal cursorline
+    au BufWinEnter * setlocal cursorcolumn
+    au WinLeave * setlocal nocursorline
+    au WinLeave * setlocal nocursorcolumn
+augroup END
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
