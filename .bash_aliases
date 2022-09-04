@@ -17,6 +17,7 @@ alias o=xdg-open
 alias yt=yt-dlp
 alias yta='yt-dlp -x'
 alias spo=ncspot
+alias myip='curl ipinfo.io'
 
 echo "~/.bash_aliases $(date +%T)" >> ~/.log/rc.log
 
