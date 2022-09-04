@@ -157,16 +157,8 @@ int const mouseSelect = 1;
 
 char const wDelS[] = "!\"#$%&'()*+,-./:;<=>?@[\\]^`{|}~";
 char const wDelL[] = " \t";
-///< Shortcusts executed in normal mode
-char *nmKeys [] = { "R/Building\nN",
-										"r/Building\n",
-										"X/juli@machine\nN",
-										"x/juli@machine\n",
-										"Q?[Leaving vim,starting execution]\n",
-										"F/: error:\nN",
-										"f/: error:\n",
-										"DQf"
-};
+///< Shortcuts executed in normal mode
+char *nmKeys [] = {};
 
 unsigned int const amountNmKeys = sizeof(nmKeys) / sizeof(*nmKeys);
 
