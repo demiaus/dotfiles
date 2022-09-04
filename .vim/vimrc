@@ -242,6 +242,10 @@ nnoremap <Leader>[ :execute "normal \<Plug>YsurroundiW["<CR>
 nnoremap <Leader>} :execute "normal \<Plug>YsurroundiW}"<CR>
 nnoremap <Leader>{ :execute "normal \<Plug>YsurroundiW{"<CR>
 
+" Hic sunt dracones
+cmap Q<CR> q<CR>
+nnoremap Q <NOP>
+
 " }}}///////////////////////////////////////////////////////////////////////////
 
 " PLUG-IN MAPPINGS {{{//////////////////////////////////////////////////////////
