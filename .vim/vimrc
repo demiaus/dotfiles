@@ -86,6 +86,7 @@ set smartcase
 set wildmenu
 set lazyredraw
 set listchars=tab:>-,trail:·,nbsp:_
+set list
 set foldmethod=marker
 set sidescroll=8
 set shortmess-=S
