@@ -201,7 +201,7 @@ nnoremap ; ,
 " Toggle show whitespace
 nnoremap <F3> :set list!<CR>
 "Remove all trailing whitespace
-nnoremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nnoremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>
 
 " Disable/enable automatic comments
 nnoremap <Leader>c  :set formatoptions-=cro<CR>

@@ -5,17 +5,17 @@
 #include "tatami.c"
 
 /* appearance */
-static const unsigned int borderpx       = 0;      /* border pixel of windows */
-static const unsigned int gappx          = 16;      /* gaps between windows */
-static const unsigned int snap           = 32;     /* snap pixel */
-static const int swallowfloating         = 0;      /* 1 means swallow floating windows by default */
-static const int showbar                 = 1;      /* 0 means no bar */
-static const int topbar                  = 1;      /* 0 means bottom bar */
-static const double activeopacity        = 1.0f;   /* Window opacity when it's focused (0 <= opacity <= 1) */
-static const double inactiveopacity      = 0.85f;  /* Window opacity when it's inactive (0 <= opacity <= 1) */
-static Bool bUseOpacity                  = True;   /* Starts with opacity on any unfocused windows */
-static const int user_bh                 = 6;      /* 2 is the default spacing around the bar's font */
- 
+static const unsigned int borderpx       = 0;     /* border pixel of windows */
+static const unsigned int gappx          = 16;    /* gaps between windows */
+static const unsigned int snap           = 32;    /* snap pixel */
+static const int swallowfloating         = 0;     /* 1 means swallow floating windows by default */
+static const int showbar                 = 1;     /* 0 means no bar */
+static const int topbar                  = 1;     /* 0 means bottom bar */
+static const double activeopacity        = 1.0f;  /* Window opacity when it's focused (0 <= opacity <= 1) */
+static const double inactiveopacity      = 0.85f; /* Window opacity when it's inactive (0 <= opacity <= 1) */
+static Bool bUseOpacity                  = True;  /* Starts with opacity on any unfocused windows */
+static const int user_bh                 = 8;     /* 2 is the default spacing around the bar's font */
+
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
 static const char *fonts[]               = { "CozetteVector Nerd Font:size=16" };
 static const char dmenufont[]            = "CozetteVector Nerd Font:size=16";
@@ -23,12 +23,13 @@ static const char dmenufont[]            = "CozetteVector Nerd Font:size=16";
 /* Rosé Pine https://rosepinetheme.com/palette */
 static const char col_base[]            = "#191724";
 static const char col_surface[]         = "#1f1d2e";
+static const char col_overlay[]         = "#26233a";
 static const char col_rose[]            = "#ebbcba";
 static const char col_foam[]            = "#9ccfd8";
 static const char *colors[][3]          = {
-  /*               fg         bg         border   */
-  [SchemeNorm] = { col_rose, col_base, col_surface },
-  [SchemeSel]  = { col_foam, col_base,  col_base  },
+  /*               fg        bg        border   */
+  [SchemeNorm] = { col_rose, col_base, col_base },
+  [SchemeSel]  = { col_foam, col_base, col_base },
 };
 
 /* tagging */
@@ -40,7 +41,7 @@ static const Rule rules[] = {
    *  WM_NAME(STRING) = title
    */
   /* class             instance     title           tags mask  switchtotag  isfloating  isterminal  noswallow  monitor  notallowed */
-  { "Gimp",            NULL,        NULL,           0,         1,           1,          0,          0,          -1,     0 },
+  { "Gimp",            NULL,        NULL,           1 << 2,    1,           1,          0,          0,          -1,     0 },
   { "st",              NULL,        NULL,           1,         1,           0,          1,          0,          -1,     0 },
   { "librewolf",       "Navigator", NULL,           1 << 1,    1,           0,          0,          0,          -1,     0 },
   { "MuseScore3",      "musescore", NULL,           1 << 8,    1,           0,          0,          0,          -1,     0 },
@@ -65,8 +66,8 @@ static const int   lockfullscreen = 1;    /* 1 will force focus on the fullscree
 
 static const Layout layouts[] = {
   /* symbol     arrange function */
-  { "[T]",      tile    }, /* first entry is default */
-  { "|+|",      tatami  }, 
+  { "|+|",      tatami  }, /* first entry is default */
+  { "[T]",      tile    },
   { "[F]",      NULL    }, /* no layout function means floating behavior */
   { "[M]",      monocle },
 };
@@ -160,8 +161,8 @@ static Key keys[] = {
   { MODKEY2|ShiftMask,            XK_Tab,                   shiftviewclients, {.i = -1} },
   { MODKEY,                       XK_a,                     toggleopacity,    {0} },
   { MODKEY,                       XK_q,                     killclient,       {0} },
-  { MODKEY,                       XK_t,                     setlayout,        {.v = &layouts[0]} },
-  { MODKEY,                       XK_y,                     setlayout,        {.v = &layouts[1]} },
+  { MODKEY,                       XK_y,                     setlayout,        {.v = &layouts[0]} },
+  { MODKEY,                       XK_t,                     setlayout,        {.v = &layouts[1]} },
   { MODKEY,                       XK_f,                     setlayout,        {.v = &layouts[2]} },
   { MODKEY,                       XK_m,                     setlayout,        {.v = &layouts[3]} },
   { MODKEY,                       XK_space,                 setlayout,        {0} },
