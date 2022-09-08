@@ -42,8 +42,6 @@ bind < tabmove -1
 
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ f
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ j
-unbindurl ^https://www\.youtube\.com/watch\?v=.*$ k
-unbindurl ^https://www\.youtube\.com/watch\?v=.*$ l
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ ,
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ .
 bindurl   ^https://www\.youtube\.com/watch\?v=.*$ J !s xdotool key Left
