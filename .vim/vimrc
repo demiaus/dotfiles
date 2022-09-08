@@ -91,6 +91,7 @@ set foldmethod=marker
 set sidescroll=8
 set shortmess-=S
 
+
 " PLUGINS {{{///////////////////////////////////////////////////////////////////
 
 " Download and install vim-plug if not found
@@ -242,6 +243,10 @@ nnoremap <Leader>] :execute "normal \<Plug>YsurroundiW]"<CR>
 nnoremap <Leader>[ :execute "normal \<Plug>YsurroundiW["<CR>
 nnoremap <Leader>} :execute "normal \<Plug>YsurroundiW}"<CR>
 nnoremap <Leader>{ :execute "normal \<Plug>YsurroundiW{"<CR>
+
+" Insert path
+nnoremap <Leader>p :put=expand('%:p:~')<CR>
+nnoremap <Leader>P :put=expand('%:p')<CR>
 
 " Hic sunt dracones
 cmap Q<CR> q<CR>
