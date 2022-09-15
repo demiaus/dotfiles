@@ -3,8 +3,10 @@
 #
 
 echo "" > ~/.log/rc.log
+echo "$(date +%T) open  ~/.profile" >> ~/.log/rc.log
 
-[ -f ~/.config/path/path.env ] && source ~/.config/path/path.env
+[ -f ~/.config/path/path.env ] && . ~/.config/path/path.env
+[ -f ~/.bashrc ] && . ~/.bashrc
 
-echo "~/.profile $(date +%T)" >> ~/.log/rc.log
+echo "$(date +%T) close ~/.profile" >> ~/.log/rc.log
 

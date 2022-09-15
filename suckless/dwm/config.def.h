@@ -5,7 +5,7 @@
 #include "tatami.c"
 
 /* appearance */
-static const unsigned int borderpx       = 0;     /* border pixel of windows */
+static const unsigned int borderpx       = 1;     /* border pixel of windows */
 static const unsigned int gappx          = 16;    /* gaps between windows */
 static const unsigned int snap           = 32;    /* snap pixel */
 static const int swallowfloating         = 0;     /* 1 means swallow floating windows by default */
@@ -13,23 +13,29 @@ static const int showbar                 = 1;     /* 0 means no bar */
 static const int topbar                  = 1;     /* 0 means bottom bar */
 static const double activeopacity        = 1.0f;  /* Window opacity when it's focused (0 <= opacity <= 1) */
 static const double inactiveopacity      = 0.85f; /* Window opacity when it's inactive (0 <= opacity <= 1) */
-static Bool bUseOpacity                  = True;  /* Starts with opacity on any unfocused windows */
+static Bool bUseOpacity                  = False; /* Starts with opacity on any unfocused windows */
 static const int user_bh                 = 8;     /* 2 is the default spacing around the bar's font */
 
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
-static const char *fonts[]               = { "CozetteVector Nerd Font:size=16" };
-static const char dmenufont[]            = "CozetteVector Nerd Font:size=16";
+static const char *fonts[]               = { "CozetteVector Nerd Font:size=12" };
+static const char dmenufont[]            =   "CozetteVector Nerd Font:size=10"  ;
 
 /* Rosé Pine https://rosepinetheme.com/palette */
 static const char col_base[]            = "#191724";
 static const char col_surface[]         = "#1f1d2e";
 static const char col_overlay[]         = "#26233a";
+static const char col_iris[]            = "#c4a7e7";
 static const char col_rose[]            = "#ebbcba";
 static const char col_foam[]            = "#9ccfd8";
+static const char col_muted[]           = "#6e6a86";
+static const char col_subtle[]          = "#908caa";
+static const char col_hiL[]             = "#21202e";
+static const char col_hiM[]             = "#403d52";
+static const char col_hiH[]             = "#524f67";
 static const char *colors[][3]          = {
-  /*               fg        bg        border   */
-  [SchemeNorm] = { col_rose, col_base, col_base },
-  [SchemeSel]  = { col_foam, col_base, col_base },
+  /*               fg        bg        border      */
+  [SchemeNorm] = { col_rose, col_base, col_surface },
+  [SchemeSel]  = { col_foam, col_base, col_hiM     },
 };
 
 /* tagging */
@@ -40,22 +46,23 @@ static const Rule rules[] = {
    *  WM_CLASS(STRING) = instance, class
    *  WM_NAME(STRING) = title
    */
-  /* class             instance     title           tags mask  switchtotag  isfloating  isterminal  noswallow  monitor  notallowed */
-  { "Gimp",            NULL,        NULL,           1 << 2,    1,           1,          0,          0,          -1,     0 },
-  { "st",              NULL,        NULL,           1,         1,           0,          1,          0,          -1,     0 },
-  { "librewolf",       "Navigator", NULL,           1 << 1,    1,           0,          0,          0,          -1,     0 },
-  { "MuseScore3",      "musescore", NULL,           1 << 8,    1,           0,          0,          0,          -1,     0 },
-  { NULL,              NULL,        "Event Tester", 0,         0,           0,          0,          1,          -1,     0 },
+  /* class             instance       title           tags mask  switchtotag  isfloating  isterminal  noswallow  monitor  notallowed */
+  { "Gimp",            NULL,          NULL,           1 << 2,    1,           1,          0,          0,          -1,     0 },
+  { "st",              NULL,          NULL,           1,         1,           0,          1,          0,          -1,     0 },
+  { "librewolf",       "Navigator",   NULL,           1 << 1,    1,           0,          0,          0,          -1,     0 },
+  { "qutebrowser",     "qutebrowser", NULL,           1 << 1,    1,           0,          0,          0,          -1,     0 },
+  { "MuseScore3",      "musescore",   NULL,           1 << 8,    1,           0,          0,          0,          -1,     0 },
+  { NULL,              NULL,          "Event Tester", 0,         0,           0,          0,          1,          -1,     0 },
 
-  { "Signal",          NULL,        NULL,           1 << 6,    0,           0,          0,          0,          -1,     0 },
-  { "TelegramDesktop", NULL,        NULL,           1 << 6,    0,           0,          0,          0,          -1,     0 },
+  { "Signal",          NULL,          NULL,           1 << 6,    0,           0,          0,          0,          -1,     0 },
+  { "TelegramDesktop", NULL,          NULL,           1 << 6,    0,           0,          0,          0,          -1,     0 },
 
-  { "Anki",            "anki",      NULL,           1 << 7,    1,           0,          0,          0,          -1,     0 },
-  { "Anki",            "anki",      "Browse",       1 << 7,    1,           1,          0,          0,          -1,     0 },
-  { "Anki",            "anki",      "Add-ons",      1 << 7,    1,           1,          0,          0,          -1,     0 },
+  { "Anki",            "anki",        NULL,           1 << 7,    1,           0,          0,          0,          -1,     0 },
+  { "Anki",            "anki",        "Browse",       1 << 7,    1,           1,          0,          0,          -1,     0 },
+  { "Anki",            "anki",        "Add-ons",      1 << 7,    1,           1,          0,          0,          -1,     0 },
 
-  { "Steam",           "Steam",     "Steam",        1 << 5,    1,           1,          0,          0,          -1,     0 },
-  { "Steam",           "Steam",     "Steam - News", 1 << 5,    1,           1,          0,          0,          -1,     0 },
+  { "Steam",           "Steam",       "Steam",        1 << 5,    1,           1,          0,          0,          -1,     0 },
+  { "Steam",           "Steam",       "Steam - News", 1 << 5,    1,           1,          0,          0,          -1,     0 },
 };
 
 /* layout(s) */
@@ -66,8 +73,8 @@ static const int   lockfullscreen = 1;    /* 1 will force focus on the fullscree
 
 static const Layout layouts[] = {
   /* symbol     arrange function */
-  { "|+|",      tatami  }, /* first entry is default */
-  { "[T]",      tile    },
+  { "[T]",      tile    }, /* first entry is default */
+  { "|+|",      tatami  },
   { "[F]",      NULL    }, /* no layout function means floating behavior */
   { "[M]",      monocle },
 };
@@ -90,24 +97,17 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 
 /* custom commands */
 /* apps */
-static const char *dmenucmd[]          = { "dmenu_run",
-                                            "-m",  dmenumon,
-                                            "-fn", dmenufont,
-                                            "-nb", col_base,
-                                            "-nf", col_rose,
-                                            "-sb", col_base,
-                                            "-sf", col_foam,
-                                            NULL };
+static const char *dmenucmd[]          = { "dmenu_run", "-l", "3", NULL };
 
-static const char *termcmd[]           = { "/usr/local/bin/st",  NULL };
-static const char *browsercmd[]        = { "/usr/bin/librewolf", NULL };
+static const char *termcmd[]           = { "/usr/local/bin/st",    NULL };
+static const char *browsercmd[]        = { "/usr/bin/qutebrowser", NULL };
 /* volume */
 static const char *volmutetogglecmd[]  = { "vol.sh", "mute", NULL };
 static const char *voldowncmd[]        = { "vol.sh", "down", NULL };
 static const char *volupcmd[]          = { "vol.sh", "up",   NULL };
 /* screen */
-static const char *brightnessupcmd[]   = { "brightness.sh", "up",   NULL };
-static const char *brightnessdowncmd[] = { "brightness.sh", "down", NULL };
+static const char *brightnessupcmd[]   = { "brightnessctl", "set", "+5%", NULL };
+static const char *brightnessdowncmd[] = { "brightnessctl", "set", "5%-", NULL };
 static const char *screenclipcmd[]     = { "screenshot.sh", "clip", NULL };
 static const char *screensavecmd[]     = { "screenshot.sh", "save", NULL };
 static const char *screenopencmd[]     = { "screenshot.sh", "open", NULL };
@@ -161,8 +161,8 @@ static Key keys[] = {
   { MODKEY2|ShiftMask,            XK_Tab,                   shiftviewclients, {.i = -1} },
   { MODKEY,                       XK_a,                     toggleopacity,    {0} },
   { MODKEY,                       XK_q,                     killclient,       {0} },
-  { MODKEY,                       XK_y,                     setlayout,        {.v = &layouts[0]} },
-  { MODKEY,                       XK_t,                     setlayout,        {.v = &layouts[1]} },
+  { MODKEY,                       XK_t,                     setlayout,        {.v = &layouts[0]} },
+  { MODKEY,                       XK_y,                     setlayout,        {.v = &layouts[1]} },
   { MODKEY,                       XK_f,                     setlayout,        {.v = &layouts[2]} },
   { MODKEY,                       XK_m,                     setlayout,        {.v = &layouts[3]} },
   { MODKEY,                       XK_space,                 setlayout,        {0} },

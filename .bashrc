@@ -5,10 +5,13 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-[ -f ~/.bash_aliases                  ] && source ~/.bash_aliases
-[ -f ~/.config/env/env.conf           ] && source ~/.config/env/env.conf
-[ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
-[ -f /usr/share/fzf/completion.bash   ] && source /usr/share/fzf/completion.bash
+echo "$(date +%T) open  ~/.bashrc" >> ~/.log/rc.log
+
+[ -f ~/.bash_aliases                  ] && . ~/.bash_aliases
+[ -f ~/.config/env/env.conf           ] && . ~/.config/env/env.conf
+[ -f /usr/share/fzf/key-bindings.bash ] && . /usr/share/fzf/key-bindings.bash
+[ -f /usr/share/fzf/completion.bash   ] && . /usr/share/fzf/completion.bash
+[ -f ~/.config/fzf/rose-pine.fzf      ] && . ~/.config/fzf/rose-pine.fzf
 
 [[ "$(whoami)" = "root" ]] && return
 
@@ -71,9 +74,6 @@ HISTFILESIZE=100000
 # Avoid duplicate entries
 HISTCONTROL="erasedups:ignoreboth"
 
-# Don't record some commands
-export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear:poweroff:reboot"
-
 # Use standard ISO 8601 timestamp
 # %F equivalent to %Y-%m-%d
 # %T equivalent to %H:%M:%S (24-hours format)
@@ -88,8 +88,6 @@ bind '"\e[D": backward-char'
 
 ## BETTER DIRECTORY NAVIGATION ##
 
-# Prepend cd to directory names automatically
-shopt -s autocd 2> /dev/null
 # Correct spelling errors during tab-completion
 shopt -s dirspell 2> /dev/null
 # Correct spelling errors in arguments supplied to cd
@@ -104,8 +102,6 @@ CDPATH="."
 # Define a variable containing a path and you will be able to cd into it regardless of the directory you're in
 shopt -s cdable_vars
 export anki="$HOME/.local/share/Anki2/addons21"
-export c="$HOME/prog/c"
-export euler="$HOME/prog/c/euler"
 
 # Disable CTRL-S
 if [[ -t 0 && $- = *i* ]]
@@ -113,5 +109,29 @@ then
     stty -ixon
 fi
 
-echo "~/.bashrc $(date +%T)" >> ~/.log/rc.log
+#!/bin/sh
+if [ "$TERM" = "linux" ]; then
+  /bin/echo -e "
+  \e]P0191724
+  \e]P1eb6f92
+  \e]P29ccfd8
+  \e]P3f6c177
+  \e]P431748f
+  \e]P5c4a7e7
+  \e]P6ebbcba
+  \e]P7e0def4
+  \e]P826233a
+  \e]P9eb6f92
+  \e]PA9ccfd8
+  \e]PBf6c177
+  \e]PC31748f
+  \e]PDc4a7e7
+  \e]PEebbcba
+  \e]PFe0def4
+  "
+  # get rid of artifacts
+  clear
+fi
+
+echo "$(date +%T) close ~/.bashrc" >> ~/.log/rc.log
 

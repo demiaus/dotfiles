@@ -3,16 +3,16 @@
 
 static int topbar = 1;
 static int fuzzy  = 1;
-static const char *fonts[] = { "CozetteVector Nerd Font:size=16" };
+static const char *fonts[] = { "CozetteVector Nerd Font:size=14" };
 static const char *prompt = NULL;
 static const char *colors[SchemeLast][2] = {
 	/* Rosé Pine https://rosepinetheme.com/palette */
-	/*										     fg        bg       */
-	[SchemeNorm]          = { "#eb6f92", "#191724" }, /* love, base  */
-	[SchemeSel]           = { "#9ccfd8", "#191724" }, /* foam, base  */
-	[SchemeSelHighlight]  = { "#9ccfd8", "#6e6a86" }, /* foam, muted */
-	[SchemeNormHighlight] = { "#eb6f92", "#6e6a86" }, /* love, muted */
-	[SchemeOut]           = { "#191724", "#9ccfd8" }, /* base, foam  */
+	/*                         fg         bg       */
+	[SchemeNorm]          = { "#ebbcba", "#26233a" }, /* rose, overlay  */
+	[SchemeSel]           = { "#9ccfd8", "#26233a" }, /* foam, base     */
+	[SchemeSelHighlight]  = { "#9ccfd8", "#6e6a86" }, /* foam, muted    */
+	[SchemeNormHighlight] = { "#ebbcba", "#6e6a86" }, /* rose, muted    */
+	[SchemeOut]           = { "#191724", "#9ccfd8" }, /* base, foam     */
 };
 static unsigned int lines          = 0;
 static unsigned int lineheight     = 48;

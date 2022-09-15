@@ -2,99 +2,86 @@
 " ~/.vim/vimrc
 "
 
-set nocompatible
 filetype on
 filetype plugin on
 filetype indent on
-syntax   on
+syntax on
 
+" {{{ SETTINGS /////////////////////////////////////////////////////////////////
+
+set nocompatible
 set clipboard=unnamedplus
 set hidden
-set undofile
+set undodir=~/.vim/undo
+set viminfo+=n~/.vim/viminfo
+
+" "VISUAL"
 set number
 set relativenumber
 set cursorline
 set cursorcolumn
 set colorcolumn=100
-set wildmenu
-set wildmode=list:longest,list:full
-
-
-if has('nvim')
-        set undodir=~/.config/nvim/undo/
-        set viminfo+=n~/.config/nvim/viminfo
-else
-        set undodir=~/.vim/undo
-        set viminfo+=n~/.vim/viminfo
-endif
-
-
-" COLORS {{{///////////////////////////////////////////////////////////////////
-
-set termguicolors
-set background=dark
-colorscheme rose-pine-dark
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-" Rosé Pine https://rosepinetheme.com/palette
-" base = 0
-" love = 1
-" foam = 2
-" gold = 3
-" pine = 4
-" iris = 5
-" rose = 6
-" text = 7
-
-hi CursorLine   ctermbg=0              cterm=NONE
-hi CursorColumn ctermbg=0              cterm=NONE
-hi Comment                             cterm=italic
-hi TabLineFill  ctermbg=2    ctermfg=0
-hi TabLine      ctermbg=0    ctermfg=2
-hi TabLineSel   ctermbg=0    ctermfg=1
-hi StatusLine   ctermbg=1    ctermfg=0
-hi StatusLineNC ctermbg=1    ctermfg=0
-hi VertSplit    ctermbg=1    ctermfg=0
-hi LineNr       ctermbg=NONE ctermfg=1 cterm=NONE
-hi CursorLineNr ctermbg=NONE ctermfg=2 cterm=italic
-hi Visual       ctermbg=0    ctermfg=1 cterm=bold
-hi Folded       ctermbg=NONE ctermfg=4
-hi FoldColumn   ctermbg=NONE ctermfg=4
-hi Search       ctermbg=1    ctermfg=0
-
-hi ColorColumn  guifg=#eb6f92 guibg=NONE
-
-"}}}////////////////////////////////////////////////////////////////////////////
-
-set showcmd
-set showmode
+set lazyredraw
+set listchars=tab:>-,trail:·,nbsp:_
+set list
+set sidescroll=8
 set noshowmatch
 
+" "CMDLINE"
+set showcmd
+set showmode
+
+" "TABS"
 set shiftwidth=8
 set tabstop=8
 set softtabstop=8
 set expandtab
-set nowrap
 set smartindent
 set shiftround
 
+" "SEARCH"
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
 set wildmenu
-set lazyredraw
-set listchars=tab:>-,trail:·,nbsp:_
-set list
-set foldmethod=marker
-set sidescroll=8
+set wildmenu
+set wildmode=list:longest,list:full
 set shortmess-=S
 
+" "WRAP & FOLD"
+set nowrap
+set foldmethod=marker
+
+
+" }}} //////////////////////////////////////////////////////////////////////////
+
+" COLORS {{{ ///////////////////////////////////////////////////////////////////
+
+set background=dark
+
+if $TERM == 'linux'
+    hi ColorColumn  ctermfg=1 ctermbg=0
+    hi TabLineFill  ctermfg=0 ctermbg=0
+    hi TabLineSel   ctermfg=2 ctermbg=0
+    hi StatusLine   ctermfg=0 ctermbg=2
+    hi StatusLine   ctermfg=0 ctermbg=2
+    hi StatusLineNC ctermfg=0 ctermbg=4
+    hi CursorColumn ctermfg=NONE ctermbg=7
+    hi CursorLine   ctermfg=NONE ctermbg=7
+else
+    set termguicolors
+    colorscheme rose-pine-dark
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+" }}} //////////////////////////////////////////////////////////////////////////
 
 " PLUGINS {{{///////////////////////////////////////////////////////////////////
 
-" Download and install vim-plug if not found
+" "VIM-PLUG AUTO-INSTALL"
+
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
         silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs 
@@ -105,61 +92,46 @@ endif
 call plug#begin()
  Plug 'amadeus/vim-convert-color-to'
  Plug 'ap/vim-css-color'
- Plug 'romainl/vim-cool'
  Plug 'cespare/vim-toml', { 'branch': 'main' }
  Plug 'chrisbra/Colorizer'
+ Plug 'christoomey/vim-titlecase'
  Plug 'dylanaraps/fff.vim'
  Plug 'glts/vim-magnum'
  Plug 'glts/vim-radical'
- " Plug 'iamcco/markdown-preview.nvim' " Installed from AUR
+ Plug 'iamcco/markdown-preview.nvim'
+ Plug 'jorengarenar/vim-mvvis'
  Plug 'junegunn/vim-easy-align'
  Plug 'mattn/calendar-vim'
  Plug 'psliwka/vim-smoothie'
- Plug 'christoomey/vim-titlecase'
+ Plug 'romainl/vim-cool'
  Plug 'sersorrel/vim-lilypond'
  Plug 'sheerun/vim-polyglot'
  Plug 'svermeulen/vim-subversive'
  Plug 'svermeulen/vim-yoink'
  Plug 'tommcdo/vim-exchange'
- Plug 'tpope/vim-abolish' " This is required by vim-subversive
+ Plug 'tpope/vim-abolish' " required by VIM-SUBVERSIVE
  Plug 'tpope/vim-commentary'
  Plug 'tpope/vim-fugitive'
  Plug 'tpope/vim-repeat'
  Plug 'tpope/vim-surround'
  Plug 'tridactyl/vim-tridactyl'
  Plug 'vimwiki/vimwiki'
+ Plug 'wellle/context.vim'
  Plug 'wellle/targets.vim'
-if has('nvim')
-        Plug 'themercorp/themer.lua'
-endif
+ Plug 'wellle/visual-split.vim'
 call plug#end()
-
-" THEMER
-if has('nvim')
-lua << EOF
-      require("themer").setup({
-          colorscheme = "rose_pine",
-          styles = {
-                ["function"] = { style = 'italic' },
-                functionbuiltin = { style = 'italic' },
-                variable = { style = 'italic' },
-                variableBuiltIn = { style = 'italic' },
-                parameter  = { style = 'italic' },
-          },
-      })
-EOF
-endif
 
 "}}}////////////////////////////////////////////////////////////////////////////
 
 " FUNCTIONS {{{/////////////////////////////////////////////////////////////////
 
+" Set C build
 function! COptions()
     setlocal commentstring=//\ %s
     if filereadable(expand("./build.sh"))
         setlocal makeprg=./buildh.sh\ %
     elseif filereadable(expand("~/prog/c/build.sh"))
-        setlocal makeprg=~/prog/c/build.sh\ %
+        setlocal makeprg=~/projects/c/build.sh\ %
     endif
 endfunction
 
@@ -234,7 +206,23 @@ nnoremap <Leader>ro :tabe ~/.vim/colors/rose-pine-dark.vim<CR>
 " Check highlighting
 nnoremap <Leader>hi :so $VIMRUNTIME/syntax/hitest.vim<CR>
 
-" vim-surround
+" Insert path
+nnoremap <Leader>p :put=expand('%:p:~')<CR>
+nnoremap <Leader>P :put=expand('%:p')<CR>
+
+" Hic sunt dracones
+cmap Q<CR> q<CR>
+nnoremap Q <NOP>
+
+" Buffer navigation
+nnoremap <Leader>j :bn<CR>
+nnoremap <Leader>k :bp<CR>
+
+" }}}///////////////////////////////////////////////////////////////////////////
+
+" PLUG-IN MAPPINGS {{{//////////////////////////////////////////////////////////
+
+" "VIM-SURROUND"
 nnoremap <Leader>' :execute "normal \<Plug>YsurroundiW'"<CR>
 nnoremap <Leader>" :execute "normal \<Plug>YsurroundiW\""<CR>
 nnoremap <Leader>) :execute "normal \<Plug>YsurroundiW)"<CR>
@@ -244,24 +232,11 @@ nnoremap <Leader>[ :execute "normal \<Plug>YsurroundiW["<CR>
 nnoremap <Leader>} :execute "normal \<Plug>YsurroundiW}"<CR>
 nnoremap <Leader>{ :execute "normal \<Plug>YsurroundiW{"<CR>
 
-" Insert path
-nnoremap <Leader>p :put=expand('%:p:~')<CR>
-nnoremap <Leader>P :put=expand('%:p')<CR>
-
-" Hic sunt dracones
-cmap Q<CR> q<CR>
-nnoremap Q <NOP>
-
-" }}}///////////////////////////////////////////////////////////////////////////
-
-" PLUG-IN MAPPINGS {{{//////////////////////////////////////////////////////////
-
 " "EASY-ALIGN"
 nmap gq <Plug>(EasyAlign)
 xmap gq <Plug>(EasyAlign)
 
 " "SUBVERSIVE"
-" Normal:
 nmap s           <Plug>(SubversiveSubstitute)
 nmap ss          <Plug>(SubversiveSubstituteLine)
 nmap S           <Plug>(SubversiveSubstituteToEndOfLine)
@@ -269,12 +244,11 @@ nmap <Leader>s   <Plug>(SubversiveSubvertRange)
 nmap <Leader>ss  <Plug>(SubversiveSubvertWordRange)
 nmap <Leader>cs  <Plug>(SubversiveSubstituteRangeConfirm)
 nmap <Leader>css <Plug>(SubversiveSubstituteWordRangeConfirm)
-" Visual:
-xmap <Leader>s  <Plug>(SubversiveSubvertRange)
-xmap s          <Plug>(SubversiveSubstitute)
-xmap p          <Plug>(SubversiveSubstitute)
-xmap P          <Plug>(SubversiveSubstitute)
-xmap <Leader>cs <Plug>(SubversiveSubstituteRangeConfirm)
+xmap <Leader>s   <Plug>(SubversiveSubvertRange)
+xmap s           <Plug>(SubversiveSubstitute)
+xmap p           <Plug>(SubversiveSubstitute)
+xmap P           <Plug>(SubversiveSubstitute)
+xmap <Leader>cs  <Plug>(SubversiveSubstituteRangeConfirm)
 
 " "YOINK"
 nmap <C-n> <Plug>(YoinkPostPasteSwapBack)
@@ -284,6 +258,11 @@ nmap P     <Plug>(YoinkPaste_P)
 nmap gp    <Plug>(YoinkPaste_gp)
 nmap gP    <Plug>(YoinkPaste_gP)
 
+" "VISUAL-SPLIT"
+xmap <C-W>gr  <Plug>(Visual-Split-VSResize)
+xmap <C-W>gss <Plug>(Visual-Split-VSSplit)
+xmap <C-W>gsa <Plug>(Visual-Split-VSSplitAbove)
+xmap <C-W>gsb <Plug>(Visual-Split-VSSplitBelow)
 
 " "MAGNUM"
 " gA  - Shows the four representations of the number under the cursor (or selected in Visual mode).
@@ -293,45 +272,39 @@ nmap gP    <Plug>(YoinkPaste_gP)
 " crb - Convert to binary
 
 " "EXCHANGE"
-" Normal:
 " cx + motion - Exchange
 " cxx         - Exchange line
-" Visual:
 " X           - Exchange selection
 
 " "VIM-COMMENTARY"
-" Normal:
 " gcc - Comment out a line
-" Visual:
 " gc  - Comment out a selection
 
 " "VIM-TITLECASE"
-" Normal:
 " nmap <Leader>gz  <Plug>Titlecase
 " nmap <Leader>gzz <Plug>TitlecaseLine
-" Visual:
 " vmap <Leader>gz  <Plug>Titlecase
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
 " OPTIONS {{{///////////////////////////////////////////////////////////////////
 
-" VIMWIKI
+" "VIMWIKI"
 " Use .md files for vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 " Disable parenhesis highlighting
 let g:loaded_matchparen=1
 
-" EASY-ALIGN
+" "EASY-ALIGN"
 " Also align comments
 let g:easy_align_ignore_unmatched = 0
 
-" VIM MARKDOWN PREVIEW
+" "VIM MARKDOWN PREVIEW"
 let vim_markdown_preview_toggle=2
 let vim_markdown_preview_hotkey='<A-m>'
-let vim_markdown_preview_browser='/usr/bin/librewolf'
+let vim_markdown_preview_browser='/usr/bin/qutebrowser'
 
-" VIM-TITLECASE
+" "VIM-TITLECASE"
 let g:titlecase_excluded_words = ["and", "as", "as if", "as long as", "at", "but", "by", "even if", "for", "from", "if", "if only", "in", "into", "like", "near", "now that", "nor", "of", "off", "on", "on top of", "once", "onto", "or", "out of", "over", "past", "so", "so that", "than", "that", "till", "to", "up", "upon", "with", "when", "yet"] 
 
 " }}}///////////////////////////////////////////////////////////////////////////
@@ -348,6 +321,7 @@ augroup end
 " PHP File Types (WordPress, use tabs)
 autocmd FileType php set noexpandtab
 
+" Set up C build
 autocmd Filetype c call COptions()
 
 " Remember position of last edit and return on reopen
