@@ -46,23 +46,24 @@ static const Rule rules[] = {
    *  WM_CLASS(STRING) = instance, class
    *  WM_NAME(STRING) = title
    */
-  /* class             instance       title           tags mask  switchtotag  isfloating  isterminal  noswallow  monitor  notallowed */
-  { "Gimp",            NULL,          NULL,           1 << 2,    1,           1,          0,          0,          -1,     0 },
-  { "st",              NULL,          NULL,           1,         1,           0,          1,          0,          -1,     0 },
-  { "librewolf",       "Navigator",   NULL,           1 << 1,    1,           0,          0,          0,          -1,     0 },
-  { "qutebrowser",     "qutebrowser", NULL,           1 << 1,    1,           0,          0,          0,          -1,     0 },
-  { "MuseScore3",      "musescore",   NULL,           1 << 8,    1,           0,          0,          0,          -1,     0 },
-  { NULL,              NULL,          "Event Tester", 0,         0,           0,          0,          1,          -1,     0 },
+  /* class               instance       title           tags mask  switchtotag  isfloating  isterminal  noswallow  monitor  notallowed */
+  { "Gimp",              NULL,          NULL,           1 << 2,    1,           1,          0,          0,         -1,      0          },
+  { "st",                NULL,          NULL,           1,         1,           0,          1,          0,         -1,      0          },
+  { "librewolf",         NULL,          NULL,           1 << 1,    1,           0,          0,          0,         -1,      0          },
+  { "qutebrowser",       NULL,          NULL,           1 << 1,    1,           0,          0,          0,         -1,      0          },
+  { "mpv",               NULL,          NULL,           1 << 3,    1,           0,          0,          0,         -1,      0          },
+  { "MuseScore3",        NULL,          NULL,           1 << 8,    1,           0,          0,          0,         -1,      0          },
 
-  { "Signal",          NULL,          NULL,           1 << 6,    0,           0,          0,          0,          -1,     0 },
-  { "TelegramDesktop", NULL,          NULL,           1 << 6,    0,           0,          0,          0,          -1,     0 },
+  { "Signal",            NULL,          NULL,           1 << 6,    0,           0,          0,          0,         -1,      0          },
+  { "TelegramDesktop",   NULL,          NULL,           1 << 6,    0,           0,          0,          0,         -1,      0          },
+  { "KotatogramDesktop", NULL,          NULL,           1 << 6,    0,           0,          0,          0,         -1,      0          },
 
-  { "Anki",            "anki",        NULL,           1 << 7,    1,           0,          0,          0,          -1,     0 },
-  { "Anki",            "anki",        "Browse",       1 << 7,    1,           1,          0,          0,          -1,     0 },
-  { "Anki",            "anki",        "Add-ons",      1 << 7,    1,           1,          0,          0,          -1,     0 },
+  { "Anki",              "anki",        NULL,           1 << 7,    1,           0,          0,          0,         -1,      0          },
+  { "Anki",              "anki",        "Browse",       1 << 7,    1,           1,          0,          0,         -1,      0          },
+  { "Anki",              "anki",        "Add-ons",      1 << 7,    1,           1,          0,          0,         -1,      0          },
 
-  { "Steam",           "Steam",       "Steam",        1 << 5,    1,           1,          0,          0,          -1,     0 },
-  { "Steam",           "Steam",       "Steam - News", 1 << 5,    1,           1,          0,          0,          -1,     0 },
+  { "Steam",             "Steam",       "Steam",        1 << 5,    1,           1,          0,          0,         -1,      0          },
+  { "Steam",             "Steam",       "Steam - News", 1 << 5,    1,           1,          0,          0,         -1,      0          },
 };
 
 /* layout(s) */

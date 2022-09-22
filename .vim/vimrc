@@ -26,6 +26,7 @@ set listchars=tab:>-,trail:·,nbsp:_
 set list
 set sidescroll=8
 set noshowmatch
+set virtualedit=all
 
 " "CMDLINE"
 set showcmd
@@ -47,7 +48,9 @@ set smartcase
 set wildmenu
 set wildmenu
 set wildmode=list:longest,list:full
+set wildoptions=fuzzy
 set shortmess-=S
+set autochdir
 
 " "WRAP & FOLD"
 set nowrap
@@ -67,8 +70,8 @@ if $TERM == 'linux'
     hi StatusLine   ctermfg=0 ctermbg=2
     hi StatusLine   ctermfg=0 ctermbg=2
     hi StatusLineNC ctermfg=0 ctermbg=4
-    hi CursorColumn ctermfg=NONE ctermbg=7
-    hi CursorLine   ctermfg=NONE ctermbg=7
+    hi CursorColumn ctermfg=NONE ctermbg=8
+    hi CursorLine   ctermfg=NONE ctermbg=8
 else
     set termguicolors
     colorscheme rose-pine-dark
@@ -116,7 +119,7 @@ call plug#begin()
  Plug 'tpope/vim-surround'
  Plug 'tridactyl/vim-tridactyl'
  Plug 'vimwiki/vimwiki'
- Plug 'wellle/context.vim'
+ " Plug 'wellle/context.vim'
  Plug 'wellle/targets.vim'
  Plug 'wellle/visual-split.vim'
 call plug#end()
@@ -130,7 +133,7 @@ function! COptions()
     setlocal commentstring=//\ %s
     if filereadable(expand("./build.sh"))
         setlocal makeprg=./buildh.sh\ %
-    elseif filereadable(expand("~/prog/c/build.sh"))
+    elseif filereadable(expand("~/projects/c/build.sh"))
         setlocal makeprg=~/projects/c/build.sh\ %
     endif
 endfunction
@@ -140,6 +143,12 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
                   \ | wincmd p | diffthis
 endif
+
+" Replace colorname under cursor with value from .Xresources
+function! GetXresColor()
+        let l:hex = substitute(system('xrdb -query | grep ' . expand("<cword>") . ' | cut -f 2'), '\n\+$', '', '')
+        execute "normal! ciw" . l:hex
+endfunction
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
@@ -218,6 +227,17 @@ nnoremap Q <NOP>
 nnoremap <Leader>j :bn<CR>
 nnoremap <Leader>k :bp<CR>
 
+" Get color values from .Xresources
+nnoremap <Leader>x :call GetXresColor()<CR>
+xnoremap <Leader>x :call GetXresColor()<CR>
+
+" Readline mappings
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <C-d> <Delete>
+
 " }}}///////////////////////////////////////////////////////////////////////////
 
 " PLUG-IN MAPPINGS {{{//////////////////////////////////////////////////////////
@@ -233,8 +253,8 @@ nnoremap <Leader>} :execute "normal \<Plug>YsurroundiW}"<CR>
 nnoremap <Leader>{ :execute "normal \<Plug>YsurroundiW{"<CR>
 
 " "EASY-ALIGN"
-nmap gq <Plug>(EasyAlign)
-xmap gq <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+xmap <Leader>a <Plug>(EasyAlign)
 
 " "SUBVERSIVE"
 nmap s           <Plug>(SubversiveSubstitute)

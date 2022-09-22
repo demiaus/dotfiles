@@ -3,6 +3,7 @@
 *Base:       #191724
 *Surface:    #1f1d2e
 *Overlay:    #26233a
+
 *background: #191724
 *color0:     #1f1d2e
 *color8:     #26233a
@@ -10,37 +11,37 @@
 ! red
 *Love:       #eb6f92
 *color1:     #eb6f92
-*color9:     #eb6f92
+*color9:     #b4637a
 
 ! green
 *Iris:       #c4a7e7
 *color2:     #c4a7e7
-*color10:    #c4a7e7
+*color10:    #907aa9
 
 ! yellow
 *Gold:       #f6c177
 *color3:     #f6c177
-*color11:    #f6c177
+*color11:    #ea9d34
 
 ! blue
 *Pine:       #31748f
 *color4:     #31748f
-*color12:    #31748f
+*color12:    #286983
 
 ! magenta
 *Rose:       #ebbcba
 *color5:     #ebbcba
-*color13:    #ebbcba
+*color13:    #d7827e
 
 ! cyan
 *Foam:       #9ccfd8
 *color6:     #9ccfd8
-*color14:    #9ccfd8
+*color14:    #56949f
 
 ! white
 *Text:       #e0def4
 *color7:     #e0def4
-*color15:    #e0def4
+*color15:    #c5c3ce
 *foreground: #e0def4
 
 ! extra
@@ -49,3 +50,4 @@
 *HiLight_L:  #21202e
 *HiLight_M:  #403d52
 *HiLight_H:  #524f67
+

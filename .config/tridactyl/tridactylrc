@@ -39,6 +39,8 @@ unbind W
 
 bind > tabmove +1
 bind < tabmove -1
+bind J tabnext
+bind K tabnext
 
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ f
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ j
