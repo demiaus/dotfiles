@@ -4,13 +4,13 @@
 
 c.content.user_stylesheets = ['user.css']
 
-config.load_autoconfig(False)
+config.load_autoconfig(True)
 
 c.confirm_quit = ["downloads"]
 
 c.auto_save.session = True
 
-c.colors.webpage.darkmode.enabled = False
+c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.preferred_color_scheme = 'dark'
 
 c.editor.command = ['st', '-e', 'vim', '-p', '{}' ]
@@ -38,7 +38,7 @@ c.content.geolocation = False
 c.content.autoplay = False
 c.content.default_encoding = 'utf-8'
 c.content.pdfjs = True
-c.content.cookies.accept = "never"
+# c.content.cookies.accept = "never"
 c.content.javascript.enabled = False
 c.content.notifications.enabled = False
 
@@ -47,10 +47,13 @@ c.url.start_pages = ["about:blank"]
 c.url.open_base_url = True
 
 sites = [
-    'proton.me',
-    'github.com',
-    'gitlab.com',
-    'foli.fi',
+    'https://*.proton.me/*',
+    'https://*.startpage.com/*',
+    'https://*.10fastfingers.com/*',
+    'https://*.github.com/*',
+    'https://*.gitlab.com/*',
+    'https://*.reittiopas.foli.fi',
+    'https://*.bitwarden.com/*',
     ]
 for site in sites:
     config.set('content.javascript.enabled', True, site)

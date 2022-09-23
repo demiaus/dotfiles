@@ -6,7 +6,7 @@
 
 /* appearance */
 static const unsigned int borderpx       = 1;     /* border pixel of windows */
-static const unsigned int gappx          = 16;    /* gaps between windows */
+static const unsigned int gappx          = 8;    /* gaps between windows */
 static const unsigned int snap           = 32;    /* snap pixel */
 static const int swallowfloating         = 0;     /* 1 means swallow floating windows by default */
 static const int showbar                 = 1;     /* 0 means no bar */
@@ -17,7 +17,7 @@ static Bool bUseOpacity                  = False; /* Starts with opacity on any 
 static const int user_bh                 = 8;     /* 2 is the default spacing around the bar's font */
 
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
-static const char *fonts[]               = { "CozetteVector Nerd Font:size=12" };
+static const char *fonts[]               = { "CozetteVector Nerd Font:size=12", "DejaVu Sans Mono:size=12", };
 static const char dmenufont[]            =   "CozetteVector Nerd Font:size=10"  ;
 
 /* Rosé Pine https://rosepinetheme.com/palette */
