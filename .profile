@@ -5,6 +5,9 @@
 echo "" > ~/.log/rc.log
 echo "$(date +%T) open  ~/.profile" >> ~/.log/rc.log
 
+[ -f ~/.bashrc ] && . ~/.bashrc
+export PATH="$PATH:$HOME/.local/bin"
+
 export EDITOR=/usr/bin/vim
 export VISUAL=$EDITOR
 export SUDO_EDITOR=$EDITOR
@@ -19,7 +22,27 @@ export LESS='-MRi#8j.5'
 export LESSHISTFILE=/dev/null
 export PYTHONSTARTUP=~/.config/python/pythonrc
 
-[ -f ~/.config/path/path.env ] && . ~/.config/path/path.env
+FZF_DEFAULT_COMMAND='find .'
+FZF_IGNORE="
+  .cache
+  .cargo
+  .cert
+  .cfg
+  .chromium
+  .git
+  .icons
+  .librewolf
+  .mozilla
+  .pcloud
+  tmp
+  pCloudDrive
+"
+for dir in $FZF_IGNORE; do
+  FZF_DEFAULT_COMMAND="$FZF_DEFAULT_COMMAND -name $dir -prune -o"
+done
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND -type d -print"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND -type f -print"
+export FZF_DEFAULT_COMMAND="$FZF_DEFAULT_COMMAND -type f -print"
 
 #!/bin/sh
 if [ "$TERM" = "linux" ]; then
@@ -44,5 +67,5 @@ if [ "$TERM" = "linux" ]; then
   clear
 fi
 
-echo "$(date +%T) close ~/.config/env/env.conf" >> ~/.log/rc.log
+echo "$(date +%T) close ~/.profile" >> ~/.log/rc.log
 

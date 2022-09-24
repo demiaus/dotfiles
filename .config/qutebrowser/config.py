@@ -10,7 +10,7 @@ c.confirm_quit = ["downloads"]
 
 c.auto_save.session = True
 
-c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.enabled = False
 c.colors.webpage.preferred_color_scheme = 'dark'
 
 c.editor.command = ['st', '-e', 'vim', '-p', '{}' ]
@@ -37,7 +37,7 @@ c.content.fullscreen.overlay_timeout = 666
 c.content.geolocation = False
 c.content.autoplay = False
 c.content.default_encoding = 'utf-8'
-c.content.pdfjs = True
+c.content.pdfjs = False
 # c.content.cookies.accept = "never"
 c.content.javascript.enabled = False
 c.content.notifications.enabled = False
@@ -46,24 +46,9 @@ c.url.default_page = "about:blank"
 c.url.start_pages = ["about:blank"]
 c.url.open_base_url = True
 
-sites = [
-    'https://*.proton.me/*',
-    'https://*.startpage.com/*',
-    'https://*.10fastfingers.com/*',
-    'https://*.github.com/*',
-    'https://*.gitlab.com/*',
-    'https://*.reittiopas.foli.fi',
-    'https://*.bitwarden.com/*',
-    ]
-for site in sites:
-    config.set('content.javascript.enabled', True, site)
-    config.set('content.cookies.accept', 'no-3rdparty', site)
-
-config.set('content.headers.user_agent', 'iPhone', 'docs.google.com')
-config.set('content.headers.user_agent', 'iPhone', 'drive.google.com')
-
 config.source('rose-pine.py') # ~/.config/qutebrowser/rose-pine.py
 config.source('bindings.py')  # ~/.config/qutebrowser/bindings.py
 config.source('search.py')    # ~/.config/qutebrowser/search.py
 config.source('adblock.py')   # ~/.config/qutebrowser/adblock.py
+config.source('sites.py')     # ~/.config/qutebrowser/sites.py
 
