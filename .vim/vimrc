@@ -94,7 +94,7 @@ endif
 
 call plug#begin()
  Plug 'amadeus/vim-convert-color-to'
- Plug 'ap/vim-css-color'
+ " Plug 'ap/vim-css-color'
  Plug 'cespare/vim-toml', { 'branch': 'main' }
  Plug 'chrisbra/Colorizer'
  Plug 'christoomey/vim-titlecase'
@@ -237,6 +237,10 @@ cnoremap <C-e> <End>
 cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
 cnoremap <C-d> <Delete>
+
+" Insert newline
+nnoremap <CR> mzo<Esc>g`z
+nnoremap <Leader><CR> mzO<Esc>g`z
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
