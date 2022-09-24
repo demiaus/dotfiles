@@ -6,7 +6,8 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 
-static char *font = "CozetteVector Nerd Font:pixelsize=20:antialias=false:autohint=true";
+static char *font = "CozetteVector Nerd Font:pixelsize=13:antialias=true:autohint=true";
+static char *font2[] = { "DejaVu Sans Mono:pixelsize=13:antialias=true:autohint=true"};
 static int borderpx = 6;
 
 /*
