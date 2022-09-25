@@ -28,6 +28,7 @@ call plug#begin()
 	Plug 'glts/vim-radical'
 	Plug 'iamcco/markdown-preview.nvim'
 	Plug 'jorengarenar/vim-mvvis'
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/vim-easy-align'
 	Plug 'mattn/calendar-vim'
 	Plug 'psliwka/vim-smoothie'

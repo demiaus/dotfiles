@@ -7,6 +7,7 @@ echo "$(date +%T) open  ~/.profile" >> ~/.log/rc.log
 
 [ -f ~/.bashrc ] && . ~/.bashrc
 export PATH="$PATH:$HOME/.local/bin"
+export GTK_USE_PORTAL=1
 
 export EDITOR=/usr/bin/vim
 export VISUAL=$EDITOR

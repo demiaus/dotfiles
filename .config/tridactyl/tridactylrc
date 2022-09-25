@@ -1,6 +1,6 @@
-# 
+#
 # ~/.config/tridactyl/tridactylrc
-# 
+#
 
 " Make sure that unsetting an option here also resets it in the running session
 sanitise tridactyllocal tridactylsync
@@ -40,7 +40,9 @@ unbind W
 bind > tabmove +1
 bind < tabmove -1
 bind J tabnext
-bind K tabnext
+bind K tabprev
+bind o fillcmdline open
+bind O fillcmdline tabopen
 
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ f
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ j

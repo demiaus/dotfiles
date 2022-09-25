@@ -9,9 +9,6 @@ static const unsigned int snap           = 32;    /* snap pixel */
 static const int swallowfloating         = 0;     /* 1 means swallow floating windows by default */
 static const int showbar                 = 1;     /* 0 means no bar */
 static const int topbar                  = 1;     /* 0 means bottom bar */
-static const double activeopacity        = 1.0f;  /* Window opacity when it's focused (0 <= opacity <= 1) */
-static const double inactiveopacity      = 0.85f; /* Window opacity when it's inactive (0 <= opacity <= 1) */
-static Bool bUseOpacity                  = False; /* Starts with opacity on any unfocused windows */
 static const int user_bh                 = 8;     /* 2 is the default spacing around the bar's font */
 
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
@@ -156,7 +153,6 @@ static Key keys[] = {
         { MODKEY,                       XK_Tab,                   view,             {0} },
         { MODKEY2,                      XK_Tab,                   shiftviewclients, {.i = +1} },
         { MODKEY2|ShiftMask,            XK_Tab,                   shiftviewclients, {.i = -1} },
-        { MODKEY,                       XK_a,                     toggleopacity,    {0} },
         { MODKEY,                       XK_q,                     killclient,       {0} },
         { MODKEY,                       XK_t,                     setlayout,        {.v = &layouts[0]} },
         { MODKEY,                       XK_f,                     setlayout,        {.v = &layouts[1]} },
