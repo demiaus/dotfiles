@@ -7,6 +7,49 @@ filetype plugin on
 filetype indent on
 syntax on
 
+" PLUGINS {{{///////////////////////////////////////////////////////////////////
+
+" "VIM-PLUG AUTO-INSTALL"
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+	silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs 
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+	Plug 'amadeus/vim-convert-color-to'
+	Plug 'cespare/vim-toml', { 'branch': 'main' }
+	Plug 'chrisbra/colorizer'
+	Plug 'christoomey/vim-titlecase'
+	Plug 'dylanaraps/fff.vim'
+	Plug 'glts/vim-magnum'
+	Plug 'glts/vim-radical'
+	Plug 'iamcco/markdown-preview.nvim'
+	Plug 'jorengarenar/vim-mvvis'
+	Plug 'junegunn/vim-easy-align'
+	Plug 'mattn/calendar-vim'
+	Plug 'psliwka/vim-smoothie'
+	Plug 'romainl/vim-cool'
+	Plug 'sersorrel/vim-lilypond'
+	Plug 'sheerun/vim-polyglot'
+	Plug 'svermeulen/vim-subversive'
+	Plug 'svermeulen/vim-yoink'
+	Plug 'tommcdo/vim-exchange'
+	Plug 'tpope/vim-abolish' " required by VIM-SUBVERSIVE
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-repeat'
+	Plug 'tpope/vim-surround'
+	Plug 'tridactyl/vim-tridactyl'
+	Plug 'vimwiki/vimwiki'
+	Plug 'wellle/targets.vim'
+	Plug 'wellle/visual-split.vim'
+call plug#end()
+
+"}}}////////////////////////////////////////////////////////////////////////////
+
 " {{{ SETTINGS /////////////////////////////////////////////////////////////////
 
 set nocompatible
@@ -36,7 +79,7 @@ set showmode
 set shiftwidth=8
 set tabstop=8
 set softtabstop=8
-set expandtab
+" set expandtab
 set smartindent
 set shiftround
 
@@ -64,90 +107,39 @@ set foldmethod=marker
 set background=dark
 
 if $TERM == 'linux'
-    hi ColorColumn  ctermfg=1 ctermbg=0
-    hi TabLineFill  ctermfg=0 ctermbg=0
-    hi TabLineSel   ctermfg=2 ctermbg=0
-    hi StatusLine   ctermfg=0 ctermbg=2
-    hi StatusLine   ctermfg=0 ctermbg=2
-    hi StatusLineNC ctermfg=0 ctermbg=4
-    hi CursorColumn ctermfg=NONE ctermbg=8
-    hi CursorLine   ctermfg=NONE ctermbg=8
+	hi ColorColumn	ctermfg=1	ctermbg=0
+	hi TabLineFill	ctermfg=0	ctermbg=0
+	hi TabLineSel	ctermfg=2	ctermbg=0
+	hi StatusLine	ctermfg=0	ctermbg=2
+	hi StatusLine	ctermfg=0	ctermbg=2
+	hi StatusLineNC	ctermfg=0	ctermbg=4
+	hi CursorColumn	ctermfg=NONE	ctermbg=8
+	hi CursorLine	ctermfg=NONE	ctermbg=8
 else
-    set termguicolors
-    colorscheme rose-pine-dark
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	set termguicolors
+	colorscheme rose-pine-dark
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
 " }}} //////////////////////////////////////////////////////////////////////////
-
-" PLUGINS {{{///////////////////////////////////////////////////////////////////
-
-" "VIM-PLUG AUTO-INSTALL"
-
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-        silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs 
-                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin()
- Plug 'amadeus/vim-convert-color-to'
- " Plug 'ap/vim-css-color'
- Plug 'cespare/vim-toml', { 'branch': 'main' }
- Plug 'chrisbra/Colorizer'
- Plug 'christoomey/vim-titlecase'
- Plug 'dylanaraps/fff.vim'
- Plug 'glts/vim-magnum'
- Plug 'glts/vim-radical'
- Plug 'iamcco/markdown-preview.nvim'
- Plug 'jorengarenar/vim-mvvis'
- Plug 'junegunn/vim-easy-align'
- Plug 'mattn/calendar-vim'
- Plug 'psliwka/vim-smoothie'
- Plug 'romainl/vim-cool'
- Plug 'sersorrel/vim-lilypond'
- Plug 'sheerun/vim-polyglot'
- Plug 'svermeulen/vim-subversive'
- Plug 'svermeulen/vim-yoink'
- Plug 'tommcdo/vim-exchange'
- Plug 'tpope/vim-abolish' " required by VIM-SUBVERSIVE
- Plug 'tpope/vim-commentary'
- Plug 'tpope/vim-fugitive'
- Plug 'tpope/vim-repeat'
- Plug 'tpope/vim-surround'
- Plug 'tridactyl/vim-tridactyl'
- Plug 'vimwiki/vimwiki'
- " Plug 'wellle/context.vim'
- Plug 'wellle/targets.vim'
- Plug 'wellle/visual-split.vim'
-call plug#end()
-
-"}}}////////////////////////////////////////////////////////////////////////////
 
 " FUNCTIONS {{{/////////////////////////////////////////////////////////////////
 
 " Set C build
 function! COptions()
-    setlocal commentstring=//\ %s
-    if filereadable(expand("./build.sh"))
-        setlocal makeprg=./buildh.sh\ %
-    elseif filereadable(expand("~/projects/c/build.sh"))
-        setlocal makeprg=~/projects/c/build.sh\ %
-    endif
+	setlocal commentstring=//\ %s
+	if filereadable(expand("./build.sh"))
+		setlocal makeprg=./buildh.sh\ %
+	elseif filereadable(expand("~/projects/c/build.sh"))
+		setlocal makeprg=~/projects/c/build.sh\ %
+	endif
 endfunction
-
-" See what's changed after current buffer was opened
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-                  \ | wincmd p | diffthis
-endif
 
 " Replace colorname under cursor with value from .Xresources
 function! GetXresColor()
-        let l:hex = substitute(system('xrdb -query | grep ' . expand("<cword>") . ' | cut -f 2'), '\n\+$', '', '')
-        execute "normal! ciw" . l:hex
+	let l:hex = substitute(system('xrdb -query | grep ' . expand("<cword>") . ' | cut -f 2'), '\n\+$', '', '')
+	execute "normal! ciw" . l:hex
 endfunction
 
 " }}}///////////////////////////////////////////////////////////////////////////
@@ -187,15 +179,15 @@ nnoremap <F3> :set list!<CR>
 nnoremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>
 
 " Disable/enable automatic comments
-nnoremap <Leader>c  :set formatoptions-=cro<CR>
-nnoremap <Leader>C  :set formatoptions+=cro<CR>
+nnoremap <Leader>c :set formatoptions-=cro<CR>
+nnoremap <Leader>C :set formatoptions+=cro<CR>
 inoremap <C-c> <Esc>:set formatoptions-=cro<CR>a<Space>
 
 " Hide search highlights
 nnoremap <Leader><Leader> :nohls<CR>
 
 " Open / source vimrc
-nnoremap <Leader>vi :tabe   $MYVIMRC<CR>
+nnoremap <Leader>vi :tabe $MYVIMRC<CR>
 nnoremap <Leader>so :source $MYVIMRC<CR>
 
 " Fix spelling
@@ -261,53 +253,56 @@ nmap <Leader>a <Plug>(EasyAlign)
 xmap <Leader>a <Plug>(EasyAlign)
 
 " "SUBVERSIVE"
-nmap s           <Plug>(SubversiveSubstitute)
-nmap ss          <Plug>(SubversiveSubstituteLine)
-nmap S           <Plug>(SubversiveSubstituteToEndOfLine)
-nmap <Leader>s   <Plug>(SubversiveSubvertRange)
-nmap <Leader>ss  <Plug>(SubversiveSubvertWordRange)
-nmap <Leader>cs  <Plug>(SubversiveSubstituteRangeConfirm)
-nmap <Leader>css <Plug>(SubversiveSubstituteWordRangeConfirm)
-xmap <Leader>s   <Plug>(SubversiveSubvertRange)
-xmap s           <Plug>(SubversiveSubstitute)
-xmap p           <Plug>(SubversiveSubstitute)
-xmap P           <Plug>(SubversiveSubstitute)
-xmap <Leader>cs  <Plug>(SubversiveSubstituteRangeConfirm)
+nmap s			<Plug>(SubversiveSubstitute)
+nmap S			<Plug>(SubversiveSubstituteToEndOfLine)
+nmap ss			<Plug>(SubversiveSubstituteLine)
+nmap <Leader>s		<Plug>(SubversiveSubvertRange)
+nmap <Leader>ss		<Plug>(SubversiveSubvertWordRange)
+nmap <Leader>cs		<Plug>(SubversiveSubstituteRangeConfirm)
+nmap <Leader>css	<Plug>(SubversiveSubstituteWordRangeConfirm)
+xmap <Leader>s		<Plug>(SubversiveSubvertRange)
+xmap s			<Plug>(SubversiveSubstitute)
+xmap p			<Plug>(SubversiveSubstitute)
+xmap P			<Plug>(SubversiveSubstitute)
+xmap <Leader>cs		<Plug>(SubversiveSubstituteRangeConfirm)
 
 " "YOINK"
-nmap <C-n> <Plug>(YoinkPostPasteSwapBack)
-nmap <C-p> <Plug>(YoinkPostPasteSwapForward)
-nmap p     <Plug>(YoinkPaste_p)
-nmap P     <Plug>(YoinkPaste_P)
-nmap gp    <Plug>(YoinkPaste_gp)
-nmap gP    <Plug>(YoinkPaste_gP)
+nmap <C-n>	<Plug>(YoinkPostPasteSwapBack)
+nmap <C-p>	<Plug>(YoinkPostPasteSwapForward)
+nmap p		<Plug>(YoinkPaste_p)
+nmap P		<Plug>(YoinkPaste_P)
+nmap gp		<Plug>(YoinkPaste_gp)
+nmap gP		<Plug>(YoinkPaste_gP)
 
 " "VISUAL-SPLIT"
-xmap <C-W>gr  <Plug>(Visual-Split-VSResize)
-xmap <C-W>gss <Plug>(Visual-Split-VSSplit)
-xmap <C-W>gsa <Plug>(Visual-Split-VSSplitAbove)
-xmap <C-W>gsb <Plug>(Visual-Split-VSSplitBelow)
+xmap <C-W>gr	<Plug>(Visual-Split-VSResize)
+xmap <C-W>gss	<Plug>(Visual-Split-VSSplit)
+xmap <C-W>gsa	<Plug>(Visual-Split-VSSplitAbove)
+xmap <C-W>gsb	<Plug>(Visual-Split-VSSplitBelow)
 
 " "MAGNUM"
-" gA  - Shows the four representations of the number under the cursor (or selected in Visual mode).
-" crd - Convert to decimal
-" crx - Convert to hex
-" cro - Convert to octal
-" crb - Convert to binary
+" gA	Shows the four representations of the number under the cursor (or selected in Visual mode).
+" crd	Convert to decimal
+" crx	Convert to hex
+" cro	Convert to octal
+" crb	Convert to binary
 
 " "EXCHANGE"
-" cx + motion - Exchange
-" cxx         - Exchange line
-" X           - Exchange selection
+" cx + motion	Exchange
+" cxx		Exchange line
+" X		Exchange selection
 
 " "VIM-COMMENTARY"
-" gcc - Comment out a line
-" gc  - Comment out a selection
+" gcc	Comment out a line
+" gc	Comment out a selection
 
 " "VIM-TITLECASE"
-" nmap <Leader>gz  <Plug>Titlecase
-" nmap <Leader>gzz <Plug>TitlecaseLine
-" vmap <Leader>gz  <Plug>Titlecase
+" nmap <Leader>gz	<Plug>Titlecase
+" nmap <Leader>gzz	<Plug>TitlecaseLine
+" vmap <Leader>gz	<Plug>Titlecase
+
+" "COLORIZER"
+nnoremap <Leader>co :ColorToggle<CR>
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
@@ -331,15 +326,19 @@ let vim_markdown_preview_browser='/usr/bin/qutebrowser'
 " "VIM-TITLECASE"
 let g:titlecase_excluded_words = ["and", "as", "as if", "as long as", "at", "but", "by", "even if", "for", "from", "if", "if only", "in", "into", "like", "near", "now that", "nor", "of", "off", "on", "on top of", "once", "onto", "or", "out of", "over", "past", "so", "so that", "than", "that", "till", "to", "up", "upon", "with", "when", "yet"] 
 
+" "COLORIZER"
+" Don't colorize colornames
+let g:colorizer_colornames = 0
+
 " }}}///////////////////////////////////////////////////////////////////////////
 
 " AUTOCMDS {{{//////////////////////////////////////////////////////////////////
 
 command! Diary VimwikiDiaryIndex
 augroup vimwikigroup
-    autocmd!
-    " Automatically update links on read diary
-    autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
+	autocmd!
+	" Automatically update links on read diary
+	autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
 augroup end
 
 " PHP File Types (WordPress, use tabs)
@@ -350,20 +349,20 @@ autocmd Filetype c call COptions()
 
 " Remember position of last edit and return on reopen
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 " Disable CursorLine/-Column in inactive windows
 augroup CursorLine
-    au!
-    au VimEnter * setlocal cursorline
-    au VimEnter * setlocal cursorcolumn
-    au WinEnter * setlocal cursorline
-    au WinEnter * setlocal cursorcolumn
-    au BufWinEnter * setlocal cursorline
-    au BufWinEnter * setlocal cursorcolumn
-    au WinLeave * setlocal nocursorline
-    au WinLeave * setlocal nocursorcolumn
+	au!
+	au VimEnter * setlocal cursorline
+	au VimEnter * setlocal cursorcolumn
+	au WinEnter * setlocal cursorline
+	au WinEnter * setlocal cursorcolumn
+	au BufWinEnter * setlocal cursorline
+	au BufWinEnter * setlocal cursorcolumn
+	au WinLeave * setlocal nocursorline
+	au WinLeave * setlocal nocursorcolumn
 augroup END
 
 " }}}///////////////////////////////////////////////////////////////////////////
