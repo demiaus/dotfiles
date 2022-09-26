@@ -1,4 +1,4 @@
--S "res:1080,ext" 
+-S "res:1080,ext"
 --prefer-free-formats
 --trim-filenames 64
 --restrict-filenames

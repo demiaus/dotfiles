@@ -113,7 +113,6 @@ static const char *shutdowncmd[]       = { "systemctl", "poweroff", NULL };
 static const char *rebootcmd[]         = { "systemctl", "reboot",   NULL };
 /* rofi */
 static const char *passcmd[]           = { "rofi-rbw", NULL };
-static const char *roficmd[]           = { "rofi", "-show", "run", NULL };
 static const char *emojicmd[]          = { "rofi", "-modi", "emoji", "-show", "emoji", NULL };
 
 static Key keys[] = {
@@ -131,7 +130,7 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_z,                     spawn,            {.v = boxzoomcmd        } },
         { MODKEY|ShiftMask,             XK_b,                     spawn,            {.v = browsercmd        } },
         { TERMMOD,                      XK_8,                     spawn,            {.v = passcmd           } },
-        { MODKEY|ShiftMask,             XK_p,                     spawn,            {.v = roficmd           } },
+        { MODKEY|ShiftMask,             XK_p,                     spawn,            {.v = dmenucmd          } },
         { MODKEY,                       XK_e,                     spawn,            {.v = emojicmd          } },
         { TERMMOD,                      XK_BackSpace,             spawn,            {.v = rebootcmd         } },
         { TERMMOD,                      XK_Delete,                spawn,            {.v = shutdowncmd       } },

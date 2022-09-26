@@ -7,7 +7,6 @@
  */
 
 static char *font = "CozetteVector Nerd Font:pixelsize=13:antialias=true:autohint=true";
-static char *font2[] = { "DejaVu Sans Mono:pixelsize=13:antialias=true:autohint=true"};
 static int borderpx = 6;
 
 /*
