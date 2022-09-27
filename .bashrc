@@ -15,6 +15,8 @@ echo "$(date +%T) open  ~/.bashrc" >> ~/.log/rc.log
 [[ "$(whoami)" = "root" ]] && return
 [[ -z "$FUNCNEST" ]] && export FUNCNEST=100
 
+PS1="\[\033[36m\]$PS1\[\033[00m\]"
+
 f() {
     fff "$@"
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"

@@ -12,7 +12,10 @@ static const int topbar                  = 1;     /* 0 means bottom bar */
 static const int user_bh                 = 8;     /* 2 is the default spacing around the bar's font */
 
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
-static const char *fonts[]               = { "CozetteVector Nerd Font:size=12", "DejaVu Sans Mono:size=12", };
+static const char *fonts[]               = {
+	"CozetteVector Nerd Font:size=12:antialias=true:autohint=true",
+	"DejaVu Sans Mono:size=12:antialias=true:autohint=true"
+};
 
 /* Rosé Pine https://rosepinetheme.com/palette */
 static const char col_base[]            = "#191724";
@@ -45,7 +48,7 @@ static const Rule rules[] = {
         { "st",                NULL,          NULL,           1,         1,           0,          1,          0,         -1,      0          },
         { "librewolf",         NULL,          NULL,           1 << 1,    1,           0,          0,          0,         -1,      0          },
         { "qutebrowser",       NULL,          NULL,           1 << 1,    1,           0,          0,          0,         -1,      0          },
-        { "mpv",               NULL,          NULL,           1 << 3,    1,           0,          0,          0,         -1,      0          },
+        { "mpv",               NULL,          NULL,           1,         1,           0,          0,          0,         -1,      0          },
         { "MuseScore3",        NULL,          NULL,           1 << 8,    1,           0,          0,          0,         -1,      0          },
 
         { "Signal",            NULL,          NULL,           1 << 6,    0,           0,          0,          0,         -1,      0          },
