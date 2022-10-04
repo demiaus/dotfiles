@@ -1,4 +1,4 @@
-# krumeluu's suckless [st](https://st.suckless.org/) build
+# demiaus's suckless [st](https://st.suckless.org/) build
 
 ### Patches
 - [alpha](https://st.suckless.org/patches/alpha/)

@@ -26,6 +26,6 @@ case $1 in
         ;;
 esac
 
-#canberra-gtk-play -i camera-shutter > /dev/null
+canberra-gtk-play -i camera-shutter > /dev/null
 
 exit 0

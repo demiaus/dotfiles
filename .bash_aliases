@@ -26,6 +26,12 @@ alias yt=yt-dlp
 alias yta='yt-dlp -x'
 alias myip='curl ipinfo.io'
 alias isup='ps aux | grep'
+alias sää='curl wttr.in/Turku?M'
+alias mv='mv -v'
+alias rm='rm -v'
+alias cp='cp -v'
+alias rmdir='rmdir -v'
+alias r='ranger'
 
 echo "$(date +%T) close ~/.bash_aliases" >> ~/.log/rc.log
 

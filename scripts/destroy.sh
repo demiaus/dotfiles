@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Shred an remove
+# Shred and remove
 
 for file in $@; do
         if [ -f "$file" ]; then

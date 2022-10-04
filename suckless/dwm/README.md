@@ -4,12 +4,13 @@
 - [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/)
 - [bar height (spacing)](https://dwm.suckless.org/patches/bar_height/)
 - [centeredwindowname](https://dwm.suckless.org/patches/centeredwindowname/)
-- [fadeinactive](https://dwm.suckless.org/patches/fadeinactive/)
 - [focusmaster](https://dwm.suckless.org/patches/focusmaster/)
-- [fullgaps](https://dwm.suckless.org/patches/fullgaps/)
+- [moveresize](https://dwm.suckless.org/patches/moveresize/)
 - [notallowed](https://dwm.suckless.org/patches/notallowed/)
 - [pertag](https://dwm.suckless.org/patches/pertag/)
+- [rmaster](https://dwm.suckless.org/patches/rmaster/)
 - [rotatestack](https://dwm.suckless.org/patches/rotatestack/)
+- [smartborders](https://dwm.suckless.org/patches/smartborders/)
 - [shiftviewclients](https://github.com/bakkeby/patches/blob/master/dwm/dwm-shiftviewclients-6.2.diff)
 - [swallow](https://dwm.suckless.org/patches/swallow/)
 - [switchtotag](https://dwm.suckless.org/patches/switchtotag/)
@@ -17,7 +18,7 @@
 ### Requirements
 - [dmenu](https://tools.suckless.org/dmenu/)
 - [Nerd Fonts patched Cozette font](https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf), or change the font in config.def.h
-- [They say](https://wiki.archlinux.org/title/st#Crashes_if_page_contains_emoji_characters) colour emoji in the title bar will crash dwm. As per Arch Wiki, you can install [Symbola](https://aur.archlinux.org/packages/ttf-symbola) font to fix this
+- [They say](https://wiki.archlinux.org/title/st#Crashes_if_page_contains_emoji_characters) colour emoji in the title bar will crash dwm. As per Arch Wiki, you can install [Symbola](https://aur.archlinux.org/packages/ttf-symbola) font to fix this. Why would you want color emoji anyway?
 
 ## Official README by suckless:
 

@@ -2,27 +2,48 @@
 # ~/.bashrc
 #
 
-[[ $- != *i* ]] && return
+[[ $- != *i*            ]] && return
+[[ "$(whoami)" = "root" ]] && return
+[[ -z "$FUNCNEST"       ]] && export FUNCNEST=100
 
 echo "$(date +%T) open  ~/.bashrc" >> ~/.log/rc.log
 
-[ -f ~/.bash_aliases                  ] && . ~/.bash_aliases
-[ -f /usr/share/fzf/key-bindings.bash ] && . /usr/share/fzf/key-bindings.bash
-[ -f /usr/share/fzf/completion.bash   ] && . /usr/share/fzf/completion.bash
-[ -f ~/.config/fzf/rose-pine.fzf      ] && . ~/.config/fzf/rose-pine.fzf
+[ -f ~/.bash_aliases ] && . ~/.bash_aliases
+
+if [ -x /usr/bin/fzf ]; then
+    [ -f /usr/share/fzf/key-bindings.bash ] && . /usr/share/fzf/key-bindings.bash
+    [ -f /usr/share/fzf/completion.bash   ] && . /usr/share/fzf/completion.bash
+    [ -f ~/.config/fzf/rose-pine.fzf      ] && . ~/.config/fzf/rose-pine.fzf
+fi
+
 [ -f /usr/share/doc/pkgfile/command-not-found.bash ] && . /usr/share/doc/pkgfile/command-not-found.bash
 
-[[ "$(whoami)" = "root" ]] && return
-[[ -z "$FUNCNEST" ]] && export FUNCNEST=100
+if [ -x /usr/bin/fff ]; then
+    [ -f ~/.config/fff/fff.conf ] && . ~/.config/fff/fff.conf
+    f() {
+        fff "$@"
+        cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+    }
+fi
+
+if [ -x /usr/bin/lf ]; then
+    [ -f ~/.config/lf/lfcd.sh ] && . ~/.config/lf/lfcd.sh
+    bind '"\C-o":"lfcd\C-m"'
+
+fi
+
+if [ -x /usr/bin/ranger ]; then
+    ranger() {
+        if [ -z "$RANGER_LEVEL" ]; then
+            /usr/bin/ranger "$@"
+        else
+            exit
+        fi
+    }
+fi
+
 
 PS1="\[\033[36m\]$PS1\[\033[00m\]"
-
-f() {
-    fff "$@"
-    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
-}
-
-[ -f ~/.config/fff/fff.env   ] && . ~/.config/fff/fff.env
 
 set -o noclobber
 set -o ignoreeof

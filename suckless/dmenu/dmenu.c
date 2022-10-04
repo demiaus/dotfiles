@@ -13,6 +13,9 @@
 #include <X11/Xatom.h>
 #include <X11/Xproto.h>
 #include <X11/Xutil.h>
+#ifdef XINERAMA
+#include <X11/extensions/Xinerama.h>
+#endif
 #include <X11/Xft/Xft.h>
 
 #include "drw.h"
@@ -37,8 +40,6 @@ struct item {
 	int out;
 	double distance;
 };
-
-static unsigned int border_width = 0;
 
 static char text[BUFSIZ] = "";
 static char *embed;
@@ -759,15 +760,21 @@ static void
 setup(void)
 {
 	int x, y, i, j;
+    x = y = i = j = 0;
 	unsigned int du;
 	XSetWindowAttributes swa;
 	XIM xim;
 	Window w, dw, *dws;
 	XWindowAttributes wa;
 	XClassHint ch = {"dmenu", "dmenu"};
+#ifdef XINERAMA
+	XineramaScreenInfo *info;
+	Window pw;
+	int a, di, n, area = 0;
+#endif
 	/* init appearance */
 	for (j = 0; j < SchemeLast; j++)
-		scheme[j] = drw_scm_create(drw, colors[j], alphas[j], 2);
+		scheme[j] = drw_scm_create(drw, colors[j], alphas[i], 2);
 
 	clip = XInternAtom(dpy, "CLIPBOARD",   False);
 	utf8 = XInternAtom(dpy, "UTF8_STRING", False);
@@ -778,12 +785,45 @@ setup(void)
 	lines = MAX(lines, 0);
 	mh = (lines + 1) * bh;
 	promptw = (prompt && *prompt) ? TEXTW(prompt) - lrpad / 4 : 0;
-	if (!XGetWindowAttributes(dpy, parentwin, &wa))
-		die("could not get embedding window attributes: 0x%lx",
-			parentwin);
-	mw = MIN(MAX(max_textw() + promptw, 100), wa.width);
-	x = (wa.width  - mw) / 2;
-	y = (wa.height - mh) / 2;
+#ifdef XINERAMA
+	if (parentwin == root && (info = XineramaQueryScreens(dpy, &n))) {
+		XGetInputFocus(dpy, &w, &di);
+		if (mon >= 0 && mon < n)
+			i = mon;
+		else if (w != root && w != PointerRoot && w != None) {
+			/* find top-level window containing current input focus */
+			do {
+				if (XQueryTree(dpy, (pw = w), &dw, &w, &dws, &du) && dws)
+					XFree(dws);
+			} while (w != root && w != pw);
+			/* find xinerama screen with which the window intersects most */
+			if (XGetWindowAttributes(dpy, pw, &wa))
+				for (j = 0; j < n; j++)
+					if ((a = INTERSECT(wa.x, wa.y, wa.width, wa.height, info[j])) > area) {
+						area = a;
+						i = j;
+					}
+		}
+		/* no focused window is on screen, so use pointer location instead */
+		if (mon < 0 && !area && XQueryPointer(dpy, root, &dw, &dw, &x, &y, &di, &di, &du))
+			for (i = 0; i < n; i++)
+				if (INTERSECT(x, y, 1, 1, info[i]) != 0)
+					break;
+
+		mw = MIN(MAX(max_textw() + promptw, 100), info[i].width);
+		x = info[i].x_org + ((info[i].width  - mw) / 2);
+		y = info[i].y_org + ((info[i].height - mh) / 2);
+		XFree(info);
+	} else
+#endif
+	{
+		if (!XGetWindowAttributes(dpy, parentwin, &wa))
+			die("could not get embedding window attributes: 0x%lx",
+			    parentwin);
+		mw = MIN(MAX(max_textw() + promptw, 100), wa.width);
+		x = (wa.width  - mw) / 2;
+		y = (wa.height - mh) / 2;
+	}
 	inputw = mw / 3; /* input width: ~33% of monitor width */
 	match();
 
@@ -793,7 +833,7 @@ setup(void)
 	swa.border_pixel = 0;
 	swa.colormap = cmap;
 	swa.event_mask = ExposureMask | KeyPressMask | VisibilityChangeMask;
-	win = XCreateWindow(dpy, parentwin, x, y - (topbar ? 0 : border_width * 2), mw - border_width * 2, mh, border_width,
+	win = XCreateWindow(dpy, parentwin, x, y, mw, mh, border_width,
 	                    depth, CopyFromParent, visual,
 	                    CWOverrideRedirect | CWBackPixel | CWBorderPixel | CWColormap | CWEventMask, &swa);
 	if (border_width)

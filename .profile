@@ -6,14 +6,17 @@ echo "" > ~/.log/rc.log
 echo "$(date +%T) open  ~/.profile" >> ~/.log/rc.log
 
 [ -f ~/.bashrc ] && . ~/.bashrc
-export PATH="$PATH:$HOME/.local/bin"
-export GTK_USE_PORTAL=1
 
-export EDITOR=/usr/bin/vim
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config" # This should be redundant, but some script authors don't know that
+export XDG_CACHE_HOME="$HOME/.cache"
+export GTK_USE_PORTAL=1
+export EDITOR=vim
 export VISUAL=$EDITOR
 export SUDO_EDITOR=$EDITOR
-export BROWSER=/usr/bin/qutebrowser
-export TERMINAL=/usr/local/st
+export BROWSER=$HOME/.local/bin/browser
+export TERMINAL=st
 export LESS='-MRi#8j.5'
 #             |||| `- center on search matches
 #             |||`--- scroll horizontally 8 columns at a time
