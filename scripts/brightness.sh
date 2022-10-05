@@ -8,20 +8,12 @@ fi
 
 case $1 in
 'up')
-        brightnessctl set +5% ;;
+        brightnessctl set +5% save;;
 'down')
-        brightnessctl set 5%- ;;
+        brightnessctl set 5%- save;;
 *)
         echo "parsing error"
         exit 1 ;;
 esac
-
-# Wonky ceiling "func"
-max=$(brightnessctl max)
-cur=$(brightnessctl get)
-mod=$((cur * 100 % max))
-per=$(( (cur * 100 + (max - mod)) / max))
-
-dunstify -r 69 -u low "$per %"
 
 exit 0

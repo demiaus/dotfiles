@@ -27,7 +27,7 @@ fi
 dex -a
 
 # screen
-brightnessctl set 70%
+brightnessctl --restore
 ~/.fehbg
 picom --config ~/.config/picom/picom.conf &
 redshift &

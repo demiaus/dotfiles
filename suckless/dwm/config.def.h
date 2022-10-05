@@ -93,8 +93,8 @@ static const char *volmutetogglecmd[]  = { "vol.sh", "mute", NULL };
 static const char *voldowncmd[]        = { "vol.sh", "down", NULL };
 static const char *volupcmd[]          = { "vol.sh", "up",   NULL };
 /* screen */
-static const char *brightnessupcmd[]   = { "brightnessctl", "set", "+5%", NULL };
-static const char *brightnessdowncmd[] = { "brightnessctl", "set", "5%-", NULL };
+static const char *brightnessupcmd[]   = { "brightness.sh", "up",   NULL };
+static const char *brightnessdowncmd[] = { "brightness.sh", "down", NULL };
 static const char *screenclipcmd[]     = { "screenshot.sh", "clip", NULL };
 static const char *screensavecmd[]     = { "screenshot.sh", "save", NULL };
 static const char *screenopencmd[]     = { "screenshot.sh", "edit", NULL };
