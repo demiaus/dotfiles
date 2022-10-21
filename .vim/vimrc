@@ -19,12 +19,12 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
+    " Plug 'dylanaraps/fff.vim'
+    " Plug 'francoiscabrol/ranger.vim'
     Plug 'amadeus/vim-convert-color-to'
     Plug 'cespare/vim-toml', { 'branch': 'main' }
     Plug 'chrisbra/colorizer'
     Plug 'christoomey/vim-titlecase'
-    " Plug 'dylanaraps/fff.vim'
-    " Plug 'francoiscabrol/ranger.vim'
     Plug 'glts/vim-magnum'
     Plug 'glts/vim-radical'
     Plug 'iamcco/markdown-preview.nvim'
@@ -38,6 +38,7 @@ call plug#begin()
     Plug 'rust-lang/rust.vim'
     Plug 'sersorrel/vim-lilypond'
     Plug 'sheerun/vim-polyglot'
+    " Plug 'svermeulen/vim-cutlass'
     Plug 'svermeulen/vim-subversive'
     Plug 'svermeulen/vim-yoink'
     Plug 'tommcdo/vim-exchange'
@@ -134,7 +135,7 @@ endif
 function! COptions()
     setlocal commentstring=//\ %s
     if filereadable(expand("./build.sh"))
-        setlocal makeprg=./buildh.sh\ %
+        setlocal makeprg=./build.sh\ %
     elseif filereadable(expand("~/projects/c/build.sh"))
         setlocal makeprg=~/projects/c/build.sh\ %
     endif
@@ -284,31 +285,39 @@ xmap <C-W>gsa   <Plug>(Visual-Split-VSSplitAbove)
 xmap <C-W>gsb   <Plug>(Visual-Split-VSSplitBelow)
 
 " "MAGNUM"
-" gA    Shows the four representations of the number under the cursor (or selected in Visual mode).
-" crd   Convert to decimal
-" crx   Convert to hex
-" cro   Convert to octal
-" crb   Convert to binary
+" gA  Shows the four representations of the number under the cursor (or selected in Visual mode).
+" crd Convert to decimal
+" crx Convert to hex
+" cro Convert to octal
+" crb Convert to binary
 
 " "EXCHANGE"
-" cx + motion   Exchange
-" cxx       Exchange line
-" X     Exchange selection
+" nremap cx  <Plug>Exchange
+" nremap cxx <Plug>Exchange_line
+" xremap X   <Plug>Exchange_selection
 
 " "VIM-COMMENTARY"
-" gcc   Comment out a line
-" gc    Comment out a selection
+" gcc Comment out a line
+" gc  Comment out a selection
 
 " "VIM-TITLECASE"
-" nmap <Leader>gz   <Plug>Titlecase
-" nmap <Leader>gzz  <Plug>TitlecaseLine
-" vmap <Leader>gz   <Plug>Titlecase
+" nmap <Leader>gz  <Plug>Titlecase
+" nmap <Leader>gzz <Plug>TitlecaseLine
+" vmap <Leader>gz  <Plug>Titlecase
 
 " "COLORIZER"
 nnoremap <Leader>co :ColorToggle<CR>
 
 " "VIM-RANGER"
 " <Leader>f Open files
+
+" "VIM-CUTLASS"
+nnoremap m  d
+xnoremap m  d
+nnoremap mm dd
+nnoremap M  D
+nnoremap <Leader>m m
+nnoremap <Leader>M M
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
@@ -322,7 +331,7 @@ let g:loaded_matchparen=1
 
 " "EASY-ALIGN"
 " Also align comments
-let g:easy_align_ignore_unmatched = 0
+let g:easy_align_ignore_unmatched=0
 
 " "VIM MARKDOWN PREVIEW"
 let vim_markdown_preview_toggle=2
@@ -334,7 +343,10 @@ let g:titlecase_excluded_words = ["and", "as", "as if", "as long as", "at", "but
 
 " "COLORIZER"
 " Don't colorize colornames
-let g:colorizer_colornames = 0
+let g:colorizer_colornames=0
+
+" "YOINK"
+let  g:yoinkIncludeDeleteOperations=1
 
 " }}}///////////////////////////////////////////////////////////////////////////
 

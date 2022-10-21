@@ -1,6 +1,6 @@
 {
 	"aururl": "https://aur.archlinux.org",
-	"buildDir": "/home/demiaus/.cache/yay",
+	"buildDir": "/home/ami/.cache/yay",
 	"editor": "",
 	"editorflags": "",
 	"makepkgbin": "makepkg",

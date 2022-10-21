@@ -51,7 +51,7 @@ c.content.site_specific_quirks.enabled = True
 c.content.webrtc_ip_handling_policy = 'disable-non-proxied-udp'
 c.content.prefers_reduced_motion = True
 c.content.notifications.enabled = False
-c.content.javascript.enabled = False
+c.content.javascript.enabled = True
 c.content.cookies.accept = "never"
 
 config.source('rose-pine.py') # ~/.config/qutebrowser/rose-pine.py
