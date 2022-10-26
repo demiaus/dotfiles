@@ -4,6 +4,8 @@
 - [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/)
 - [bar height (spacing)](https://dwm.suckless.org/patches/bar_height/)
 - [centeredwindowname](https://dwm.suckless.org/patches/centeredwindowname/)
+- [clientopacity](https://dwm.suckless.org/patches/clientopacity/)
+- [fadeinactive](https://dwm.suckless.org/patches/fadeinactive/)
 - [focusmaster](https://dwm.suckless.org/patches/focusmaster/)
 - [moveresize](https://dwm.suckless.org/patches/moveresize/)
 - [notallowed](https://dwm.suckless.org/patches/notallowed/)

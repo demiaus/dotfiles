@@ -97,7 +97,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.85;
+float alpha = 0.925;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -147,9 +147,9 @@ unsigned int const highlightFg = 1; /* love */
 Glyph styleSearch = {' ', ATTR_ITALIC | ATTR_BOLD_FAINT, 0, 0};
 /// String in low right corner, styles by mode  ([yank, visual, visualLine, no operation]).
 Glyph style[] = {{' ', ATTR_ITALIC|ATTR_FAINT, 0, 0},
-								 {' ', ATTR_ITALIC, 0, 0},
                  {' ', ATTR_ITALIC, 0, 0},
-								 {' ', ATTR_ITALIC, 0, 0}};
+                 {' ', ATTR_ITALIC, 0, 0},
+                 {' ', ATTR_ITALIC, 0, 0}};
 
 /// Enable double / triple click yanking / selection of word / line.
 int const mouseYank   = 1;

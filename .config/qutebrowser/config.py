@@ -52,11 +52,10 @@ c.content.webrtc_ip_handling_policy = 'disable-non-proxied-udp'
 c.content.prefers_reduced_motion = True
 c.content.notifications.enabled = False
 c.content.javascript.enabled = True
-c.content.cookies.accept = "never"
+c.content.cookies.accept = "no-3rdparty"
 
 config.source('rose-pine.py') # ~/.config/qutebrowser/rose-pine.py
 config.source('bindings.py')  # ~/.config/qutebrowser/bindings.py
 config.source('search.py')    # ~/.config/qutebrowser/search.py
-config.source('adblock.py')   # ~/.config/qutebrowser/adblock.py
 config.source('sites.py')     # ~/.config/qutebrowser/sites.py
 
