@@ -46,7 +46,6 @@ c.content.fullscreen.overlay_timeout = 666
 c.content.geolocation = False
 c.content.autoplay = False
 c.content.default_encoding = 'utf-8'
-c.content.frame_flattening = True
 c.content.site_specific_quirks.enabled = True
 c.content.webrtc_ip_handling_policy = 'disable-non-proxied-udp'
 c.content.prefers_reduced_motion = True

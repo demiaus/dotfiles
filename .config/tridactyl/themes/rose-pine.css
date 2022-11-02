@@ -39,9 +39,9 @@
     --tridactyl-container-color-pink:      var(--base09);
     --tridactyl-container-color-purple:    var(--base0E);
 
-    --tridactyl-fg:               var(--base0E);
+    --tridactyl-fg:               var(--base0B);
     --tridactyl-bg:               var(--base00);
-    --tridactyl-url-fg:           var(--base08);
+    --tridactyl-url-fg:           var(--base0B);
     --tridactyl-url-bg:           var(--base00);
     --tridactyl-highlight-box-bg: var(--base0B);
     --tridactyl-highlight-box-fg: var(--base00);
@@ -60,13 +60,13 @@
 
 #command-line-holder {
     order:  1;
-    border: 2px solid var(--base0E);
+    border: 1px solid var(--base0D);
     color:  var(--tridactyl-bg);
 }
 
 #tridactyl-input {
     padding:      1rem;
-    color:        var(--tridactyl-fg);
+    color:        var(--base0D);
     background:   var(--tridactyl-bg);
     width:        90%;
     font-size:    1.5rem;
@@ -171,7 +171,7 @@
     background:  var(--tridactyl-bg)       !important;
     color:       var(--base0B)             !important;
     border:      unset                     !important;
-    border:      2px var(--base0D) solid   !important;
+    border:      1px var(--base0D) solid   !important;
     font-family: "CozetteVector Nerd Font" !important;
     font-size:   14pt                      !important;
     padding:     0.8ex                     !important;

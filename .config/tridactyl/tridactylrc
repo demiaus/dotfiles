@@ -4,6 +4,7 @@
 
 " Make sure that unsetting an option here also resets it in the running session
 sanitise tridactyllocal tridactylsync
+set profiledir "7elx7fhb.default-release"
 
 " Rosé Pine
 #colourscheme --url https://gitlab.com/krumeluu/dotfiles/-/raw/main/.config/tridactyl/themes/rose-pine.css rose-pine
