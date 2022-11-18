@@ -7,6 +7,7 @@ echo "$(date +%T) open  ~/.bash_aliases" >> ~/.log/rc.log
 if [ -x /usr/bin/dircolors ];then
   if [ -x /usr/bin/exa ];then
     alias ls='exa --color=auto --group-directories-first --icons'
+    alias lsd='exa --color=auto --group-directories-first --icons --only-dirs'
   else
     alias ls='ls --color=auto --group-directories-first'
   fi

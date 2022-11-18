@@ -37,6 +37,7 @@ unbind --mode=ex <C-c>
 " Don't need no new windows (Detach one if you must)
 unbind w
 unbind W
+unbind <C-e>
 
 bind > tabmove +1
 bind < tabmove -1

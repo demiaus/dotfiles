@@ -19,12 +19,14 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
-    " Plug 'dylanaraps/fff.vim'
     " Plug 'francoiscabrol/ranger.vim'
+    " Plug 'svermeulen/vim-cutlass'
     Plug 'amadeus/vim-convert-color-to'
     Plug 'cespare/vim-toml', { 'branch': 'main' }
     Plug 'chrisbra/colorizer'
+    Plug 'chrisbra/unicode.vim'
     Plug 'christoomey/vim-titlecase'
+    Plug 'dylanaraps/fff.vim'
     Plug 'glts/vim-magnum'
     Plug 'glts/vim-radical'
     Plug 'iamcco/markdown-preview.nvim'
@@ -32,13 +34,13 @@ call plug#begin()
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/vim-easy-align'
     Plug 'mattn/calendar-vim'
+    Plug 'mbbill/undotree'
     Plug 'psliwka/vim-smoothie'
     Plug 'ptzz/lf.vim'
     Plug 'romainl/vim-cool'
     Plug 'rust-lang/rust.vim'
     Plug 'sersorrel/vim-lilypond'
     Plug 'sheerun/vim-polyglot'
-    " Plug 'svermeulen/vim-cutlass'
     Plug 'svermeulen/vim-subversive'
     Plug 'svermeulen/vim-yoink'
     Plug 'tommcdo/vim-exchange'
@@ -60,9 +62,17 @@ call plug#end()
 set nocompatible
 set clipboard=unnamedplus
 set hidden
-set undodir=~/.vim/undo
 set viminfo+=n~/.vim/viminfo
 set nostartofline
+set undodir=~/.vim/undo
+if has("persistent_undo")
+   let target_path = expand('~/.vim/undo')
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
+    endif
+    let &undodir=target_path
+    set undofile
+endif
 
 " "VISUAL"
 set number
@@ -255,6 +265,10 @@ nnoremap <Leader>{ :execute "normal \<Plug>YsurroundiW{"<CR>
 " "EASY-ALIGN"
 nmap <Leader>a <Plug>(EasyAlign)
 xmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>a:k mzvi}:EasyAlign : { 'stick_to_left': 0, 'left_margin': 1 }<CR>`z
+nmap <Leader>a:h mzvi}:EasyAlign : { 'stick_to_left': 1, 'left_margin': 0 }<CR>`z
+nmap <Leader>a=k mzvi}:EasyAlign = { 'stick_to_left': 0, 'left_margin': 1 }<CR>`z
+nmap <Leader>a=h mzvi}:EasyAlign = { 'stick_to_left': 1, 'left_margin': 0 }<CR>`z
 
 " "SUBVERSIVE"
 nmap s           <Plug>(SubversiveSubstitute)
@@ -312,12 +326,12 @@ nnoremap <Leader>co :ColorToggle<CR>
 " <Leader>f Open files
 
 " "VIM-CUTLASS"
-nnoremap m  d
-xnoremap m  d
-nnoremap mm dd
-nnoremap M  D
-nnoremap <Leader>m m
-nnoremap <Leader>M M
+" nnoremap m  d
+" xnoremap m  d
+" nnoremap mm dd
+" nnoremap M  D
+" nnoremap <Leader>m m
+" nnoremap <Leader>M M
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
@@ -347,6 +361,9 @@ let g:colorizer_colornames=0
 
 " "YOINK"
 let  g:yoinkIncludeDeleteOperations=1
+
+" "RUSTFMT"
+let g:rustfmt_autosave = 1
 
 " }}}///////////////////////////////////////////////////////////////////////////
 

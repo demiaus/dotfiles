@@ -29,9 +29,9 @@ set font "CozetteVector Nerd Font 16"
 # Soho vibes for Zathura: Rosé Pine
 
 set default-bg                  "#191724"
-set default-fg                  "#e0def4"
+set default-fg                  "#ebbcba"
 
-set statusbar-fg                "#e0def4"
+set statusbar-fg                "#9ccfd8"
 set statusbar-bg                "#555169"
 
 set inputbar-bg                 "#6e6a86"
@@ -56,7 +56,7 @@ set completion-highlight-fg     "#26233a"
 set completion-highlight-bg     "#ebbcba"
 
 set recolor-lightcolor          "#191724"
-set recolor-darkcolor           "#e0def4"
+set recolor-darkcolor           "#ebbcba"
 
 set recolor                     "true"
 set recolor-keephue             "true"
