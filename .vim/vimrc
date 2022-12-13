@@ -37,6 +37,7 @@ call plug#begin()
     Plug 'mbbill/undotree'
     Plug 'psliwka/vim-smoothie'
     Plug 'ptzz/lf.vim'
+    Plug 'rhysd/rust-doc.vim'
     Plug 'romainl/vim-cool'
     Plug 'rust-lang/rust.vim'
     Plug 'sersorrel/vim-lilypond'
@@ -113,6 +114,9 @@ set autochdir
 " "WRAP & FOLD"
 set nowrap
 set foldmethod=marker
+
+" "COMMENTS"
+set formatoptions-=c
 
 
 " }}} //////////////////////////////////////////////////////////////////////////
@@ -194,16 +198,16 @@ nnoremap <F3> :set list!<CR>
 nnoremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>
 
 " Disable/enable automatic comments
-nnoremap <Leader>c :set formatoptions-=cro<CR>
+nnoremap <Leader>com :set formatoptions-=cro<CR>
 nnoremap <Leader>C :set formatoptions+=cro<CR>
 inoremap <C-c> <Esc>:set formatoptions-=cro<CR>a<Space>
 
 " Hide search highlights
 nnoremap <Leader><Leader> :nohls<CR>
 
-" Open / source vimrc
+" Open / reload (source) vimrc
 nnoremap <Leader>vi :tabe $MYVIMRC<CR>
-nnoremap <Leader>so :source $MYVIMRC<CR>
+nnoremap <Leader>re :source $MYVIMRC<CR>
 
 " Fix spelling
 inoremap <C-s> <Esc>:set spell<CR>a<C-x><C-s>
@@ -245,8 +249,12 @@ cnoremap <C-b> <Left>
 cnoremap <C-d> <Delete>
 
 " Insert newline
-nnoremap <CR> mzo<Esc>g`z
+nnoremap <CR> mzo<Esc>g`z<Down>
 nnoremap <Leader><CR> mzO<Esc>g`z
+
+" Move lines
+nnoremap <C-j> "jddp
+nnoremap <C-k> k"kddpk
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
@@ -320,7 +328,7 @@ xmap <C-W>gsb   <Plug>(Visual-Split-VSSplitBelow)
 " vmap <Leader>gz  <Plug>Titlecase
 
 " "COLORIZER"
-nnoremap <Leader>co :ColorToggle<CR>
+nnoremap <Leader>col :ColorToggle<CR>
 
 " "VIM-RANGER"
 " <Leader>f Open files
@@ -337,11 +345,12 @@ nnoremap <Leader>co :ColorToggle<CR>
 
 " OPTIONS {{{///////////////////////////////////////////////////////////////////
 
+" let g:loaded_matchparen=1
+
 " "VIMWIKI"
 " Use .md files for vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 " Disable parenhesis highlighting
-let g:loaded_matchparen=1
 
 " "EASY-ALIGN"
 " Also align comments
@@ -363,7 +372,7 @@ let g:colorizer_colornames=0
 let  g:yoinkIncludeDeleteOperations=1
 
 " "RUSTFMT"
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 0
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
@@ -399,6 +408,9 @@ augroup CursorLine
     au WinLeave * setlocal nocursorline
     au WinLeave * setlocal nocursorcolumn
 augroup END
+
+" Generic stuff at BufEnter
+au BufEnter * setlocal formatoptions-=cro
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
