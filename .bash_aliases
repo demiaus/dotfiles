@@ -33,6 +33,7 @@ alias rm='rm -v'
 alias cp='cp -v'
 alias rmdir='rmdir -v'
 alias r='ranger'
+alias mauku="ssh $USER@mauku"
 
 echo "$(date +%T) close ~/.bash_aliases" >> ~/.log/rc.log
 

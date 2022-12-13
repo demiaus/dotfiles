@@ -72,4 +72,5 @@ if [ "$TERM" = "linux" ]; then
 fi
 
 echo "$(date +%T) close ~/.profile" >> ~/.log/rc.log
+~/.local/bin/greetings.sh login
 
