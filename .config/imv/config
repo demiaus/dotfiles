@@ -16,15 +16,16 @@ suppress_default_binds = true
 [binds]
 # Define some key bindings
 q = quit
-y = exec echo working!
+<Delete> = exec rm $imv_current_file
+
 
 # Image navigation
 <Left> = prev
 <bracketleft> = prev
-j = prev
+j = next
 <Right> = next
 <bracketright> = next
-k = next
+k = prev
 gg = goto 1
 <Shift+G> = goto -1
 
