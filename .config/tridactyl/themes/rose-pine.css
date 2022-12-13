@@ -5,6 +5,11 @@
  * Combined Unikitty-dark file by Chris Kempson (http://chriskempson.com)
  * with hex from "Rosé Pine" by Emilia Dunfelt <sayhi@dunfelt.se>
  * https://github.com/edunfelt/base16-rose-pine-scheme/blob/main/rose-pine.yaml
+ *
+ * Renamed --baseXX variables with matching names from rosepinetheme.com/palette for convenience
+ * and commented out unused values.
+ *
+ * Took tringle.css from quisquama (see line 195-->)
  */
 
     --tridactyl-font-family:          "CozetteVector Nerd Font";
@@ -13,42 +18,42 @@
     --tridactyl-vs-font-family:       var(--tridactyl-font-family);
     --tridactyl-cmplt-font-family:    var(--tridactyl-font-family);
 
-    --base00: #191724;
-    --base01: #1f1d2e;
-    --base02: #26233a;
-    --base03: #555169;
-    --base04: #6e6a86;
-    --base05: #e0def4;
-    --base06: #f0f0f3;
-    --base07: #c5c3ce;
-    --base08: #e2e1e7;
-    --base09: #eb6f92;
-    --base0A: #f6c177;
-    --base0B: #ebbcba;
-    --base0C: #31748f;
-    --base0D: #9ccfd8;
-    --base0E: #c4a7e7;
-    --base0F: #e5e5e5;
+    --Base:    #191724; /* Base    */
+    --Overlay: #1f1d2e; /* Overlay */
+    --Surface: #26233a; /* Surface */
+    /* --base03:  #555169; */
+    --Muted:   #6e6a86; /* Muted   */
+    --base05:  #e0def4; /* Text    */
+    /* --base06:  #f0f0f3; */
+    /* --base07:  #c5c3ce; */
+    /* --base08:  #e2e1e7; */
+    --Love:    #eb6f92; /* Love    */
+    --Gold:    #f6c177; /* Gold    */
+    --Rose:    #ebbcba; /* Rose    */
+    --Pine:    #31748f; /* Pine    */
+    --Foam:    #9ccfd8; /* Foam    */
+    --Iris:    #c4a7e7; /* Iris    */
+    /* --base0F:  #e5e5e5; */
 
-    --tridactyl-container-color-blue:      var(--base0C);
-    --tridactyl-container-color-turquoise: var(--base0D);
-    --tridactyl-container-color-green:     var(--base0D);
-    --tridactyl-container-color-yellow:    var(--base0A);
-    --tridactyl-container-color-orange:    var(--base0A);
-    --tridactyl-container-color-red:       var(--base09);
-    --tridactyl-container-color-pink:      var(--base09);
-    --tridactyl-container-color-purple:    var(--base0E);
+    --tridactyl-container-color-blue:      var(--Pine);
+    --tridactyl-container-color-turquoise: var(--Foam);
+    --tridactyl-container-color-green:     var(--Foam);
+    --tridactyl-container-color-yellow:    var(--Gold);
+    --tridactyl-container-color-orange:    var(--Gold);
+    --tridactyl-container-color-red:       var(--Love);
+    --tridactyl-container-color-pink:      var(--Love);
+    --tridactyl-container-color-purple:    var(--Iris);
 
-    --tridactyl-fg:               var(--base0B);
-    --tridactyl-bg:               var(--base00);
-    --tridactyl-url-fg:           var(--base0B);
-    --tridactyl-url-bg:           var(--base00);
-    --tridactyl-highlight-box-bg: var(--base0B);
-    --tridactyl-highlight-box-fg: var(--base00);
+    --tridactyl-fg:               var(--Rose);
+    --tridactyl-bg:               var(--Base);
+    --tridactyl-url-fg:           var(--Rose);
+    --tridactyl-url-bg:           var(--Base);
+    --tridactyl-highlight-box-bg: var(--Rose);
+    --tridactyl-highlight-box-fg: var(--Base);
 
     /* Hint character tags */
-    --tridactyl-hintspan-fg: var(--base00) !important;
-    --tridactyl-hintspan-bg: var(--base0D) !important;
+    --tridactyl-hintspan-fg: var(--Base) !important;
+    --tridactyl-hintspan-bg: var(--Foam) !important;
 
     /* Element Highlights */
     --tridactyl-hint-active-fg:      none;
@@ -60,13 +65,13 @@
 
 #command-line-holder {
     order:  1;
-    border: 1px solid var(--base0D);
+    border: 1px solid var(--Foam);
     color:  var(--tridactyl-bg);
 }
 
 #tridactyl-input {
     padding:      1rem;
-    color:        var(--base0D);
+    color:        var(--Foam);
     background:   var(--tridactyl-bg);
     width:        90%;
     font-size:    1.5rem;
@@ -165,24 +170,92 @@
     bottom:     unset;
 }
 
-.TridactylStatusIndicator {
-    position:    fixed                     !important;
-    bottom:      0                         !important;
-    background:  var(--tridactyl-bg)       !important;
-    color:       var(--base0B)             !important;
-    border:      unset                     !important;
-    border:      1px var(--base0D) solid   !important;
-    font-family: "CozetteVector Nerd Font" !important;
-    font-size:   14pt                      !important;
-    padding:     0.8ex                     !important;
-}
-
 #completions .focused {
-    background: var(--base0B);
-    color:      var(--base00);
+    background: var(--Rose);
+    color:      var(--Base);
 }
 
 #completions .focused .url {
-    background: var(--base0B);
-    color:      var(--base00);
+    background: var(--Rose);
+    color:      var(--Base);
+}
+
+/* .TridactylStatusIndicator { */
+/*     position:    fixed                     !important; */
+/*     bottom:      0                         !important; */
+/*     background:  var(--tridactyl-bg)       !important; */
+/*     color:       var(--Rose)               !important; */
+/*     border:      unset                     !important; */
+/*     border:      1px var(--Foam) solid     !important; */
+/*     font-family: "CozetteVector Nerd Font" !important; */
+/*     font-size:   14pt                      !important; */
+/*     padding:     0.8ex                     !important; */
+/* } */
+
+/* What follows is from: */
+/* https://gist.github.com/quisquama/0f8ad71c24eccdc739e8e4a434452f2e */
+
+.TridactylStatusIndicator {
+    /* NOTE: we can't change the size of the border directly in container tabs
+     * because the span for the status indicator sets "style = ... !important".
+     *
+     * HACK: we effectively set the border using size and scale together
+     **/
+    --mode-indicator-size: 20pt;
+    --mode-indicator-scale: 2.0;
+    --mode-indicator-width: var(--mode-indicator-size);
+    --mode-indicator-height: calc(var(--mode-indicator-size) / 2);
+    --mode-indicator-offset: calc(var(--mode-indicator-width) / 2), calc(var(--mode-indicator-height)/  2);
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    right: 0 !important;
+    bottom: 0 !important;
+    position: fixed !important;
+    width: var(--mode-indicator-width) !important;
+    height: var(--mode-indicator-height)  !important;
+    transform: translate(var(--mode-indicator-offset)) rotate(-45deg) scale(var(--mode-indicator-scale)) !important;
+
+    opacity: 0.5 !important;
+    font-size: 0pt !important;
+    color: rgba(0, 0, 0, 0.0) !important;
+    background: rgba(0, 0, 0, 0.0) !important;
+
+}
+
+/* when mouse is hovering over status indicator */
+.TridactylStatusIndicator.TridactylInvisible {
+    opacity: 0.0 !important;
+    background: rgba(0, 0, 0, 0.0) !important;
+}
+
+/* normal mode */
+.TridactylStatusIndicator.TridactylModenormal {
+    background: rgba(0, 0, 0, 0.0) !important;
+}
+
+/* ignore mode */
+.TridactylStatusIndicator.TridactylModeignore {
+    background: var(--Love) !important;
+}
+
+/* visual mode */
+.TridactylStatusIndicator.TridactylModevisual {
+    background: var(--Rose) !important;
+}
+
+/* input mode */
+.TridactylStatusIndicator.TridactylModeinput {
+    background: var(--Pine) !important;
+}
+
+/* insert mode */
+.TridactylStatusIndicator.TridactylModeinsert {
+    background: var(--Foam) !important;
+}
+
+/* hint mode */
+.TridactylStatusIndicator.TridactylModehint {
+    background: var(--Iris) !important;
 }
