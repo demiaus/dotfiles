@@ -9,16 +9,16 @@ fi
 case $1 in
 'up')
         pamixer -i 5
-        canberra-gtk-play -i audio-volume-change -d "changeVolume" > /dev/null ;;
+        ;;
 'down')
         pamixer -d 5
-        canberra-gtk-play -i audio-volume-change -d "changeVolume" > /dev/null ;;
+        ;;
 'mute')
-        canberra-gtk-play -i audio-volume-change -d "changeVolume" > /dev/null
         pamixer -t ;;
 *)
         echo "parsing error"
-        exit 1 ;;
+        exit 1
+        ;;
 esac
 
 dunstify -r 69 -u low "$(pamixer --get-volume-human)"

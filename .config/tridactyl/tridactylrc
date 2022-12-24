@@ -90,11 +90,14 @@ set searchurls.ws    https://fi.wikipedia.org/wiki/%s
 set searchurls.w     https://en.wikipedia.org/wiki/%s
 set searchurls.aw    https://wiki.archlinux.org/?search=%s
 set searchurls.arch  https://wiki.archlinux.org/?search=%s
-set searchurls.me    https://www.merriam-webster.com/dictionary/%s
 set searchurls.en    https://dictionary.cambridge.org/dictionary/english/%s
 set searchurls.tori  https://www.tori.fi/koko_suomi?q=%s
 set searchurls.word  https://en.wiktionary.org/wiki/%s
 set searchurls.ur    https://www.urbandictionary.com/define.php?term=%s
+set searchurls.us    https://www.merriam-webster.com/dictionary/%s
+set searchurls.br    https://www.macmillandictionary.com/dictionary/british/%s
+set searchurls.me    https://www.merriam-webster.com/dictionary/%s
+set searchurls.ma    https://www.macmillandictionary.com/dictionary/british/%s
 set searchurls.enfi  https://redfoxsanakirja.fi/en/dictionary/-/s/eng/fin/%s
 set searchurls.ensv  https://redfoxsanakirja.fi/en/dictionary/-/s/eng/swe/%s
 set searchurls.ensp  https://redfoxsanakirja.fi/en/dictionary/-/s/eng/spa/%s
@@ -124,7 +127,8 @@ set searchurls.y     https://farside.link/invidious/search?q=%s
 set searchurls.tw    https://farside.link/nitter/search?q=%s
 set searchurls.s     https://farside.link/librex/search?q=%s
 set searchurls.trans https://farside.link/simplytranslate/?engine=google&text=%s
-set searchurls.imdb  http//www.imdb.com/find?s=all&q=%s
-set searchurls.rust  https://doc.rust-lang.org/book/?search=%s
+set searchurls.imdb  https://imdb.com/find?s=all&q=%s
+set searchurls.rustb https://doc.rust-lang.org/book/?search=%s
+set searchurls.rust  https://doc.rust-lang.org/beta/std/?search=%s
 " vim: set filetype=tridactyl
 

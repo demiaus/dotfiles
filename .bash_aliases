@@ -17,6 +17,7 @@ if [ -x /usr/bin/dircolors ];then
 fi
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vimrc='vim ~/.vim/vimrc'
+alias tridactylrc='vim ~/.config/tridactyl/tridactylrc'
 alias vim='vim --servername VIMSERVER --remote-tab-silent'
 alias :q=exit
 alias :wq=exit
@@ -32,8 +33,8 @@ alias mv='mv -v'
 alias rm='rm -v'
 alias cp='cp -v'
 alias rmdir='rmdir -v'
-alias r='ranger'
 alias mauku="ssh $USER@mauku"
+alias toxic="killall toxic && sleep 1 && toxic"
 
 echo "$(date +%T) close ~/.bash_aliases" >> ~/.log/rc.log
 

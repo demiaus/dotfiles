@@ -26,6 +26,7 @@ call plug#begin()
     Plug 'chrisbra/colorizer'
     Plug 'chrisbra/unicode.vim'
     Plug 'christoomey/vim-titlecase'
+    Plug 'dense-analysis/ale'
     Plug 'dylanaraps/fff.vim'
     Plug 'glts/vim-magnum'
     Plug 'glts/vim-radical'
@@ -46,6 +47,7 @@ call plug#begin()
     Plug 'svermeulen/vim-yoink'
     Plug 'tommcdo/vim-exchange'
     Plug 'tpope/vim-abolish' " required by VIM-SUBVERSIVE
+    Plug 'tpope/vim-characterize'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
@@ -62,7 +64,7 @@ call plug#end()
 
 set nocompatible
 set clipboard=unnamedplus
-set hidden
+set nohidden
 set viminfo+=n~/.vim/viminfo
 set nostartofline
 set undodir=~/.vim/undo
@@ -256,6 +258,10 @@ nnoremap <Leader><CR> mzO<Esc>g`z
 nnoremap <C-j> "jddp
 nnoremap <C-k> k"kddpk
 
+" Upper-/lowercase word
+nnoremap <Leader>u guiw
+nnoremap <Leader>U gUiw
+
 " }}}///////////////////////////////////////////////////////////////////////////
 
 " PLUG-IN MAPPINGS {{{//////////////////////////////////////////////////////////
@@ -345,12 +351,14 @@ nnoremap <Leader>col :ColorToggle<CR>
 
 " OPTIONS {{{///////////////////////////////////////////////////////////////////
 
+" Disable parenhesis highlighting
 " let g:loaded_matchparen=1
 
 " "VIMWIKI"
 " Use .md files for vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-" Disable parenhesis highlighting
+" Make vimwiki markdown links have extension .md for native vim navigation
+let g:vimwiki_markdown_link_ext = 1
 
 " "EASY-ALIGN"
 " Also align comments
