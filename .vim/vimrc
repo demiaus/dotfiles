@@ -262,6 +262,9 @@ nnoremap <C-k> k"kddpk
 nnoremap <Leader>u guiw
 nnoremap <Leader>U gUiw
 
+" Insert datetime
+nnoremap <Leader>d :put =strftime('%d.%m.%Y %M:%H')<CR>
+
 " }}}///////////////////////////////////////////////////////////////////////////
 
 " PLUG-IN MAPPINGS {{{//////////////////////////////////////////////////////////

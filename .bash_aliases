@@ -35,6 +35,7 @@ alias cp='cp -v'
 alias rmdir='rmdir -v'
 alias mauku="ssh $USER@mauku"
 alias toxic="killall toxic && sleep 1 && toxic"
+alias datetime='date +"%d.%m.%Y %M:%H"'
 
 echo "$(date +%T) close ~/.bash_aliases" >> ~/.log/rc.log
 
