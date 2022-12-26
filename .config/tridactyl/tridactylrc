@@ -84,8 +84,8 @@ set searchurls.gi    https://www.google.com/search?tbm=isch&q=%s
 set searchurls.m     https://www.openstreetmap.org/search?query=%s
 set searchurls.gm    https://www.google.com/maps/search/%s
 set searchurls.ip    https://pry.sh/%s
-set searchurls.r     https://www.reddit.com/search?q=%s
-set searchurls.yt    https://www.youtube.com/results?search_query=%s
+set searchurls.r     https://old.reddit.com/search?q=%s
+set searchurls.yt    https://youtube.com/results?search_query=%s
 set searchurls.ws    https://fi.wikipedia.org/wiki/%s
 set searchurls.w     https://en.wikipedia.org/wiki/%s
 set searchurls.aw    https://wiki.archlinux.org/?search=%s
@@ -129,6 +129,7 @@ set searchurls.s     https://farside.link/librex/search?q=%s
 set searchurls.trans https://farside.link/simplytranslate/?engine=google&text=%s
 set searchurls.imdb  https://imdb.com/find?s=all&q=%s
 set searchurls.rustb https://doc.rust-lang.org/book/?search=%s
-set searchurls.rust  https://doc.rust-lang.org/beta/std/?search=%s
+set searchurls.rustd https://doc.rust-lang.org/beta/std/?search=%s
+set searchurls.yts   https://yts.mx/search-movies?query=%s
 " vim: set filetype=tridactyl
 
