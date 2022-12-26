@@ -89,6 +89,11 @@ hi TabLineSel            guifg=#9ccfd8 guibg=#191724
 hi LineNr                guifg=#c4a7e7 guibg=NONE
 hi CursorLineNr          guifg=#9ccfd8 guibg=NONE
 hi ColorColumn           guifg=#eb6f92 guibg=NONE
+hi SpellBad              guifg=NONE    guibg=#191724 cterm=underline
+hi SpellCap              guifg=NONE    guibg=#191724 cterm=underline
+hi SpellLocal            guifg=NONE    guibg=#191724 cterm=underline
+hi SpellRare             guifg=NONE    guibg=#191724 cterm=underline
+
 
 " Vimwiki colors
 hi def link VimwikiWeblink1 String

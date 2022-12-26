@@ -19,8 +19,6 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
-    " Plug 'francoiscabrol/ranger.vim'
-    " Plug 'svermeulen/vim-cutlass'
     Plug 'amadeus/vim-convert-color-to'
     Plug 'cespare/vim-toml', { 'branch': 'main' }
     Plug 'chrisbra/colorizer'
@@ -88,6 +86,7 @@ set listchars=tab:>-,trail:·,nbsp:_
 set list
 set sidescroll=8
 set noshowmatch
+set spell
 
 " "CMDLINE"
 set showcmd
@@ -265,6 +264,9 @@ nnoremap <Leader>U gUiw
 " Insert datetime
 nnoremap <Leader>d :put =strftime('%d.%m.%Y %M:%H')<CR>
 
+" 
+nnoremap <Leader>t :tabe ~/testing/test.txt<CR>
+
 " }}}///////////////////////////////////////////////////////////////////////////
 
 " PLUG-IN MAPPINGS {{{//////////////////////////////////////////////////////////
@@ -425,3 +427,13 @@ au BufEnter * setlocal formatoptions-=cro
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
+
+" ABBREVIATIONS {{{/////////////////////////////////////////////////////////////
+
+ab teh the
+ab clera clear
+
+" }}}///////////////////////////////////////////////////////////////////////////
+
+
+" vim: set filetype=vim
