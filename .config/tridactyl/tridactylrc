@@ -48,15 +48,13 @@ bind o fillcmdline open
 bind O fillcmdline tabopen
 
 " Youtube's a bitch, but these seem to work
-unbindurl ^https://www\.youtube\.com/watch\?v=.*$ f
-bindurl   ^https://www\.youtube\.com/watch\?v=.*$ j !s xdotool key Left
-bindurl   ^https://www\.youtube\.com/watch\?v=.*$ l !s xdotool key Right
+bindurl --mode=ignore ^https://www\.youtube\.com/watch\?v=.*$ j !s xdotool key Left
+bindurl --mode=ignore ^https://www\.youtube\.com/watch\?v=.*$ l !s xdotool key Right
 " Move frame by frame
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ ,
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ .
 " Stop/resume
-bindurl   ^https://www\.youtube\.com/watch\?v=.*$ <Space> !s xdotool key k
-unbindurl ^https://www\.youtube\.com/watch\?v=.*$ k
+bindurl --mode=ignore ^https://www\.youtube\.com/watch\?v=.*$ <Space> !s xdotool key k
 
 autocmd DocStart https://10fastfingers.com/ mode ignore
 autocmd DocStart https://monkeytype.com/    mode ignore
@@ -75,61 +73,70 @@ set editorcmd st -e vim
 " set modeindicator false
 
 " Custom searches
-set searchurls.q     https://lite.qwant.com/?q=%s
-set searchurls.sp    https://startpage.com/search?q=%s
-set searchurls.e     https://www.ecosia.org/search?q=%s
-set searchurls.gh    https://github.com/search?o=desc&q=%s&s=stars
-set searchurls.gl    https://gitlab.com/search?search=%s
-set searchurls.gi    https://www.google.com/search?tbm=isch&q=%s
-set searchurls.m     https://www.openstreetmap.org/search?query=%s
-set searchurls.gm    https://www.google.com/maps/search/%s
-set searchurls.ip    https://pry.sh/%s
-set searchurls.r     https://old.reddit.com/search?q=%s
-set searchurls.yt    https://youtube.com/results?search_query=%s
-set searchurls.ws    https://fi.wikipedia.org/wiki/%s
-set searchurls.w     https://en.wikipedia.org/wiki/%s
-set searchurls.aw    https://wiki.archlinux.org/?search=%s
-set searchurls.arch  https://wiki.archlinux.org/?search=%s
-set searchurls.en    https://dictionary.cambridge.org/dictionary/english/%s
-set searchurls.tori  https://www.tori.fi/koko_suomi?q=%s
-set searchurls.word  https://en.wiktionary.org/wiki/%s
-set searchurls.ur    https://www.urbandictionary.com/define.php?term=%s
-set searchurls.us    https://www.merriam-webster.com/dictionary/%s
-set searchurls.br    https://www.macmillandictionary.com/dictionary/british/%s
-set searchurls.me    https://www.merriam-webster.com/dictionary/%s
-set searchurls.ma    https://www.macmillandictionary.com/dictionary/british/%s
-set searchurls.enfi  https://redfoxsanakirja.fi/en/dictionary/-/s/eng/fin/%s
-set searchurls.ensv  https://redfoxsanakirja.fi/en/dictionary/-/s/eng/swe/%s
-set searchurls.ensp  https://redfoxsanakirja.fi/en/dictionary/-/s/eng/spa/%s
-set searchurls.enja  https://redfoxsanakirja.fi/en/dictionary/-/s/eng/jpn/%s
-set searchurls.enfr  https://redfoxsanakirja.fi/en/dictionary/-/s/eng/fra/%s
-set searchurls.enit  https://redfoxsanakirja.fi/en/dictionary/-/s/eng/ita/%s
-set searchurls.ende  https://redfoxsanakirja.fi/en/dictionary/-/s/eng/deu/%s
-set searchurls.fien  https://redfoxsanakirja.fi/en/dictionary/-/s/fin/eng/%s
-set searchurls.fisv  https://redfoxsanakirja.fi/en/dictionary/-/s/fin/swe/%s
-set searchurls.fisp  https://redfoxsanakirja.fi/en/dictionary/-/s/fin/spa/%s
-set searchurls.fija  https://redfoxsanakirja.fi/en/dictionary/-/s/fin/jpn/%s
-set searchurls.fifr  https://redfoxsanakirja.fi/en/dictionary/-/s/fin/fra/%s
-set searchurls.fiit  https://redfoxsanakirja.fi/en/dictionary/-/s/fin/ita/%s
-set searchurls.svfi  https://redfoxsanakirja.fi/en/dictionary/-/s/swe/fin/%s
-set searchurls.sven  https://redfoxsanakirja.fi/en/dictionary/-/s/swe/eng/%s
-set searchurls.spfi  https://redfoxsanakirja.fi/en/dictionary/-/s/spa/fin/%s
-set searchurls.spen  https://redfoxsanakirja.fi/en/dictionary/-/s/spa/eng/%s
-set searchurls.jafi  https://redfoxsanakirja.fi/en/dictionary/-/s/jpn/fin/%s
-set searchurls.jaen  https://redfoxsanakirja.fi/en/dictionary/-/s/jpn/eng/%s
-set searchurls.frfi  https://redfoxsanakirja.fi/en/dictionary/-/s/fra/fin/%s
-set searchurls.fren  https://redfoxsanakirja.fi/en/dictionary/-/s/fra/eng/%s
-set searchurls.itfi  https://redfoxsanakirja.fi/en/dictionary/-/s/ita/fin/%s
-set searchurls.iten  https://redfoxsanakirja.fi/en/dictionary/-/s/ita/eng/%s
-set searchurls.defi  https://redfoxsanakirja.fi/en/dictionary/-/s/deu/fin/%s
-set searchurls.deen  https://redfoxsanakirja.fi/en/dictionary/-/s/deu/eng/%s
-set searchurls.y     https://farside.link/invidious/search?q=%s
-set searchurls.tw    https://farside.link/nitter/search?q=%s
-set searchurls.s     https://farside.link/librex/search?q=%s
-set searchurls.trans https://farside.link/simplytranslate/?engine=google&text=%s
-set searchurls.imdb  https://imdb.com/find?s=all&q=%s
-set searchurls.rustb https://doc.rust-lang.org/book/?search=%s
-set searchurls.rustd https://doc.rust-lang.org/beta/std/?search=%s
-set searchurls.yts   https://yts.mx/search-movies?query=%s
+set searchurls.q       https://lite.qwant.com/?q=%s
+set searchurls.sp      https://startpage.com/search?q=%s
+set searchurls.e       https://www.ecosia.org/search?q=%s
+set searchurls.gh      https://github.com/search?o=desc&q=%s&s=stars
+set searchurls.gl      https://gitlab.com/search?search=%s
+set searchurls.gi      https://www.google.com/search?tbm=isch&q=%s
+set searchurls.m       https://www.openstreetmap.org/search?query=%s
+set searchurls.gm      https://www.google.com/maps/search/%s
+set searchurls.ip      https://pry.sh/%s
+set searchurls.r       https://old.reddit.com/search?q=%s
+set searchurls.yt      https://youtube.com/results?search_query=%s
+set searchurls.ws      https://fi.wikipedia.org/wiki/%s
+set searchurls.w       https://en.wikipedia.org/wiki/%s
+set searchurls.aw      https://wiki.archlinux.org/?search=%s
+set searchurls.arch    https://wiki.archlinux.org/?search=%s
+set searchurls.en      https://dictionary.cambridge.org/dictionary/english/%s
+set searchurls.tori    https://www.tori.fi/koko_suomi?q=%s
+set searchurls.word    https://en.wiktionary.org/wiki/%s
+set searchurls.ur      https://www.urbandictionary.com/define.php?term=%s
+set searchurls.us      https://www.merriam-webster.com/dictionary/%s
+set searchurls.br      https://www.macmillandictionary.com/dictionary/british/%s
+set searchurls.me      https://www.merriam-webster.com/dictionary/%s
+set searchurls.ma      https://www.macmillandictionary.com/dictionary/british/%s
+set searchurls.enfi    https://redfoxsanakirja.fi/en/dictionary/-/s/eng/fin/%s
+set searchurls.ensv    https://redfoxsanakirja.fi/en/dictionary/-/s/eng/swe/%s
+set searchurls.ensp    https://redfoxsanakirja.fi/en/dictionary/-/s/eng/spa/%s
+set searchurls.enja    https://redfoxsanakirja.fi/en/dictionary/-/s/eng/jpn/%s
+set searchurls.enfr    https://redfoxsanakirja.fi/en/dictionary/-/s/eng/fra/%s
+set searchurls.enit    https://redfoxsanakirja.fi/en/dictionary/-/s/eng/ita/%s
+set searchurls.ende    https://redfoxsanakirja.fi/en/dictionary/-/s/eng/deu/%s
+set searchurls.fien    https://redfoxsanakirja.fi/en/dictionary/-/s/fin/eng/%s
+set searchurls.fisv    https://redfoxsanakirja.fi/en/dictionary/-/s/fin/swe/%s
+set searchurls.fisp    https://redfoxsanakirja.fi/en/dictionary/-/s/fin/spa/%s
+set searchurls.fija    https://redfoxsanakirja.fi/en/dictionary/-/s/fin/jpn/%s
+set searchurls.fifr    https://redfoxsanakirja.fi/en/dictionary/-/s/fin/fra/%s
+set searchurls.fiit    https://redfoxsanakirja.fi/en/dictionary/-/s/fin/ita/%s
+set searchurls.svfi    https://redfoxsanakirja.fi/en/dictionary/-/s/swe/fin/%s
+set searchurls.sven    https://redfoxsanakirja.fi/en/dictionary/-/s/swe/eng/%s
+set searchurls.spfi    https://redfoxsanakirja.fi/en/dictionary/-/s/spa/fin/%s
+set searchurls.spen    https://redfoxsanakirja.fi/en/dictionary/-/s/spa/eng/%s
+set searchurls.jafi    https://redfoxsanakirja.fi/en/dictionary/-/s/jpn/fin/%s
+set searchurls.jaen    https://redfoxsanakirja.fi/en/dictionary/-/s/jpn/eng/%s
+set searchurls.frfi    https://redfoxsanakirja.fi/en/dictionary/-/s/fra/fin/%s
+set searchurls.fren    https://redfoxsanakirja.fi/en/dictionary/-/s/fra/eng/%s
+set searchurls.itfi    https://redfoxsanakirja.fi/en/dictionary/-/s/ita/fin/%s
+set searchurls.iten    https://redfoxsanakirja.fi/en/dictionary/-/s/ita/eng/%s
+set searchurls.defi    https://redfoxsanakirja.fi/en/dictionary/-/s/deu/fin/%s
+set searchurls.deen    https://redfoxsanakirja.fi/en/dictionary/-/s/deu/eng/%s
+set searchurls.y       https://farside.link/invidious/search?q=%s
+set searchurls.tw      https://farside.link/nitter/search?q=%s
+set searchurls.s       https://farside.link/librex/search?q=%s
+set searchurls.trans   https://farside.link/simplytranslate/?engine=google&text=%s
+set searchurls.imdb    https://imdb.com/find?s=all&q=%s
+set searchurls.rustb   https://doc.rust-lang.org/book/?search=%s
+set searchurls.rustd   https://doc.rust-lang.org/beta/std/?search=%s
+set searchurls.yts     https://yts.mx/search-movies?query=%s
+set searchurls.gr      https://www.goodreads.com/search?qid=&q=%s
+set searchurls.feet    https://www.calculateme.com/length/feet/to-meters/%s
+set searchurls.mph     https://www.calculateme.com/speed/miles-per-hour/to-kilometers-per-hour/%s
+set searchurls.miles   https://www.calculateme.com/length/miles/to-kilometers/%s
+set searchurls.pounds  https://www.calculateme.com/weight/pounds/to-kilograms/%s
+set searchurls.stones  https://www.calculateme.com/weight/stone/to-kilograms/%s
+set searchurls.ounces  https://www.calculateme.com/weight/ounces/to-kilograms/%s
+set searchurls.gallons https://www.calculateme.com/volume/gallons/to-liters/%s
+
 " vim: set filetype=tridactyl
 
