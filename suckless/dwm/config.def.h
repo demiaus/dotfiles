@@ -52,6 +52,7 @@ static const Rule rules[] = {
     { "Brave-browser",      NULL,     NULL,            1 << 1,    1,           0,          0,          0,         1,       -1,      0          },
     { "mpv",                NULL,     NULL,            1 << 3,    0,           0,          0,          0,         1,       -1,      0          },
     { "MuseScore3",         NULL,     NULL,            1 << 8,    1,           0,          0,          0,         1,       -1,      0          },
+    { "MuseScore4",         NULL,     NULL,            1 << 8,    1,           0,          0,          0,         1,       -1,      0          },
     { "Signal",             NULL,     NULL,            1 << 6,    1,           0,          0,          0,         1,       -1,      0          },
     { "TelegramDesktop",    NULL,     NULL,            1 << 6,    1,           0,          0,          0,         1,       -1,      0          },
     { "KotatogramDesktop",  NULL,     NULL,            1 << 6,    1,           0,          0,          0,         1,       -1,      0          },
