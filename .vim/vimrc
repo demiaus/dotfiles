@@ -34,8 +34,8 @@ call plug#begin()
     Plug 'junegunn/vim-easy-align'
     Plug 'mattn/calendar-vim'
     Plug 'mbbill/undotree'
+    Plug 'preservim/vim-markdown'
     Plug 'psliwka/vim-smoothie'
-    Plug 'ptzz/lf.vim'
     Plug 'rhysd/rust-doc.vim'
     Plug 'romainl/vim-cool'
     Plug 'rust-lang/rust.vim'
@@ -253,9 +253,11 @@ cnoremap <C-d> <Delete>
 nnoremap <CR> mzo<Esc>g`z<Down>
 nnoremap <Leader><CR> mzO<Esc>g`z
 
-" Move lines
-nnoremap <C-j> "jddp
-nnoremap <C-k> k"kddpk
+" MVVIS - move visual selection"
+vmap H <Plug>(MvVisLeft)
+vmap J <Plug>(MvVisDown)
+vmap K <Plug>(MvVisUp)
+vmap L <Plug>(MvVisRight)
 
 " Upper-/lowercase word
 nnoremap <Leader>u guiw
@@ -264,7 +266,7 @@ nnoremap <Leader>U gUiw
 " Insert datetime
 nnoremap <Leader>d :put =strftime('%d.%m.%Y %M:%H')<CR>
 
-" 
+" Go to test file
 nnoremap <Leader>t :tabe ~/testing/test.txt<CR>
 
 " }}}///////////////////////////////////////////////////////////////////////////
@@ -386,6 +388,9 @@ let  g:yoinkIncludeDeleteOperations=1
 
 " "RUSTFMT"
 let g:rustfmt_autosave = 0
+
+" "MVVIS - move selection"
+let g:MvVis_mappings = 0
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
