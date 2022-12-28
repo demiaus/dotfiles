@@ -44,6 +44,7 @@ call plug#begin()
     Plug 'svermeulen/vim-subversive'
     Plug 'svermeulen/vim-yoink'
     Plug 'tommcdo/vim-exchange'
+    Plug 'tools-life/taskwiki'
     Plug 'tpope/vim-abolish' " required by VIM-SUBVERSIVE
     Plug 'tpope/vim-characterize'
     Plug 'tpope/vim-commentary'
@@ -253,12 +254,6 @@ cnoremap <C-d> <Delete>
 nnoremap <CR> mzo<Esc>g`z<Down>
 nnoremap <Leader><CR> mzO<Esc>g`z
 
-" MVVIS - move visual selection"
-vmap H <Plug>(MvVisLeft)
-vmap J <Plug>(MvVisDown)
-vmap K <Plug>(MvVisUp)
-vmap L <Plug>(MvVisRight)
-
 " Upper-/lowercase word
 nnoremap <Leader>u guiw
 nnoremap <Leader>U gUiw
@@ -319,23 +314,23 @@ xmap <C-W>gss   <Plug>(Visual-Split-VSSplit)
 xmap <C-W>gsa   <Plug>(Visual-Split-VSSplitAbove)
 xmap <C-W>gsb   <Plug>(Visual-Split-VSSplitBelow)
 
-" "MAGNUM"
+" "MAGNUM defaults"
 " gA  Shows the four representations of the number under the cursor (or selected in Visual mode).
 " crd Convert to decimal
 " crx Convert to hex
 " cro Convert to octal
 " crb Convert to binary
 
-" "EXCHANGE"
+" "EXCHANGE defaults"
 " nremap cx  <Plug>Exchange
 " nremap cxx <Plug>Exchange_line
 " xremap X   <Plug>Exchange_selection
 
-" "VIM-COMMENTARY"
+" "VIM-COMMENTARY defaults"
 " gcc Comment out a line
 " gc  Comment out a selection
 
-" "VIM-TITLECASE"
+" "VIM-TITLECASE defaults"
 " nmap <Leader>gz  <Plug>Titlecase
 " nmap <Leader>gzz <Plug>TitlecaseLine
 " vmap <Leader>gz  <Plug>Titlecase
@@ -343,16 +338,16 @@ xmap <C-W>gsb   <Plug>(Visual-Split-VSSplitBelow)
 " "COLORIZER"
 nnoremap <Leader>col :ColorToggle<CR>
 
-" "VIM-RANGER"
-" <Leader>f Open files
+" "MVVIS"
+vmap H <Plug>(MvVisLeft)
+vmap J <Plug>(MvVisDown)
+vmap K <Plug>(MvVisUp)
+vmap L <Plug>(MvVisRight)
 
-" "VIM-CUTLASS"
-" nnoremap m  d
-" xnoremap m  d
-" nnoremap mm dd
-" nnoremap M  D
-" nnoremap <Leader>m m
-" nnoremap <Leader>M M
+" "FZF"
+nnoremap <Leader>f :call fzf#run({'sink': 'e'})<CR>
+nnoremap <Leader>F :FZF ~<CR>
+
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
@@ -391,6 +386,26 @@ let g:rustfmt_autosave = 0
 
 " "MVVIS - move selection"
 let g:MvVis_mappings = 0
+
+" "FZF"
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" FLOATING WINDOW
+" Required:
+" - width [float range [0 ~ 1]] or [integer range [8 ~ ]]
+" - height [float range [0 ~ 1]] or [integer range [4 ~ ]]
+"
+" Optional:
+" - xoffset [float default 0.5 range [0 ~ 1]]
+" - yoffset [float default 0.5 range [0 ~ 1]]
+" - relative [boolean default v:false]
+" - border [string default 'rounded']: Border style
+"   - 'rounded' / 'sharp' / 'horizontal' / 'vertical' / 'top' / 'bottom' / 'left' / 'right'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
