@@ -87,7 +87,6 @@ set searchurls.yt      https://youtube.com/results?search_query=%s
 set searchurls.ws      https://fi.wikipedia.org/wiki/%s
 set searchurls.w       https://en.wikipedia.org/wiki/%s
 set searchurls.aw      https://wiki.archlinux.org/?search=%s
-set searchurls.arch    https://wiki.archlinux.org/?search=%s
 set searchurls.en      https://dictionary.cambridge.org/dictionary/english/%s
 set searchurls.tori    https://www.tori.fi/koko_suomi?q=%s
 set searchurls.word    https://en.wiktionary.org/wiki/%s
@@ -128,7 +127,7 @@ set searchurls.trans   https://farside.link/simplytranslate/?engine=google&text=
 set searchurls.imdb    https://imdb.com/find?s=all&q=%s
 set searchurls.rustb   https://doc.rust-lang.org/book/?search=%s
 set searchurls.rustd   https://doc.rust-lang.org/beta/std/?search=%s
-set searchurls.yts     https://yts.mx/search-movies?query=%s
+set searchurls.yts     https://yts.mx/browse-movies/%s/all/all/0/rating/0/all
 set searchurls.gr      https://www.goodreads.com/search?qid=&q=%s
 set searchurls.feet    https://www.calculateme.com/length/feet/to-meters/%s
 set searchurls.mph     https://www.calculateme.com/speed/miles-per-hour/to-kilometers-per-hour/%s
