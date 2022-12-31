@@ -38,5 +38,10 @@ alias toxic="killall toxic && sleep 1 && toxic"
 alias datetime='date +"%d.%m.%Y %M:%H"'
 alias test="vim ~/testing/test.txt"
 
+# Make some noise
+alias whitenoise='play -n synth whitenoise'
+alias pinknoise='play -n synth pinknoise'
+alias brownnoise='play -n synth brownnoise'
+
 echo "$(date +%T) close ~/.bash_aliases" >> ~/.log/rc.log
 
