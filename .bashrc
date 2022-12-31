@@ -26,22 +26,6 @@ if [ -x /usr/bin/fff ]; then
     }
 fi
 
-if [ -x /usr/bin/lf ]; then
-    [ -f ~/.config/lf/lfcd.sh ] && . ~/.config/lf/lfcd.sh
-    bind '"\C-o":"lfcd\C-m"'
-
-fi
-
-if [ -x /usr/bin/ranger ]; then
-    ranger() {
-        if [ -z "$RANGER_LEVEL" ]; then
-            /usr/bin/ranger "$@"
-        else
-            exit
-        fi
-    }
-fi
-
 
 PS1="\[\033[36m\]$PS1\[\033[00m\]"
 
