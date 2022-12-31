@@ -25,6 +25,7 @@ export LESS='-MRi#8j.5'
 #             `------ show more information in prompt
 export LESSHISTFILE=/dev/null
 export PYTHONSTARTUP=~/.config/python/pythonrc
+export BW_SESSION=$(bw --raw unlock --passwordfile ~/.bw.txt)
 
 FZF_DEFAULT_COMMAND='find .'
 FZF_IGNORE="
