@@ -258,7 +258,7 @@ nnoremap <Leader>u guiw
 nnoremap <Leader>U gUiw
 
 " Insert datetime
-nnoremap <Leader>d :put =strftime('%d.%m.%Y %M:%H')<CR>
+nnoremap <Leader>d :put =strftime('%d.%m.%Y %H:%M')<CR>
 
 " Go to test file
 nnoremap <Leader>T :tabe ~/testing/test.txt<CR>
