@@ -9,10 +9,10 @@ static const char *fonts[] = { "CozetteVector Nerd Font:size=14:antialias=true:a
 static const char *colors[SchemeLast][2] = {
     /* Rosé Pine https://rosepinetheme.com/palette */
     /*                         fg         bg       */
-    [SchemeNorm]          = { "#ebbcba", "#191724" }, /* rose, base */
-    [SchemeSel]           = { "#9ccfd8", "#191724" }, /* foam, base */
-    [SchemeSelHighlight]  = { "#9ccfd8", "#191724" }, /* foam, base */
-    [SchemeNormHighlight] = { "#ebbcba", "#191724" }, /* rose, base */
+    [SchemeNorm]          = { "#ebbcba", "#191724" }, /* rose, base    */
+    [SchemeSel]           = { "#9ccfd8", "#191724" }, /* foam, base    */
+    [SchemeSelHighlight]  = { "#9ccfd8", "#26233a" }, /* foam, overlay */
+    [SchemeNormHighlight] = { "#ebbcba", "#26233a" }, /* rose, overlay */
 };
 
 static const unsigned int alphas[SchemeLast][2] = {
@@ -33,4 +33,4 @@ static unsigned int min_lineheight =  8;
 static const char worddelimiters[] = "/[]{}()\"\'  ";
 
 /* Size of the window border */
-static unsigned int border_width = 0;
+static unsigned int border_width = 2;

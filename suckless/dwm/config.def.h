@@ -14,7 +14,7 @@ static const int user_bh            = 2;        /* 2 is the default spacing arou
 static const double defaultopacity  = 1.0f; 
 static const double activeopacity   = 1.0f;     /* Window opacity when it's focused (0 <= opacity <= 1) */
 static const double inactiveopacity = 0.875f;   /* Window opacity when it's inactive (0 <= opacity <= 1) */
-static       Bool   bUseOpacity     = False;     /* Starts with opacity on any unfocused windows */
+static       Bool   bUseOpacity     = False;    /* Starts with opacity on any unfocused windows */
 
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
 static const char *fonts[]               = { "CozetteVector Nerd Font:size=12:antialias=true:autohint=true", "DejaVu Sans Mono:size=12:antialias=true:autohint=true", };
@@ -50,7 +50,9 @@ static const Rule rules[] = {
     { "qutebrowser",        NULL,     NULL,            1 << 1,    1,           0,          0,          0,         1,       -1,      0          },
     { "Brave-browser-beta", NULL,     NULL,            1 << 1,    1,           0,          0,          0,         1,       -1,      0          },
     { "Brave-browser",      NULL,     NULL,            1 << 1,    1,           0,          0,          0,         1,       -1,      0          },
-    { "mpv",                NULL,     NULL,            1 << 3,    0,           0,          0,          0,         1,       -1,      0          },
+    { "mpv",                NULL,     NULL,            1 << 3,    1,           0,          0,          0,         1,       -1,      0          },
+    { "Spotify",            NULL,     NULL,            1 << 3,    1,           0,          0,          0,         1,       -1,      0          },
+    { "spotify",            NULL,     NULL,            1 << 3,    1,           0,          0,          0,         1,       -1,      0          },
     { "MuseScore3",         NULL,     NULL,            1 << 8,    1,           0,          0,          0,         1,       -1,      0          },
     { "MuseScore4",         NULL,     NULL,            1 << 8,    1,           0,          0,          0,         1,       -1,      0          },
     { "Signal",             NULL,     NULL,            1 << 6,    1,           0,          0,          0,         1,       -1,      0          },
