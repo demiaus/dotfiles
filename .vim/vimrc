@@ -165,7 +165,7 @@ endfunction
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
-" CUSTOM MAPPINGS {{{///////////////////////////////////////////////////////////
+" MAPPINGS {{{///////////////////////////////////////////////////////////
 
 let mapleader = " "
 
@@ -240,7 +240,7 @@ nnoremap Q <NOP>
 nnoremap <Leader>j :bn<CR>
 nnoremap <Leader>k :bp<CR>
 
-" Get color values from .Xresources
+" Get color values from .Xresources for color word under cursor
 nnoremap <Leader>x :call GetXresColor()<CR>
 xnoremap <Leader>x :call GetXresColor()<CR>
 
@@ -262,11 +262,10 @@ nnoremap <Leader>U gUiw
 nnoremap <Leader>d :put =strftime('%d.%m.%Y %M:%H')<CR>
 
 " Go to test file
-nnoremap <Leader>t :tabe ~/testing/test.txt<CR>
+nnoremap <Leader>T :tabe ~/testing/test.txt<CR>
 
-" }}}///////////////////////////////////////////////////////////////////////////
-
-" PLUG-IN MAPPINGS {{{//////////////////////////////////////////////////////////
+" Open vertical terminal
+nnoremap <Leader>t :vertical terminal<CR>
 
 " "VIM-SURROUND"
 nnoremap <Leader>' :execute "normal \<Plug>YsurroundiW'"<CR>
@@ -314,6 +313,24 @@ xmap <C-W>gss   <Plug>(Visual-Split-VSSplit)
 xmap <C-W>gsa   <Plug>(Visual-Split-VSSplitAbove)
 xmap <C-W>gsb   <Plug>(Visual-Split-VSSplitBelow)
 
+" "COLORIZER"
+nnoremap <Leader>col :ColorToggle<CR>
+
+" "MVVIS"
+vmap H <Plug>(MvVisLeft)
+vmap J <Plug>(MvVisDown)
+vmap K <Plug>(MvVisUp)
+vmap L <Plug>(MvVisRight)
+
+" "FZF"
+nnoremap <Leader>f :call fzf#run({'sink': 'e'})<CR>
+nnoremap <Leader>F :FZF ~<CR>
+
+" "ALE"
+nnoremap <Leader>n :ALENext<CR>
+nnoremap <Leader>N :ALEPrevious<CR>
+nnoremap <Leader>A :ALEToggle<CR>
+
 " "MAGNUM defaults"
 " gA  Shows the four representations of the number under the cursor (or selected in Visual mode).
 " crd Convert to decimal
@@ -334,22 +351,6 @@ xmap <C-W>gsb   <Plug>(Visual-Split-VSSplitBelow)
 " nmap <Leader>gz  <Plug>Titlecase
 " nmap <Leader>gzz <Plug>TitlecaseLine
 " vmap <Leader>gz  <Plug>Titlecase
-
-" "COLORIZER"
-nnoremap <Leader>col :ColorToggle<CR>
-
-" "MVVIS"
-vmap H <Plug>(MvVisLeft)
-vmap J <Plug>(MvVisDown)
-vmap K <Plug>(MvVisUp)
-vmap L <Plug>(MvVisRight)
-
-" "FZF"
-nnoremap <Leader>f :call fzf#run({'sink': 'e'})<CR>
-nnoremap <Leader>F :FZF ~<CR>
-
-
-" }}}///////////////////////////////////////////////////////////////////////////
 
 " OPTIONS {{{///////////////////////////////////////////////////////////////////
 
