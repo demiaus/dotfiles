@@ -15,14 +15,16 @@ if [ -x /usr/bin/dircolors ];then
   alias grep='grep --color=auto'
   alias ip='ip -color=auto'
 fi
+
+# alias vim='vim --servername VIMSERVER --remote-tab-silent'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vimrc='vim ~/.vim/vimrc'
 alias tridactylrc='vim ~/.config/tridactyl/tridactylrc'
-alias vim='vim --servername VIMSERVER --remote-tab-silent'
+alias ww='vim ~/vimwiki/index.md'
 alias :q=exit
 alias :wq=exit
+
 alias destroy='shred -zu'
-alias ww='vim ~/vimwiki/index.md'
 alias o=xdg-open
 alias yt=yt-dlp
 alias yta='yt-dlp -x'
@@ -34,9 +36,13 @@ alias rm='rm -v'
 alias cp='cp -v'
 alias rmdir='rmdir -v'
 alias mauku="ssh $USER@mauku"
-alias toxic="killall toxic && sleep 1 && toxic"
+alias toxic='killall toxic && sleep 1 && toxic'
 alias datetime='date +"%d.%m.%Y %M:%H"'
-alias test="vim ~/testing/test.txt"
+
+# Make some noise
+alias whitenoise='play -n synth whitenoise'
+alias pinknoise='play -n synth pinknoise'
+alias brownnoise='play -n synth brownnoise'
 
 echo "$(date +%T) close ~/.bash_aliases" >> ~/.log/rc.log
 

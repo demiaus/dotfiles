@@ -1,4 +1,4 @@
-# krumeluu's dotfiles
+# demiaus' dotfiles
 - os: [arch](https://archlinux.org/)
 - wm: [dwm](https://dwm.suckless.org/)
 - shell: [bash](https://www.gnu.org/software/bash/)
