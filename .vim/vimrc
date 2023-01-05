@@ -62,7 +62,7 @@ call plug#end()
 
 set nocompatible
 set clipboard=unnamedplus
-set nohidden
+set hidden
 set viminfo+=n~/.vim/viminfo
 set nostartofline
 set undodir=~/.vim/undo
