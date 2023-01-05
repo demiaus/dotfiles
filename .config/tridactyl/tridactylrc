@@ -124,7 +124,7 @@ set searchurls.y       https://farside.link/invidious/search?q=%s
 set searchurls.tw      https://farside.link/nitter/search?q=%s
 set searchurls.s       https://farside.link/librex/search?q=%s
 set searchurls.trans   https://farside.link/simplytranslate/?engine=google&text=%s
-set searchurls.imdb    https://imdb.com/find?s=all&q=%s
+set searchurls.imdb    https://www.imdb.com/find/?q=search
 set searchurls.rustb   https://doc.rust-lang.org/book/?search=%s
 set searchurls.rustd   https://doc.rust-lang.org/beta/std/?search=%s
 set searchurls.yts     https://yts.mx/browse-movies/%s/all/all/0/rating/0/all
@@ -136,6 +136,9 @@ set searchurls.pounds  https://www.calculateme.com/weight/pounds/to-kilograms/%s
 set searchurls.stones  https://www.calculateme.com/weight/stone/to-kilograms/%s
 set searchurls.ounces  https://www.calculateme.com/weight/ounces/to-kilograms/%s
 set searchurls.gallons https://www.calculateme.com/volume/gallons/to-liters/%s
+set searchurls.wolf    https://www.wolframalpha.com/input?i=%s
+set searchurls.crate   https://crates.io/search?q=%s
+set searchurls.yify    https://yifysubtitles.org/search?q=%s
 
 " vim: set filetype=tridactyl
 
