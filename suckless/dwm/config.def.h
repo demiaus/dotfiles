@@ -4,7 +4,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int rmaster            = 1;        /* 1 means master-area is initially on the right */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
@@ -14,7 +14,7 @@ static const int user_bh            = 2;        /* 2 is the default spacing arou
 static const double defaultopacity  = 1.0f; 
 static const double activeopacity   = 1.0f;     /* Window opacity when it's focused (0 <= opacity <= 1) */
 static const double inactiveopacity = 0.875f;   /* Window opacity when it's inactive (0 <= opacity <= 1) */
-static       Bool   bUseOpacity     = True;     /* Starts with opacity on any unfocused windows */
+static       Bool   bUseOpacity     = False;     /* Starts with opacity on any unfocused windows */
 
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
 static const char *fonts[]               = { "CozetteVector Nerd Font:size=12:antialias=true:autohint=true", "DejaVu Sans Mono:size=12:antialias=true:autohint=true", };

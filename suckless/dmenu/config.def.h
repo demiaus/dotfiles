@@ -3,23 +3,23 @@
 
 static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom */
 static int fuzzy  = 1;                      /* -F  option; if 0, dmenu doesn't use fuzzy matching */
-static const unsigned int alpha = 0xf0;
+static const unsigned int alpha = 0xff;
 static const char *prompt = NULL;
 static const char *fonts[] = { "CozetteVector Nerd Font:size=14:antialias=true:autohint=true" };
 static const char *colors[SchemeLast][2] = {
-	/* Rosé Pine https://rosepinetheme.com/palette */
-	/*                         fg         bg       */
-	[SchemeNorm]          = { "#ebbcba", "#191724" }, /* rose, base */
-	[SchemeSel]           = { "#9ccfd8", "#191724" }, /* foam, base */
-	[SchemeSelHighlight]  = { "#9ccfd8", "#191724" }, /* foam, base */
-	[SchemeNormHighlight] = { "#ebbcba", "#191724" }, /* rose, base */
+    /* Rosé Pine https://rosepinetheme.com/palette */
+    /*                         fg         bg       */
+    [SchemeNorm]          = { "#ebbcba", "#191724" }, /* rose, base */
+    [SchemeSel]           = { "#9ccfd8", "#191724" }, /* foam, base */
+    [SchemeSelHighlight]  = { "#9ccfd8", "#191724" }, /* foam, base */
+    [SchemeNormHighlight] = { "#ebbcba", "#191724" }, /* rose, base */
 };
 
 static const unsigned int alphas[SchemeLast][2] = {
-	[SchemeNorm]          = { OPAQUE, alpha  },
-	[SchemeSel]           = { OPAQUE, alpha  },
-	[SchemeSelHighlight]  = { OPAQUE, OPAQUE },
-	[SchemeNormHighlight] = { OPAQUE, OPAQUE },
+    [SchemeNorm]          = { OPAQUE, alpha  },
+    [SchemeSel]           = { OPAQUE, alpha  },
+    [SchemeSelHighlight]  = { OPAQUE, OPAQUE },
+    [SchemeNormHighlight] = { OPAQUE, OPAQUE },
 };
 
 static unsigned int lines          =  0;

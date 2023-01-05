@@ -29,7 +29,7 @@ dex -a
 # screen
 brightnessctl --restore
 ~/.fehbg
-picom --config ~/.config/picom/picom.conf &
+# picom --config ~/.config/picom/picom.conf &
 redshift &
 
 # input
