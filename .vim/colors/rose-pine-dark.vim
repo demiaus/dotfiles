@@ -73,7 +73,7 @@ hi Whitespace            guifg=#403d52 guibg=NONE
 hi SpecialComment        guifg=#26233a guibg=#191724 gui=italic   cterm=italic
 hi StatusLine            guifg=#191724 guibg=#9ccfd8 gui=bold     cterm=bold
 hi StatusLineNC          guibg=#31748f guifg=#191724 gui=NONE     cterm=NONE
-hi Search                guibg=#31748f guifg=#eb6f92
+hi Search                guibg=#31748f guifg=#f6c177
 hi Title                 guifg=#e0def4
 hi Pmenu                 guifg=#e0def4 guibg=#706e86
 hi PmenuSbar             guifg=#e0def4 guibg=#706e86
