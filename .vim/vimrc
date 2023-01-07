@@ -63,7 +63,7 @@ call plug#end()
 
 set nocompatible
 set clipboard=unnamedplus
-set nohidden
+set hidden
 set viminfo+=n~/.vim/viminfo
 set nostartofline
 set undodir=~/.vim/undo
@@ -165,7 +165,7 @@ endfunction
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
-" CUSTOM MAPPINGS {{{///////////////////////////////////////////////////////////
+" MAPPINGS {{{///////////////////////////////////////////////////////////
 
 let mapleader = " "
 
@@ -259,14 +259,13 @@ nnoremap <Leader>u guiw
 nnoremap <Leader>U gUiw
 
 " Insert datetime
-nnoremap <Leader>d :put =strftime('%d.%m.%Y %M:%H')<CR>
+nnoremap <Leader>d :put =strftime('%d.%m.%Y %H:%M')<CR>
 
 " Go to test file
-nnoremap <Leader>t :tabe ~/testing/test.txt<CR>
+nnoremap <Leader>T :tabe ~/testing/test.txt<CR>
 
-" }}}///////////////////////////////////////////////////////////////////////////
-
-" PLUG-IN MAPPINGS {{{//////////////////////////////////////////////////////////
+" Open terminal
+nnoremap <Leader>t :vertical terminal<CR>
 
 " "VIM-SURROUND"
 nnoremap <Leader>' :execute "normal \<Plug>YsurroundiW'"<CR>
@@ -314,6 +313,25 @@ xmap <C-W>gss   <Plug>(Visual-Split-VSSplit)
 xmap <C-W>gsa   <Plug>(Visual-Split-VSSplitAbove)
 xmap <C-W>gsb   <Plug>(Visual-Split-VSSplitBelow)
 
+" "COLORIZER"
+nnoremap <Leader>col :ColorToggle<CR>
+
+" "MVVIS"
+vmap H <Plug>(MvVisLeft)
+vmap J <Plug>(MvVisDown)
+vmap K <Plug>(MvVisUp)
+vmap L <Plug>(MvVisRight)
+
+" "FZF"
+nnoremap <Leader>f :call fzf#run({'sink': 'e'})<CR>
+nnoremap <Leader>F :FZF ~<CR>
+
+" "ALE"
+nnoremap <Leader>A :ALEToggle<CR>
+nnoremap <Leader>D :ALEDetail<CR>
+nnoremap <Leader>n :ALENext<CR>
+nnoremap <Leader>N :ALEPrevious<CR>
+
 " "MAGNUM defaults"
 " gA  Shows the four representations of the number under the cursor (or selected in Visual mode).
 " crd Convert to decimal
@@ -335,18 +353,6 @@ xmap <C-W>gsb   <Plug>(Visual-Split-VSSplitBelow)
 " nmap <Leader>gzz <Plug>TitlecaseLine
 " vmap <Leader>gz  <Plug>Titlecase
 
-" "COLORIZER"
-nnoremap <Leader>col :ColorToggle<CR>
-
-" "MVVIS"
-vmap H <Plug>(MvVisLeft)
-vmap J <Plug>(MvVisDown)
-vmap K <Plug>(MvVisUp)
-vmap L <Plug>(MvVisRight)
-
-" "FZF"
-nnoremap <Leader>f :call fzf#run({'sink': 'e'})<CR>
-nnoremap <Leader>F :FZF ~<CR>
 
 
 " }}}///////////////////////////////////////////////////////////////////////////
@@ -446,7 +452,6 @@ augroup END
 au BufEnter * setlocal formatoptions-=cro
 
 " }}}///////////////////////////////////////////////////////////////////////////
-
 
 " ABBREVIATIONS {{{/////////////////////////////////////////////////////////////
 
