@@ -71,8 +71,6 @@ hi NonText               guifg=#403d52 guibg=NONE
 hi SpecialKey            guifg=#403d52 guibg=NONE
 hi Whitespace            guifg=#403d52 guibg=NONE
 hi SpecialComment        guifg=#26233a guibg=#191724 gui=italic   cterm=italic
-hi StatusLine            guifg=#191724 guibg=#9ccfd8 gui=bold     cterm=bold
-hi StatusLineNC          guibg=#31748f guifg=#191724 gui=NONE     cterm=NONE
 hi Search                guibg=#31748f guifg=#f6c177
 hi Title                 guifg=#e0def4
 hi Pmenu                 guifg=#e0def4 guibg=#706e86
@@ -89,11 +87,16 @@ hi TabLineSel            guifg=#9ccfd8 guibg=#191724
 hi LineNr                guifg=#c4a7e7 guibg=NONE
 hi CursorLineNr          guifg=#9ccfd8 guibg=NONE
 hi ColorColumn           guifg=#eb6f92 guibg=NONE
+
 hi SpellBad              guifg=NONE    guibg=#191724 cterm=underline
 hi SpellCap              guifg=NONE    guibg=#191724 cterm=underline
 hi SpellLocal            guifg=NONE    guibg=#191724 cterm=underline
 hi SpellRare             guifg=NONE    guibg=#191724 cterm=underline
 
+hi StatusLine            guifg=#1f1d2e guibg=#9ccfd8 gui=bold     cterm=bold
+hi StatusLineNC          guifg=#9ccfd8 guibg=#403d52 gui=NONE     cterm=NONE
+hi StatusLineTermNC      guifg=#191724 guibg=#9ccfd8 gui=bold     cterm=bold
+hi StatusLineTerm        guifg=#31748f guibg=#191724 gui=NONE     cterm=NONE
 
 " Vimwiki colors
 hi def link VimwikiWeblink1 String

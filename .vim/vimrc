@@ -88,6 +88,7 @@ set list
 set sidescroll=8
 set noshowmatch
 set spell
+set tws=100x50
 
 " "CMDLINE"
 set showcmd
@@ -208,7 +209,7 @@ inoremap <C-c> <Esc>:set formatoptions-=cro<CR>a<Space>
 nnoremap <Leader><Leader> :nohls<CR>
 
 " Open / reload (source) vimrc
-nnoremap <Leader>vi :tabe $MYVIMRC<CR>
+nnoremap <Leader>vi :e $MYVIMRC<CR>
 nnoremap <Leader>re :source $MYVIMRC<CR>
 
 " Fix spelling
@@ -221,10 +222,10 @@ nnoremap n nzz
 nnoremap N Nzz
 
 " Open non-existing file
-noremap <Leader>gf :tabe <cfile><CR>
+noremap gf :e <cfile><CR>
 
 " Open vim rose-pine-dark
-nnoremap <Leader>ro :tabe ~/.vim/colors/rose-pine-dark.vim<CR>
+nnoremap <Leader>ro :e ~/.vim/colors/rose-pine-dark.vim<CR>
 " Check highlighting
 nnoremap <Leader>hi :so $VIMRUNTIME/syntax/hitest.vim<CR>
 
@@ -262,7 +263,7 @@ nnoremap <Leader>U gUiw
 nnoremap <Leader>d :put =strftime('%d.%m.%Y %H:%M')<CR>
 
 " Go to test file
-nnoremap <Leader>T :tabe ~/testing/test.txt<CR>
+nnoremap <Leader>T :e ~/testing/test.txt<CR>
 
 " Open terminal
 nnoremap <Leader>t :vertical terminal<CR>
