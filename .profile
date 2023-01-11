@@ -47,6 +47,8 @@ done
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND -type d -print"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND -type f -print"
 export FZF_DEFAULT_COMMAND="$FZF_DEFAULT_COMMAND -type f -print"
+export BW_SESSION="$(bw unlock --quiet --passwordfile ~/.bw.api)"
+export MW_SESSION="$(<~/.mw.api)"
 
 #!/bin/sh
 if [ "$TERM" = "linux" ]; then
