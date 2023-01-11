@@ -18,7 +18,7 @@ fi
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vimrc='vim ~/.vim/vimrc'
 alias tridactylrc='vim ~/.config/tridactyl/tridactylrc'
-alias vim='vim --servername VIMSERVER --remote-tab-silent'
+alias vim='vim --servername VIMSERVER --remote-silent'
 alias :q=exit
 alias :wq=exit
 alias destroy='shred -zu'
@@ -36,7 +36,6 @@ alias rmdir='rmdir -v'
 alias mauku="ssh $USER@mauku"
 alias toxic="killall toxic && sleep 1 && toxic"
 alias datetime='date +"%d.%m.%Y %M:%H"'
-alias test="vim ~/testing/test.txt"
 
 echo "$(date +%T) close ~/.bash_aliases" >> ~/.log/rc.log
 
