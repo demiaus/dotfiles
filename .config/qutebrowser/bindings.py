@@ -32,6 +32,9 @@ config.bind('<Alt-f>',        'fake-key <Ctrl-Right>',             mode='insert'
 config.bind('<Alt-f>',        'fake-key <Ctrl-Right>',             mode='insert')
 config.bind('<Ctrl-Shift-l>', 'spawn --userscript qute-bitwarden', mode='insert')
 
+# Visual mode
+config.bind('<Ctrl-Shift-p>', 'spawn --userscript get_pron.py QUTE_SELECTED_TEXT', mode='caret')
+
 # Command mode
 config.bind('<Ctrl-n>', 'completion-item-focus next', mode='command')
 config.bind('<Ctrl-p>', 'completion-item-focus prev', mode='command')

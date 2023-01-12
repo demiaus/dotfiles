@@ -55,5 +55,4 @@ c.content.cookies.accept = "no-3rdparty"
 config.source('rose-pine.py') # ~/.config/qutebrowser/rose-pine.py
 config.source('bindings.py')  # ~/.config/qutebrowser/bindings.py
 config.source('search.py')    # ~/.config/qutebrowser/search.py
-# config.source('sites.py')     # ~/.config/qutebrowser/sites.py
 
