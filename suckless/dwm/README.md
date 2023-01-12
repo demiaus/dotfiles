@@ -7,6 +7,8 @@
 - [clientopacity](https://dwm.suckless.org/patches/clientopacity/)
 - [fadeinactive](https://dwm.suckless.org/patches/fadeinactive/)
 - [focusmaster](https://dwm.suckless.org/patches/focusmaster/)
+- [gapless grid layout](https://dwm.suckless.org/patches/gaplessgrid/)
+- [gridmode](https://dwm.suckless.org/patches/gridmode/)
 - [moveresize](https://dwm.suckless.org/patches/moveresize/)
 - [notallowed](https://dwm.suckless.org/patches/notallowed/)
 - [pertag](https://dwm.suckless.org/patches/pertag/)

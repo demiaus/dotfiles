@@ -16,14 +16,13 @@ if [ -x /usr/bin/dircolors ];then
   alias ip='ip -color=auto'
 fi
 
-# alias vim='vim --servername VIMSERVER --remote-tab-silent'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vimrc='vim ~/.vim/vimrc'
 alias tridactylrc='vim ~/.config/tridactyl/tridactylrc'
 alias ww='vim ~/vimwiki/index.md'
+alias vim='vim --servername VIMSERVER --remote-silent'
 alias :q=exit
 alias :wq=exit
-
 alias destroy='shred -zu'
 alias o=xdg-open
 alias yt=yt-dlp
@@ -37,7 +36,7 @@ alias cp='cp -v'
 alias rmdir='rmdir -v'
 alias mauku="ssh $USER@mauku"
 alias toxic='killall toxic && sleep 1 && toxic'
-alias datetime='date +"%d.%m.%Y %M:%H"'
+alias datetime='date +"%d.%m.%Y %H:%M"'
 
 # Make some noise
 alias whitenoise='play -n synth whitenoise'
