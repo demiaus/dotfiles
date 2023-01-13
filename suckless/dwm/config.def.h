@@ -45,8 +45,8 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const Rule rules[] = {
 	/* class				instance	title			tags mask	switchtotag	isfloating	isterminal	noswallow	opacity	monitor	notallowed	*/
 	{ "st",					NULL,		NULL,			1,			1,			0,			1,			0,			1,		-1,		0			},
-	{ "trayer",				NULL,		NULL,			1 << 8,		0,			0,			0,			0,			0,		-1,		0			},
-	{ "stalonetray",		NULL,		NULL,			1 << 8,		0,			0,			0,			0,			0,		-1,		0			},
+	{ "trayer",				NULL,		NULL,			1 << 8,		0,			0,			0,			0,			1,		-1,		0			},
+	{ "stalonetray",		NULL,		NULL,			1 << 8,		0,			0,			0,			1,			1,		-1,		0			},
 	{ "Gimp",				NULL,		NULL,			1 << 2,		1,			1,			0,			0,			1,		-1,		0			},
 	{ "LibreWolf",			NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "qutebrowser",		NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
