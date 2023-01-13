@@ -25,7 +25,6 @@ export LESS='-MRi#8j.5'
 #             `------ show more information in prompt
 export LESSHISTFILE=/dev/null
 export PYTHONSTARTUP=~/.config/python/pythonrc
-export BW_SESSION=$(bw --raw unlock --passwordfile ~/.bw.txt)
 
 FZF_DEFAULT_COMMAND='find .'
 FZF_IGNORE="
@@ -46,10 +45,11 @@ for dir in $FZF_IGNORE; do
   FZF_DEFAULT_COMMAND="$FZF_DEFAULT_COMMAND -name $dir -prune -o"
 done
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND -type d -print"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND -type f -print"
 export FZF_DEFAULT_COMMAND="$FZF_DEFAULT_COMMAND -type f -print"
-export BW_SESSION="$(bw unlock --quiet --passwordfile ~/.bw.api)"
-export MW_SESSION="$(<~/.mw.api)"
+export BW_CLIENTID="$(<~/.bw.client_id)"
+export BW_CLIENTSECRET="$(<~/.bw.client_secret)"
+export BW_SESSION="$(bw unlock --raw --passwordfile=$HOME/.bw.key)"
+export MW_SESSION="$(<~/.mw.apikey)"
 
 #!/bin/sh
 if [ "$TERM" = "linux" ]; then
