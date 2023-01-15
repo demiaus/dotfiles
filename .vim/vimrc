@@ -19,6 +19,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
+    Plug 'Yggdroot/indentLine'
     Plug 'amadeus/vim-convert-color-to'
     Plug 'cespare/vim-toml', { 'branch': 'main' }
     Plug 'chrisbra/colorizer'
@@ -266,6 +267,12 @@ nnoremap <Leader>T :tabe ~/testing/test.txt<CR>
 
 " Open terminal
 nnoremap <Leader>t :vertical terminal<CR>
+
+" Don't close accidentally
+nnoremap ZZ :q
+
+" Erase redundant spaces"
+xnoremap <Leader>_ :s/ \+/ /g<CR>gv:s/ $//g<CR>
 
 " "VIM-SURROUND"
 nnoremap <Leader>' :execute "normal \<Plug>YsurroundiW'"<CR>
