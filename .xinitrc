@@ -23,6 +23,9 @@ fi
 
 ################################################################################
 
+# Get to correct default branch
+usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME checkout precision
+
 # /etc/xdg/autostart & .config/autostart
 dex -a
 
@@ -30,7 +33,6 @@ dex -a
 xrandr --auto
 brightnessctl --restore
 ~/.fehbg
-# picom --config ~/.config/picom/picom.conf &
 redshift &
 /usr/bin/prime-offload
 
