@@ -48,8 +48,8 @@ bind o fillcmdline open
 bind O fillcmdline tabopen
 
 " Youtube's a bitch, but these seem to work
-bindurl ^https://www\.youtube\.com/watch\?v=.*$ --mode=normal w !s xdotool key Left
-bindurl ^https://www\.youtube\.com/watch\?v=.*$ --mode=normal b !s xdotool key Right
+bindurl ^https://www\.youtube\.com/watch\?v=.*$ --mode=normal b !s xdotool key Left
+bindurl ^https://www\.youtube\.com/watch\?v=.*$ --mode=normal w !s xdotool key Right
 bindurl ^https://www\.youtube\.com/watch\?v=.*$ --mode=ignore j !s xdotool key Left
 bindurl ^https://www\.youtube\.com/watch\?v=.*$ --mode=ignore l !s xdotool key Right
 unbindurl ^https://www\.youtube\.com/watch\?v=.*$ ,
