@@ -18,8 +18,8 @@ static const double inactiveopacity = 0.875f;   /* Window opacity when it's inac
 static       Bool   bUseOpacity     = False;    /* Starts with opacity on any unfocused windows */
 
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
-static const char *fonts[]				 = { "CozetteVector Nerd Font:size=12:antialias=true:autohint=true", "DejaVu Sans Mono:size=12:antialias=true:autohint=true", };
-static const char dmenufont[]			 =	 "CozetteVector Nerd Font:size=10:antialias=true:autohint=true" ;
+static const char *fonts[]				 = { "CozetteVector Nerd Font:size=16:antialias=true:autohint=true", "DejaVu Sans Mono:size=16:antialias=true:autohint=true", };
+static const char dmenufont[]			 =	 "CozetteVector Nerd Font:size=14:antialias=true:autohint=true" ;
 
 /* Rosé Pine https://rosepinetheme.com/palette */
 static const char col_base[]			= "#191724";
@@ -61,8 +61,9 @@ static const Rule rules[] = {
 	{ "Anki",				"anki",		NULL,			1 << 7,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Anki",				"anki",		"Browse",		1 << 7,		0,			1,			0,			0,			1,		-1,		0			},
 	{ "Anki",				"anki",		"Add-ons",		1 << 7,		0,			1,			0,			0,			1,		-1,		0			},
-	{ "Steam",				"Steam",	"Steam",		1 << 5,		1,			1,			0,			0,			1,		-1,		0			},
+	{ "Steam",				"Steam",	"Steam",		1 << 5,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Steam",				"Steam",	"Steam - News",	1 << 5,		0,			1,			0,			0,			1,		-1,		0			},
+	{ "Steam",				"Steam",	"Friends List",	1 << 5,		0,			1,			0,			0,			1,		-1,		0			},
 	{ NULL,					NULL,		"Event Tester",	0,			0,			0,			0,			1,			1,		-1,		0			}, /* xev */
 };
 
@@ -161,13 +162,13 @@ static const Key keys[] = {
 	{ MODKEY,				XK_g,			setlayout,			{.v = &layouts[3]} },
 	{ MODKEY,				XK_space,		setlayout,			{0} },
 	{ MODKEY|ShiftMask, 	XK_space,		togglefloating,		{0} },
-	{ MODKEY2,				XK_j,			moveresize,			{.v = "  0x  25y	0w	 0h" } },
-	{ MODKEY2,				XK_k,			moveresize,			{.v = "  0x -25y	0w	 0h" } },
-	{ MODKEY2,				XK_l,			moveresize,			{.v = " 25x   0y	0w	 0h" } },
-	{ MODKEY2,				XK_h,			moveresize,			{.v = "-25x   0y	0w	 0h" } },
+	{ MODKEY2,				XK_j,			moveresize,			{.v = "  0x  25y   0w	 0h" } },
+	{ MODKEY2,				XK_k,			moveresize,			{.v = "  0x -25y   0w	 0h" } },
+	{ MODKEY2,				XK_l,			moveresize,			{.v = " 25x   0y   0w	 0h" } },
+	{ MODKEY2,				XK_h,			moveresize,			{.v = "-25x   0y   0w	 0h" } },
 	{ MODKEY2|ShiftMask,	XK_h,			moveresize,			{.v = "  0x   0y -25w	 0h" } },
-	{ MODKEY2|ShiftMask,	XK_j,			moveresize,			{.v = "  0x   0y	0w	25h" } },
-	{ MODKEY2|ShiftMask,	XK_k,			moveresize,			{.v = "  0x   0y	0w -25h" } },
+	{ MODKEY2|ShiftMask,	XK_j,			moveresize,			{.v = "  0x   0y   0w	25h" } },
+	{ MODKEY2|ShiftMask,	XK_k,			moveresize,			{.v = "  0x   0y   0w  -25h" } },
 	{ MODKEY2|ShiftMask,	XK_l,			moveresize,			{.v = "  0x   0y  25w	 0h" } },
 	{ MODKEY2|ControlMask,	XK_h,			moveresizeedge,		{.v = "l"} },
 	{ MODKEY2|ControlMask,	XK_j,			moveresizeedge,		{.v = "b"} },
