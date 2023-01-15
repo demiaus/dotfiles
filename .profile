@@ -44,8 +44,13 @@ FZF_IGNORE="
 for dir in $FZF_IGNORE; do
   FZF_DEFAULT_COMMAND="$FZF_DEFAULT_COMMAND -name $dir -prune -o"
 done
+
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND -type d -print"
 export FZF_DEFAULT_COMMAND="$FZF_DEFAULT_COMMAND -type f -print"
+# Remap CTRL-T to CTRL-X CTRL-T
+bind "$(bind -s | grep __fzf_select | sed 's/\\C-t/\\C-x\\C-t/')"
+bind '"\C-t": transpose-chars'
+
 export BW_CLIENTID="$(<~/.bw.client_id)"
 export BW_CLIENTSECRET="$(<~/.bw.client_secret)"
 export BW_SESSION="$(bw unlock --raw --passwordfile=$HOME/.bw.key)"
