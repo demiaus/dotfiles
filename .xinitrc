@@ -27,12 +27,10 @@ fi
 dex -a
 
 # screen
-xrandr --auto
 brightnessctl --restore
 ~/.fehbg
 # picom --config ~/.config/picom/picom.conf &
 redshift &
-/usr/bin/prime-offload
 
 # input
 setxkbmap -config ~/.config/xkb/ficode-min.xkb
