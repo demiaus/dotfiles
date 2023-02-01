@@ -37,7 +37,7 @@ redshift &
 /usr/bin/prime-offload
 
 # input
-setxkbmap -config ~/.config/xkb/ficode-min.xkb
+setxkbmap -config ~/.config/xkb/ficode.xkb
 unclutter --jitter 5 --timeout 2 --start-hidden --ignore-scrolling &
 
 # audio
