@@ -164,6 +164,16 @@ function! GetXresColor()
     execute "normal! ciw" . l:hex
 endfunction
 
+" function! Fen()
+"     execute 'normal! gg0f d$0'
+"     let l:a = 1
+"     while a == 1
+"         a = execute 'normal! /\d"zz@zi.'
+"     endwhile
+"     endfor
+"     execute 'normal! :s/\//\/\r/g:%s/\(.\)/\1 /g:%s/ $//'
+" endfunction
+
 " }}}///////////////////////////////////////////////////////////////////////////
 
 " MAPPINGS {{{///////////////////////////////////////////////////////////
@@ -273,6 +283,11 @@ nnoremap ZZ :q
 
 " Erase redundant spaces"
 xnoremap <Leader>_ :s/ \+/ /g<CR>gv:s/ $//g<CR>
+
+" Format FEN
+let @f = 'f d$64@m@s'
+let @m = 'O."dxdd/\d"cx@c"dP'
+let @s = ':s/\//\/\r/g:%s/\(.\)/\1 /g:%s/ $//'
 
 " "VIM-SURROUND"
 nnoremap <Leader>' :execute "normal \<Plug>YsurroundiW'"<CR>

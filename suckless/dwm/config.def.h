@@ -19,7 +19,7 @@ static       Bool   bUseOpacity     = False;    /* Starts with opacity on any un
 
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
 static const char *fonts[]				 = { "CozetteVector Nerd Font:size=16:antialias=true:autohint=true", "DejaVu Sans Mono:size=16:antialias=true:autohint=true", };
-static const char dmenufont[]			 =	 "CozetteVector Nerd Font:size=14:antialias=true:autohint=true" ;
+static const char dmenufont[]			 =	 "CozetteVector Nerd Font:size=14:antialias=true:autohint=true";
 
 /* Rosé Pine https://rosepinetheme.com/palette */
 static const char col_base[]			= "#191724";
@@ -45,6 +45,7 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const Rule rules[] = {
 	/* class				instance	title			tags mask	switchtotag	isfloating	isterminal	noswallow	opacity	monitor	notallowed	*/
 	{ "st",					NULL,		NULL,			1,			1,			0,			1,			0,			1,		-1,		0			},
+	{ "Alacritty",			NULL,		NULL,			1,			1,			0,			1,			0,			1,		-1,		0			},
 	{ "trayer",				NULL,		NULL,			1 << 8,		0,			0,			0,			0,			1,		-1,		0			},
 	{ "stalonetray",		NULL,		NULL,			1 << 8,		0,			0,			0,			1,			1,		-1,		0			},
 	{ "Gimp",				NULL,		NULL,			1 << 2,		1,			1,			0,			0,			1,		-1,		0			},
@@ -52,7 +53,7 @@ static const Rule rules[] = {
 	{ "qutebrowser",		NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Brave-browser-beta", NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Brave-browser",		NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
-	{ "mpv",				NULL,		NULL,			1 << 3,		0,			0,			0,			0,			1,		-1,		0			},
+	/* { "mpv",				NULL,		NULL,			1 << 3,		4,			0,			0,			0,			1,		-1,		0			}, */
 	{ "MuseScore3",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "MuseScore4",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Signal",				NULL,		NULL,			1 << 6,		1,			0,			0,			0,			1,		-1,		0			},
