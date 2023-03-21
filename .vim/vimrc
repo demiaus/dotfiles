@@ -372,6 +372,7 @@ let g:vimwiki_markdown_link_ext = 1
 let g:easy_align_ignore_unmatched=0
 
 " "VIM MARKDOWN PREVIEW"
+let g:mkdp_echo_preview_url = 1
 let vim_markdown_preview_toggle=2
 let vim_markdown_preview_hotkey='<A-m>'
 let vim_markdown_preview_browser='.local/bin/browser'

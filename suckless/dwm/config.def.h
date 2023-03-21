@@ -52,12 +52,13 @@ static const Rule rules[] = {
 	{ "qutebrowser",		NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Brave-browser-beta", NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Brave-browser",		NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
-	{ "mpv",				NULL,		NULL,			1 << 3,		0,			0,			0,			0,			1,		-1,		0			},
+	/* { "mpv",				NULL,		NULL,			1 << 3,		0,			0,			0,			0,			1,		-1,		0			}, */
 	{ "MuseScore3",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "MuseScore4",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Signal",				NULL,		NULL,			1 << 6,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "TelegramDesktop",	NULL,		NULL,			1 << 6,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "KotatogramDesktop",	NULL,		NULL,			1 << 6,		1,			0,			0,			0,			1,		-1,		0			},
+	{ "thunar",	            NULL,		NULL,			1 << 4,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Anki",				"anki",		NULL,			1 << 7,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Anki",				"anki",		"Browse",		1 << 7,		0,			1,			0,			0,			1,		-1,		0			},
 	{ "Anki",				"anki",		"Add-ons",		1 << 7,		0,			1,			0,			0,			1,		-1,		0			},
@@ -107,6 +108,7 @@ static const char *shutdowncmd[]		= { "systemctl", "poweroff", NULL };
 static const char *rebootcmd[]			= { "systemctl", "reboot",	NULL };
 /* input */
 static const char *emojicmd[]			= { "dmenu-emoji.sh", NULL };
+static const char *fencmd[]				= { "pretty_fen.sh", NULL };
 
 /* key definitions */
 #define MODKEY	Mod4Mask
@@ -143,6 +145,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask, 	XK_Return,		spawn,				{.v = termcmd			} },
 	{ MODKEY,				XK_e,			spawn,				{.v = emojicmd			} },
 	{ MODKEY,				XK_o,			spawn,				{.v = ocrcmd			} },
+	{ MODKEY,				XK_c,			spawn,				{.v = fencmd			} },
 	{ MODKEY,				XK_b,			togglebar,			{0} },
 	{ MODKEY|ShiftMask, 	XK_j,			rotatestack,		{.i = +1 } },
 	{ MODKEY|ShiftMask, 	XK_k,			rotatestack,		{.i = -1 } },
