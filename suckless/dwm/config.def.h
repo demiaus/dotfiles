@@ -51,14 +51,12 @@ static const Rule rules[] = {
 	{ "Gimp",				NULL,		NULL,			1 << 2,		1,			1,			0,			0,			1,		-1,		0			},
 	{ "LibreWolf",			NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "qutebrowser",		NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
-	{ "Brave-browser-beta", NULL,		NULL,			1 << 2,		1,			0,			0,			0,			1,		-1,		0			},
-	{ "Brave-browser",		NULL,		NULL,			1 << 2,		1,			0,			0,			0,			1,		-1,		0			},
-	/* { "mpv",				NULL,		NULL,			1 << 3,		4,			0,			0,			0,			1,		-1,		0			}, */
 	{ "MuseScore3",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "MuseScore4",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Signal",				NULL,		NULL,			1 << 6,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "TelegramDesktop",	NULL,		NULL,			1 << 6,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "KotatogramDesktop",	NULL,		NULL,			1 << 6,		1,			0,			0,			0,			1,		-1,		0			},
+	{ "thunar",	            NULL,		NULL,			1 << 4,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Anki",				"anki",		NULL,			1 << 7,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Anki",				"anki",		"Browse",		1 << 7,		0,			1,			0,			0,			1,		-1,		0			},
 	{ "Anki",				"anki",		"Add-ons",		1 << 7,		0,			1,			0,			0,			1,		-1,		0			},
@@ -109,7 +107,11 @@ static const char *shutdowncmd[]		= { "systemctl", "poweroff", NULL };
 static const char *rebootcmd[]			= { "systemctl", "reboot",	NULL };
 /* input */
 static const char *emojicmd[]			= { "dmenu-emoji.sh", NULL };
+<<<<<<< HEAD
 static const char *fencmd[]			= { "pretty_fen.sh", NULL };
+=======
+static const char *fencmd[]				= { "pretty_fen.sh", NULL };
+>>>>>>> 39fd31e (regular update)
 
 /* key definitions */
 #define MODKEY	Mod4Mask

@@ -41,6 +41,11 @@ bind b current_url bmark
 bind B bmark
 bind t fillcmdline tab
 
+" Too many accidental tab closures
+unbind d
+bind D tabclose
+bind x tabclose
+
 " Reverse tabmove to make sense with sidepane tabs and qutebrowser
 bind J tabnext
 bind K tabprev
