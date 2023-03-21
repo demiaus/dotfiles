@@ -12,7 +12,7 @@ c.downloads.position = 'bottom'
 
 c.auto_save.session = True
 
-c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.enabled = False
 c.colors.webpage.preferred_color_scheme = 'dark'
 
 c.editor.command = ['st', '-e', 'vim', '-p', '{}' ]
