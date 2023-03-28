@@ -19,6 +19,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
+    " Plug 'sersorrel/vim-lilypond'
     Plug 'amadeus/vim-convert-color-to'
     Plug 'cespare/vim-toml', { 'branch': 'main' }
     Plug 'chrisbra/colorizer'
@@ -28,23 +29,20 @@ call plug#begin()
     Plug 'dylanaraps/fff.vim'
     Plug 'glts/vim-magnum'
     Plug 'glts/vim-radical'
-    Plug 'iamcco/markdown-preview.nvim'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
     Plug 'jorengarenar/vim-mvvis'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/vim-easy-align'
     Plug 'mattn/calendar-vim'
     Plug 'mbbill/undotree'
-    Plug 'preservim/vim-markdown'
     Plug 'psliwka/vim-smoothie'
     Plug 'rhysd/rust-doc.vim'
     Plug 'romainl/vim-cool'
     Plug 'rust-lang/rust.vim'
-    Plug 'sersorrel/vim-lilypond'
     Plug 'sheerun/vim-polyglot'
     Plug 'svermeulen/vim-subversive'
     Plug 'svermeulen/vim-yoink'
     Plug 'tommcdo/vim-exchange'
-    Plug 'tools-life/taskwiki'
     Plug 'tpope/vim-abolish' " required by VIM-SUBVERSIVE
     Plug 'tpope/vim-characterize'
     Plug 'tpope/vim-commentary'
@@ -267,6 +265,12 @@ nnoremap <Leader>T :tabe ~/testing/test.txt<CR>
 " Open terminal
 nnoremap <Leader>t :vertical terminal<CR>
 
+" Inc-/decrement hex or alpha characters
+nnoremap <Leader>ia :set nrformats+=alpha<CR>
+nnoremap <Leader>iA :set nrformats-=alpha<CR>
+nnoremap <Leader>ih :set nrformats+=hex<CR>
+nnoremap <Leader>iH :set nrformats-=hex<CR>
+
 " "VIM-SURROUND"
 nnoremap <Leader>' :execute "normal \<Plug>YsurroundiW'"<CR>
 nnoremap <Leader>" :execute "normal \<Plug>YsurroundiW\""<CR>
@@ -317,10 +321,10 @@ xmap <C-W>gsb   <Plug>(Visual-Split-VSSplitBelow)
 nnoremap <Leader>col :ColorToggle<CR>
 
 " "MVVIS"
-vmap H <Plug>(MvVisLeft)
-vmap J <Plug>(MvVisDown)
-vmap K <Plug>(MvVisUp)
-vmap L <Plug>(MvVisRight)
+vmap <C-h> <Plug>(MvVisLeft)
+vmap <C-j> <Plug>(MvVisDown)
+vmap <C-k> <Plug>(MvVisUp)
+vmap <C-l> <Plug>(MvVisRight)
 
 " "FZF"
 nnoremap <Leader>f :call fzf#run({'sink': 'e'})<CR>

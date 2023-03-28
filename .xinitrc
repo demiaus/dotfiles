@@ -30,6 +30,7 @@ dex -a
 brightnessctl --restore
 ~/.fehbg
 redshift &
+# picom --daemon --config ~/.config/picom/picom.conf
 
 # input
 setxkbmap -config ~/.config/xkb/ficode.xkb
