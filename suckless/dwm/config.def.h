@@ -18,8 +18,8 @@ static const double inactiveopacity = 0.875f;   /* Window opacity when it's inac
 static       Bool   bUseOpacity     = False;    /* Starts with opacity on any unfocused windows */
 
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
-static const char *fonts[]				 = { "CozetteVector Nerd Font:size=16:antialias=true:autohint=true", "DejaVu Sans Mono:size=16:antialias=true:autohint=true", };
-static const char dmenufont[]			 =	 "CozetteVector Nerd Font:size=14:antialias=true:autohint=true";
+static const char *fonts[]				 = { "CozetteVector Nerd Font:size=18:antialias=true:autohint=true", "DejaVu Sans Mono:size=18:antialias=true:autohint=true", };
+static const char dmenufont[]			 =	 "CozetteVector Nerd Font:size=16:antialias=true:autohint=true";
 
 /* Rosé Pine https://rosepinetheme.com/palette */
 static const char col_base[]			= "#191724";
@@ -51,8 +51,8 @@ static const Rule rules[] = {
 	{ "Gimp",				NULL,		NULL,			1 << 2,		1,			1,			0,			0,			1,		-1,		0			},
 	{ "LibreWolf",			NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "qutebrowser",		NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
-	{ "Brave-browser-beta", NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
-	{ "Brave-browser",		NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
+	{ "Brave-browser-beta", NULL,		NULL,			1 << 2,		1,			0,			0,			0,			1,		-1,		0			},
+	{ "Brave-browser",		NULL,		NULL,			1 << 2,		1,			0,			0,			0,			1,		-1,		0			},
 	/* { "mpv",				NULL,		NULL,			1 << 3,		4,			0,			0,			0,			1,		-1,		0			}, */
 	{ "MuseScore3",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "MuseScore4",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
@@ -109,6 +109,7 @@ static const char *shutdowncmd[]		= { "systemctl", "poweroff", NULL };
 static const char *rebootcmd[]			= { "systemctl", "reboot",	NULL };
 /* input */
 static const char *emojicmd[]			= { "dmenu-emoji.sh", NULL };
+static const char *fencmd[]			= { "pretty_fen.sh", NULL };
 
 /* key definitions */
 #define MODKEY	Mod4Mask
@@ -145,6 +146,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask, 	XK_Return,		spawn,				{.v = termcmd			} },
 	{ MODKEY,				XK_e,			spawn,				{.v = emojicmd			} },
 	{ MODKEY,				XK_o,			spawn,				{.v = ocrcmd			} },
+	{ MODKEY,				XK_c,			spawn,				{.v = fencmd			} },
 	{ MODKEY,				XK_b,			togglebar,			{0} },
 	{ MODKEY|ShiftMask, 	XK_j,			rotatestack,		{.i = +1 } },
 	{ MODKEY|ShiftMask, 	XK_k,			rotatestack,		{.i = -1 } },

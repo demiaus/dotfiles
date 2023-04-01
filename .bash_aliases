@@ -37,6 +37,7 @@ alias rmdir='rmdir -v'
 alias mauku="ssh $USER@mauku"
 alias toxic='killall toxic && sleep 1 && toxic'
 alias datetime='date +"%d.%m.%Y %H:%M"'
+alias re='protonvpn-cli d; protonvpn-cli c -f'
 
 # Make some noise
 alias whitenoise='play -n synth whitenoise'
