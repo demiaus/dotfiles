@@ -6,8 +6,8 @@ echo "$(date +%T) open  ~/.bash_aliases" >> ~/.log/rc.log
 
 if [ -x /usr/bin/dircolors ];then
   if [ -x /usr/bin/exa ];then
-    alias ls='exa --color=auto --group-directories-first --icons'
-    alias lsd='exa --color=auto --group-directories-first --icons --only-dirs'
+    alias ls='exa --color=auto --group-directories-first'
+    alias lsd='exa --color=auto --group-directories-first --only-dirs'
   else
     alias ls='ls --color=auto --group-directories-first'
   fi
@@ -29,7 +29,6 @@ alias yt=yt-dlp
 alias yta='yt-dlp -x'
 alias myip='curl ipinfo.io'
 alias isup='ps aux | grep'
-alias sää='curl wttr.in/Turku?M'
 alias mv='mv -v'
 alias rm='rm -v'
 alias cp='cp -v'
