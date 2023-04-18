@@ -57,7 +57,7 @@ export BW_CLIENTSECRET="$(<~/.bw.client_secret)"
 export BW_SESSION="$(bw unlock --raw --passwordfile=$HOME/.bw.key)"
 export MW_SESSION="$(<~/.mw.apikey)"
 export MAC_NURA="$(<~/.mac_nura)"
-export MAC_BTR11="$(<~/.mac_btr11)"
+export MAC_BTR011="$(<~/.mac_btr011)"
 
 #!/bin/sh
 if [ "$TERM" = "linux" ]; then
