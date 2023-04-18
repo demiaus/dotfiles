@@ -6,6 +6,7 @@ static int fuzzy  = 1;                      /* -F  option; if 0, dmenu doesn't u
 static const unsigned int alpha = 0xff;
 static const char *prompt = NULL;
 static const char *fonts[] = { "CozetteVector Nerd Font:size=14:antialias=true:autohint=true" };
+/* static const char *fonts[] = { "Liberation Mono:size=14:antialias=true:autohint=true" }; */
 static const char *colors[SchemeLast][2] = {
     /* Rosé Pine https://rosepinetheme.com/palette */
     /*                         fg         bg       */

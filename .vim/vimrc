@@ -19,7 +19,6 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
-    " Plug 'sersorrel/vim-lilypond'
     Plug 'amadeus/vim-convert-color-to'
     Plug 'cespare/vim-toml', { 'branch': 'main' }
     Plug 'chrisbra/colorizer'
@@ -161,6 +160,16 @@ function! GetXresColor()
     execute "normal! ciw" . l:hex
 endfunction
 
+" function! Fen()
+"     execute 'normal! gg0f d$0'
+"     let l:a = 1
+"     while a == 1
+"         a = execute 'normal! /\d"zz@zi.'
+"     endwhile
+"     endfor
+"     execute 'normal! :s/\//\/\r/g:%s/\(.\)/\1 /g:%s/ $//'
+" endfunction
+
 " }}}///////////////////////////////////////////////////////////////////////////
 
 " MAPPINGS {{{///////////////////////////////////////////////////////////
@@ -270,6 +279,12 @@ nnoremap <Leader>ia :set nrformats+=alpha<CR>
 nnoremap <Leader>iA :set nrformats-=alpha<CR>
 nnoremap <Leader>ih :set nrformats+=hex<CR>
 nnoremap <Leader>iH :set nrformats-=hex<CR>
+=======
+" Don't close accidentally
+nnoremap ZZ :q
+
+" Erase redundant spaces"
+xnoremap <Leader>_ :s/ \+/ /g<CR>gv:s/ $//g<CR>
 
 " "VIM-SURROUND"
 nnoremap <Leader>' :execute "normal \<Plug>YsurroundiW'"<CR>

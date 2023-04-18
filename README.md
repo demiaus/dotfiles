@@ -2,7 +2,7 @@
 - os: [arch](https://archlinux.org/) / [endeavouros](https://endeavouros.com/)
 - wm: [dwm](https://dwm.suckless.org/)
 - shell: [bash](https://www.gnu.org/software/bash/)
-- terminal emulator: [st](https://st.suckless.org/)
+- terminal emulator: [st](https://st.suckless.org/) / [alacritty](https://github.com/alacritty/alacritty)
 - file manager: [fff](https://github.com/zeljkobekcic/fff)
 - text editor: [vim](https://github.com/vim/vim)
 - document viewer: [zathura](https://git.pwmt.org/pwmt/zathura)

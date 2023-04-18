@@ -36,7 +36,9 @@ alias rmdir='rmdir -v'
 alias mauku="ssh $USER@mauku"
 alias toxic='killall toxic && sleep 1 && toxic'
 alias datetime='date +"%d.%m.%Y %H:%M"'
-alias re='protonvpn-cli d || protonvpn-cli c -f'
+alias re='protonvpn-cli d; protonvpn-cli c -f'
+alias BTR011="bluetoothctl connect $MAC_BTR011"
+alias nura="bluetoothctl connect $MAC_NURA"
 alias dic='sdcv'
 alias keyb="setxkbmap -config $HOME/.config/xkb/ficode.xkb && xset r rate 333 40"
 

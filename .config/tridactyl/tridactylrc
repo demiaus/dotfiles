@@ -52,6 +52,10 @@ bind K tabprev
 bind o fillcmdline open
 bind O fillcmdline tabopen
 
+"
+unbind d
+bind x tabclose
+
 " Youtube's a bitch, but these seem to work
 bindurl ^http(s)?:\/\/(www\.)?youtube\.com/watch\?v=.*$ --mode=normal w !s xdotool key Left
 bindurl ^http(s)?:\/\/(www\.)?youtube\.com/watch\?v=.*$ --mode=normal b !s xdotool key Right

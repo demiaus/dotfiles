@@ -18,8 +18,8 @@ static const double inactiveopacity = 0.875f;   /* Window opacity when it's inac
 static       Bool   bUseOpacity     = False;    /* Starts with opacity on any unfocused windows */
 
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
-static const char *fonts[]				 = { "CozetteVector Nerd Font:size=12:antialias=true:autohint=true", "DejaVu Sans Mono:size=12:antialias=true:autohint=true", };
-static const char dmenufont[]			 =	 "CozetteVector Nerd Font:size=10:antialias=true:autohint=true" ;
+static const char *fonts[]				 = { "CozetteVector Nerd Font:size=18:antialias=true:autohint=true", "DejaVu Sans Mono:size=18:antialias=true:autohint=true", };
+static const char dmenufont[]			 =	 "CozetteVector Nerd Font:size=16:antialias=true:autohint=true";
 
 /* Rosé Pine https://rosepinetheme.com/palette */
 static const char col_base[]			= "#191724";
@@ -45,12 +45,12 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const Rule rules[] = {
 	/* class				instance	title			tags mask	switchtotag	isfloating	isterminal	noswallow	opacity	monitor	notallowed	*/
 	{ "st",					NULL,		NULL,			1,			1,			0,			1,			0,			1,		-1,		0			},
+	{ "Alacritty",			NULL,		NULL,			1,			1,			0,			1,			0,			1,		-1,		0			},
 	{ "trayer",				NULL,		NULL,			1 << 8,		0,			0,			0,			0,			1,		-1,		0			},
 	{ "stalonetray",		NULL,		NULL,			1 << 8,		0,			0,			0,			1,			1,		-1,		0			},
 	{ "Gimp",				NULL,		NULL,			1 << 2,		1,			1,			0,			0,			1,		-1,		0			},
 	{ "LibreWolf",			NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "qutebrowser",		NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
-	/* { "mpv",				NULL,		NULL,			1 << 3,		0,			0,			0,			0,			1,		-1,		0			}, */
 	{ "MuseScore3",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "MuseScore4",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Signal",				NULL,		NULL,			1 << 6,		1,			0,			0,			0,			1,		-1,		0			},
@@ -60,8 +60,9 @@ static const Rule rules[] = {
 	{ "Anki",				"anki",		NULL,			1 << 7,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Anki",				"anki",		"Browse",		1 << 7,		0,			1,			0,			0,			1,		-1,		0			},
 	{ "Anki",				"anki",		"Add-ons",		1 << 7,		0,			1,			0,			0,			1,		-1,		0			},
-	{ "Steam",				"Steam",	"Steam",		1 << 5,		1,			1,			0,			0,			1,		-1,		0			},
+	{ "Steam",				"Steam",	"Steam",		1 << 5,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "Steam",				"Steam",	"Steam - News",	1 << 5,		0,			1,			0,			0,			1,		-1,		0			},
+	{ "Steam",				"Steam",	"Friends List",	1 << 5,		0,			1,			0,			0,			1,		-1,		0			},
 	{ NULL,					NULL,		"Event Tester",	0,			0,			0,			0,			1,			1,		-1,		0			}, /* xev */
 };
 
@@ -106,8 +107,10 @@ static const char *shutdowncmd[]		= { "systemctl", "poweroff", NULL };
 static const char *rebootcmd[]			= { "systemctl", "reboot",	NULL };
 /* input */
 static const char *emojicmd[]			= { "dmenu-emoji.sh", NULL };
+<<<<<<< HEAD
 static const char *fencmd[]				= { "pretty_fen.sh", NULL };
 static const char *randcmd[]			= { "rand.sh", NULL };
+static const char *fencmd[]				= { "pretty_fen.sh", NULL };
 
 /* key definitions */
 #define MODKEY	Mod4Mask
@@ -164,13 +167,13 @@ static const Key keys[] = {
 	{ MODKEY,				XK_g,			setlayout,			{.v = &layouts[3]} },
 	{ MODKEY,				XK_space,		setlayout,			{0} },
 	{ MODKEY|ShiftMask, 	XK_space,		togglefloating,		{0} },
-	{ MODKEY2,				XK_j,			moveresize,			{.v = "  0x  25y	0w	 0h" } },
-	{ MODKEY2,				XK_k,			moveresize,			{.v = "  0x -25y	0w	 0h" } },
-	{ MODKEY2,				XK_l,			moveresize,			{.v = " 25x   0y	0w	 0h" } },
-	{ MODKEY2,				XK_h,			moveresize,			{.v = "-25x   0y	0w	 0h" } },
+	{ MODKEY2,				XK_j,			moveresize,			{.v = "  0x  25y   0w	 0h" } },
+	{ MODKEY2,				XK_k,			moveresize,			{.v = "  0x -25y   0w	 0h" } },
+	{ MODKEY2,				XK_l,			moveresize,			{.v = " 25x   0y   0w	 0h" } },
+	{ MODKEY2,				XK_h,			moveresize,			{.v = "-25x   0y   0w	 0h" } },
 	{ MODKEY2|ShiftMask,	XK_h,			moveresize,			{.v = "  0x   0y -25w	 0h" } },
-	{ MODKEY2|ShiftMask,	XK_j,			moveresize,			{.v = "  0x   0y	0w	25h" } },
-	{ MODKEY2|ShiftMask,	XK_k,			moveresize,			{.v = "  0x   0y	0w -25h" } },
+	{ MODKEY2|ShiftMask,	XK_j,			moveresize,			{.v = "  0x   0y   0w	25h" } },
+	{ MODKEY2|ShiftMask,	XK_k,			moveresize,			{.v = "  0x   0y   0w  -25h" } },
 	{ MODKEY2|ShiftMask,	XK_l,			moveresize,			{.v = "  0x   0y  25w	 0h" } },
 	{ MODKEY2|ControlMask,	XK_h,			moveresizeedge,		{.v = "l"} },
 	{ MODKEY2|ControlMask,	XK_j,			moveresizeedge,		{.v = "b"} },
