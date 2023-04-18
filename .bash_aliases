@@ -37,6 +37,8 @@ alias mauku="ssh $USER@mauku"
 alias toxic='killall toxic && sleep 1 && toxic'
 alias datetime='date +"%d.%m.%Y %H:%M"'
 alias re='protonvpn-cli d || protonvpn-cli c -f'
+alias dic='sdcv'
+alias keyb="setxkbmap -config $HOME/.config/xkb/ficode.xkb && xset r rate 333 40"
 
 # Make some noise
 alias whitenoise='play -n synth whitenoise'
