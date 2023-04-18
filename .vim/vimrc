@@ -435,7 +435,9 @@ autocmd FileType php set noexpandtab
 autocmd Filetype c call COptions()
 
 " JS
-autocmd Filetype c set noexpandtab
+autocmd Filetype js set noexpandtab
+autocmd Filetype js set noexpandtab
+autocmd Filetype js set wrap
 
 " Remember position of last edit and return on reopen
 if has("autocmd")
