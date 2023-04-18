@@ -50,8 +50,6 @@ static const Rule rules[] = {
 	{ "Gimp",				NULL,		NULL,			1 << 2,		1,			1,			0,			0,			1,		-1,		0			},
 	{ "LibreWolf",			NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "qutebrowser",		NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
-	{ "Brave-browser-beta", NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
-	{ "Brave-browser",		NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
 	/* { "mpv",				NULL,		NULL,			1 << 3,		0,			0,			0,			0,			1,		-1,		0			}, */
 	{ "MuseScore3",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "MuseScore4",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
@@ -109,6 +107,7 @@ static const char *rebootcmd[]			= { "systemctl", "reboot",	NULL };
 /* input */
 static const char *emojicmd[]			= { "dmenu-emoji.sh", NULL };
 static const char *fencmd[]				= { "pretty_fen.sh", NULL };
+static const char *randcmd[]			= { "rand.sh", NULL };
 
 /* key definitions */
 #define MODKEY	Mod4Mask
@@ -146,6 +145,7 @@ static const Key keys[] = {
 	{ MODKEY,				XK_e,			spawn,				{.v = emojicmd			} },
 	{ MODKEY,				XK_o,			spawn,				{.v = ocrcmd			} },
 	{ MODKEY,				XK_c,			spawn,				{.v = fencmd			} },
+	{ MODKEY,				XK_r,			spawn,				{.v = randcmd			} },
 	{ MODKEY,				XK_b,			togglebar,			{0} },
 	{ MODKEY|ShiftMask, 	XK_j,			rotatestack,		{.i = +1 } },
 	{ MODKEY|ShiftMask, 	XK_k,			rotatestack,		{.i = -1 } },
