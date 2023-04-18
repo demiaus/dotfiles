@@ -6,8 +6,8 @@ echo "$(date +%T) open  ~/.bash_aliases" >> ~/.log/rc.log
 
 if [ -x /usr/bin/dircolors ];then
   if [ -x /usr/bin/exa ];then
-    alias ls='exa --color=auto --group-directories-first --icons'
-    alias lsd='exa --color=auto --group-directories-first --icons --only-dirs'
+    alias ls='exa --color=auto --group-directories-first'
+    alias lsd='exa --color=auto --group-directories-first --only-dirs'
   else
     alias ls='ls --color=auto --group-directories-first'
   fi
@@ -38,6 +38,8 @@ alias mauku="ssh $USER@mauku"
 alias toxic='killall toxic && sleep 1 && toxic'
 alias datetime='date +"%d.%m.%Y %H:%M"'
 alias re='protonvpn-cli d; protonvpn-cli c -f'
+alias BTR011="bluetoothctl connect $MAC_BTR011"
+alias nura="bluetoothctl connect $MAC_NURA"
 
 # Make some noise
 alias whitenoise='play -n synth whitenoise'
