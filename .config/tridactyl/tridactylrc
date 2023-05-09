@@ -52,16 +52,17 @@ unbind d
 bind x tabclose
 
 " Youtube's a bitch, but these seem to work
-bindurl ^https://www\.youtube\.com/watch\?v=.*$ --mode=normal b !s xdotool key Left
-bindurl ^https://www\.youtube\.com/watch\?v=.*$ --mode=normal w !s xdotool key Right
-bindurl ^https://www\.youtube\.com/watch\?v=.*$ j !s xdotool key Left
-bindurl ^https://www\.youtube\.com/watch\?v=.*$ l !s xdotool key Right
-unbindurl ^https://www\.youtube\.com/watch\?v=.*$ ,
-unbindurl ^https://www\.youtube\.com/watch\?v=.*$ .
-bindurl ^https://www\.youtube\.com/watch\?v=.*$ <Space> !s xdotool key k
+bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ --mode=normal w !s xdotool key Left
+bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ --mode=normal b !s xdotool key Right
+bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ --mode=ignore j !s xdotool key Left
+bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ --mode=ignore l !s xdotool key Right
+unbindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ ,
+unbindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ .
+bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ <Space> !s xdotool key k
 
-autocmd DocStart https://10fastfingers.com/ mode ignore
-autocmd DocStart https://monkeytype.com/    mode ignore
+autocmd DocStart ^http(s)?:\/\/(www\.)?10fastfingers\.com/.*$ mode ignore
+autocmd DocStart ^http(s)?:\/\/(www\.)?monkeytype\.com/.*$ mode ignore
+autocmd DocStart ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ mode ignore
 
 set hintdelay 100
 set smoothscroll true
