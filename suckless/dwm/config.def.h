@@ -35,8 +35,8 @@ static const char col_hiM[]				= "#403d52";
 static const char col_hiH[]				= "#524f67";
 static const char *colors[][3]			= {
 	/*				fg			bg			border		*/
-	[SchemeNorm] = { col_rose,	col_base,	col_surface	},
-	[SchemeSel]  = { col_foam,	col_base,	col_foam	},
+	[SchemeNorm] = { col_rose,	col_overlay,	col_surface	},
+	[SchemeSel]  = { col_foam,	col_overlay,	col_foam	},
 };
 
 /* tagging */
@@ -109,7 +109,7 @@ static const char *shutdowncmd[]		= { "systemctl", "poweroff", NULL };
 static const char *rebootcmd[]			= { "systemctl", "reboot",	NULL };
 /* input */
 static const char *emojicmd[]			= { "dmenu-emoji.sh", NULL };
-static const char *fencmd[]			= { "pretty_fen.sh", NULL };
+static const char *fencmd[]				= { "pretty_fen.sh", NULL };
 
 /* key definitions */
 #define MODKEY	Mod4Mask
