@@ -34,27 +34,27 @@ input.ftb {
     margin: 2px;
 }
 input.st-incomplete {
-    background-color: #FFFF77;
+    background-color: #f6c177;
     color: #333;
 }
 input.st-error {
-    background-color: #ff9999;
+    background-color: #eb6f92;
     color: #333;
 }
 input.st-ok {
-    background-color: #99ff99;
+    background-color: #9ccfd8;
     color: #333;
 }
 
 .cloze.st-error {
-    color: #ff4949;
+    color: #eb6f92;
     text-decoration: line-through;
 }
 .cloze.st-expected {
-    color: orange;
+    color: #f6c177;
 }
 .cloze.st-ok {
-    color: #3bd03b;
+    color: #9ccfd8;
 }
 
 </style>
