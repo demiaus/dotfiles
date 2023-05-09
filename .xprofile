@@ -2,5 +2,6 @@
 # ~/.xprofile
 #
 
+setxkbmap -config $HOME/.config/xkb/ficode.xkb
 xset r rate 333 40
 
