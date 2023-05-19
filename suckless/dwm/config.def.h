@@ -110,6 +110,7 @@ static const char *rebootcmd[]			= { "systemctl", "reboot",	NULL };
 /* input */
 static const char *emojicmd[]			= { "dmenu-emoji.sh", NULL };
 static const char *fencmd[]				= { "pretty_fen.sh", NULL };
+static const char *fenformatcmd[]		= { "pretty_fen_format.sh", NULL };
 
 /* key definitions */
 #define MODKEY	Mod4Mask
@@ -147,6 +148,7 @@ static const Key keys[] = {
 	{ MODKEY,				XK_e,			spawn,				{.v = emojicmd			} },
 	{ MODKEY,				XK_o,			spawn,				{.v = ocrcmd			} },
 	{ MODKEY,				XK_c,			spawn,				{.v = fencmd			} },
+	{ MODKEY|ShiftMask,		XK_c,			spawn,				{.v = fenformatcmd		} },
 	{ MODKEY,				XK_b,			togglebar,			{0} },
 	{ MODKEY|ShiftMask, 	XK_j,			rotatestack,		{.i = +1 } },
 	{ MODKEY|ShiftMask, 	XK_k,			rotatestack,		{.i = -1 } },

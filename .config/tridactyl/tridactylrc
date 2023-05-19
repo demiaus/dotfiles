@@ -54,8 +54,8 @@ bind x tabclose
 " Youtube's a bitch, but these seem to work
 bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ --mode=normal w !s xdotool key Left
 bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ --mode=normal b !s xdotool key Right
-bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ --mode=ignore j !s xdotool key Left
-bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ --mode=ignore l !s xdotool key Right
+" bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ --mode=ignore j !s xdotool key Left
+" bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ --mode=ignore l !s xdotool key Right
 unbindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ ,
 unbindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ .
 bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.+$ <Space> !s xdotool key k
