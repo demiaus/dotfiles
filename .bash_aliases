@@ -20,15 +20,17 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vimrc='vim ~/.vim/vimrc'
 alias tridactylrc='vim ~/.config/tridactyl/tridactylrc'
 alias ww='vim ~/vimwiki/index.md'
-alias vim='vim --servername VIMSERVER --remote-silent'
-alias :q=exit
-alias :wq=exit
+alias v='vim --servername VIMSERVER --remote-silent'
+alias b='vim --servername VIMSERVER --remote-silent buffer'
+alias :q='exit'
+alias :wq='exit'
 alias destroy='shred -zu'
-alias o=xdg-open
-alias yt=yt-dlp
+alias o='xdg-open'
+alias yt='yt-dlp'
 alias yta='yt-dlp -x'
 alias myip='curl ipinfo.io'
 alias isup='ps aux | grep'
+alias sää="curl wttr.in/$LOC?M"
 alias mv='mv -v'
 alias rm='rm -v'
 alias cp='cp -v'
@@ -40,7 +42,8 @@ alias re='protonvpn-cli d; protonvpn-cli c -f'
 alias BTR011="bluetoothctl connect $MAC_BTR011"
 alias nura="bluetoothctl connect $MAC_NURA"
 alias dic='sdcv'
-alias keyb="setxkbmap -config $HOME/.config/xkb/ficode.xkb && xset r rate 333 40"
+alias keyb=". ~/.xprofile"
+alias dic='sdcv'
 
 # Make some noise
 alias whitenoise='play -n synth whitenoise'

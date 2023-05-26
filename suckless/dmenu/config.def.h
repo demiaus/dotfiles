@@ -10,10 +10,17 @@ static const char *fonts[] = { "CozetteVector Nerd Font:size=14:antialias=true:a
 static const char *colors[SchemeLast][2] = {
     /* Rosé Pine https://rosepinetheme.com/palette */
     /*                         fg         bg       */
+<<<<<<< HEAD
     [SchemeNorm]          = { "#ebbcba", "#26233a" }, /* rose, overlay */
     [SchemeSel]           = { "#9ccfd8", "#26233a" }, /* foam, overlay */
     [SchemeSelHighlight]  = { "#9ccfd8", "#1f1d2e" }, /* foam, surface */
     [SchemeNormHighlight] = { "#ebbcba", "#1f1d2e" }, /* rose, surface */
+=======
+    [SchemeNorm]          = { "#ebbcba", "#26233a" }, /* rose, surface */
+    [SchemeSel]           = { "#9ccfd8", "#26233a" }, /* foam, surface */
+    [SchemeSelHighlight]  = { "#9ccfd8", "#1f1d2e" }, /* foam, overlay */
+    [SchemeNormHighlight] = { "#ebbcba", "#1f1d2e" }, /* rose, overlay */
+>>>>>>> main
 };
 
 static const unsigned int alphas[SchemeLast][2] = {

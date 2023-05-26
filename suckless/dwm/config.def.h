@@ -34,9 +34,10 @@ static const char col_hiL[]				= "#21202e";
 static const char col_hiM[]				= "#403d52";
 static const char col_hiH[]				= "#524f67";
 static const char *colors[][3]			= {
-	/*				fg			bg				border		*/
+
+	/*				fg			bg			border		*/
 	[SchemeNorm] = { col_rose,	col_overlay,	col_surface	},
-	[SchemeSel] = { col_foam,	col_overlay,	col_foam	},
+	[SchemeSel]  = { col_foam,	col_overlay,	col_foam	},
 };
 
 /* tagging */
@@ -105,11 +106,12 @@ static const char *boxzoomcmd[]			= { "/usr/bin/slop", "-r", "boxzoom",   NULL }
 /* power */
 static const char *shutdowncmd[]		= { "systemctl", "poweroff", NULL };
 static const char *rebootcmd[]			= { "systemctl", "reboot",	NULL };
+static const char *lockcmd[]			= { "slock", NULL };
 /* input */
 static const char *emojicmd[]			= { "dmenu-emoji.sh", NULL };
 static const char *fencmd[]				= { "pretty_fen.sh", NULL };
 static const char *randcmd[]			= { "rand.sh", NULL };
-static const char *lockcmd[]			= { "slock", NULL };
+static const char *fenformatcmd[]		= { "pretty_fen_format.sh", NULL };
 
 /* key definitions */
 #define MODKEY	Mod4Mask
@@ -149,6 +151,7 @@ static const Key keys[] = {
 	{ MODKEY,				XK_c,			spawn,				{.v = fencmd			} },
 	{ MODKEY,				XK_r,			spawn,				{.v = randcmd			} },
 	{ MODKEY|TERMMOD,		XK_l,			spawn,				{.v = lockcmd		    } },
+	{ MODKEY|ShiftMask,		XK_c,			spawn,				{.v = fenformatcmd		} },
 	{ MODKEY,				XK_b,			togglebar,			{0} },
 	{ MODKEY|ShiftMask, 	XK_j,			rotatestack,		{.i = +1 } },
 	{ MODKEY|ShiftMask, 	XK_k,			rotatestack,		{.i = -1 } },

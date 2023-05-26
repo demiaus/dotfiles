@@ -45,7 +45,7 @@
     --tridactyl-container-color-purple:    var(--Iris);
 
     --tridactyl-fg:               var(--Rose);
-    --tridactyl-bg:               var(--Base);
+    --tridactyl-bg:               var(--Overlay);
     --tridactyl-url-fg:           var(--Rose);
     --tridactyl-url-bg:           var(--Base);
     --tridactyl-highlight-box-bg: var(--Rose);
@@ -219,20 +219,20 @@
 
     opacity: 0.5 !important;
     font-size: 0pt !important;
-    color: rgba(0, 0, 0, 0.0) !important;
-    background: rgba(0, 0, 0, 0.0) !important;
+    color: var(--tridactyl-bg) !important;
+    background: var(--tridactyl-bg) !important;
 
 }
 
 /* when mouse is hovering over status indicator */
 .TridactylStatusIndicator.TridactylInvisible {
     opacity: 0.0 !important;
-    background: rgba(0, 0, 0, 0.0) !important;
+    background: var(--tridactyl-bg) !important;
 }
 
 /* normal mode */
 .TridactylStatusIndicator.TridactylModenormal {
-    background: rgba(0, 0, 0, 0.0) !important;
+    background: var(--tridactyl-bg) !important;
 }
 
 /* ignore mode */

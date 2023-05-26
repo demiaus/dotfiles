@@ -1,0 +1,253 @@
+<style>
+    /* CENTER CONTAINER */
+    .container {
+        height: 200px;
+        position: relative;
+    }
+    .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .left_align {
+        text-align: left;
+    }
+    .card {
+        font-family: cozette;
+        font-size: 20px;
+        text-align: center;
+    }
+    .card.nightMode {
+        color: #e0def4;
+        background-color: #26233a;
+    }
+    .header {
+        padding: 30px;
+        font-size: 24px;
+    }
+    .extra {
+        padding: 10px;
+        font-size: 16px;
+        font-style: italic;
+    }
+    .namn {
+        padding: 10px;
+        font-size: 16px;
+        font-style: italic;
+    }
+    .extra .filler {
+        color: #26233a;
+    }
+    .question {
+        padding: 15px;
+    }
+    .hl {
+        color: #9ccfd8;
+    }
+    .hl_b {
+        color: #9ccfd8;
+        font-weight: bold;
+    }
+    .answer {
+        padding: 15px;
+        color: #9ccfd8;
+        font-weight: bold;
+    }
+    .answer .filler {
+        color: #26233a;
+    }
+    .hl-rose {
+        color: #ebbcba;
+    }
+
+    /* MAP */
+    .type {
+        font-size: 70%;
+        font-weight: bold;
+        margin-bottom: .25em;
+        text-transform: uppercase;
+        color: #ebbcba;
+    }
+    .value {
+        font-size: 120%;
+        color: #9ccfd8;
+    }
+    .sub {
+        padding: 5px;
+        font-style: italic;
+    }
+    .info {
+        font-size: 90%;
+        font-style: italic;
+        margin: .75em auto;
+        max-width: 30em;
+    }
+
+    /* INPUT */
+    .card input {
+        font-family: cozette;
+        font-size: 20px;
+        background-color: #26233a;
+        border: 2px solid #26233a;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+    }
+    input[type=text] {
+        text-align: left;
+        border: 2px solid #ebbcba;
+        -webkit-transition: 0.5s;
+    }
+    input[type=text]:focus {
+        border: 2px solid #ebbcba;
+        background: #1f1d2e;
+    }
+    .typeGood {
+        background: #9ccfd8 !important;
+    }
+    .typeMissed {
+        background: #f6c177 !important;
+    }
+    .typeBad {
+        background: #eb6f92 !important;
+    }
+    .cloze {
+        font-weight: bold;
+        color: #ebbcba;
+    }
+
+
+    /* IMAGE */
+    .image {
+        width: 400px;
+        margin: auto;
+        padding: 10px;
+    }
+    .small_image {
+        width: 250px;
+        margin: auto;
+        padding: 10px;
+    }
+    .kuva {
+        width: 250px;
+        margin: auto;
+        padding: 10px;
+    }
+
+
+    /* CHESS */
+    .solution {
+        font-size: 18px;
+        color: #e0def4;
+        background: #1f1d2e;
+        text-align: left;
+        display: inline-block;
+        border: 3px solid #26233a;
+        border-radius: 8px;
+        padding: 20px;
+    }
+    .solution:hover {
+        color: #ebbcba;
+        background: #191724;
+        border: 3px solid #9ccfd8;
+        transition-duration: 1s;
+    }
+    .to_move {
+        font-size: 18px;
+        color: #e0def4;
+        background: #1f1d2e;
+        text-align: center;
+        display: inline-block;
+        border: 3px solid #26233a;
+        border-radius: 8px;
+        padding: 20px;
+    }
+    .to_move_filler {
+        font-size: 18px;
+        color: #26233a;
+        background: #26233a;
+        text-align: center;
+        display: inline-block;
+        border: 3px solid #26233a;
+        border-radius: 8px;
+        padding: 20px;
+    }
+    .to_move .filler {
+        color: #26233a;
+        background: #26233a;
+    }
+    .name {
+        padding: 10px;
+        display: inline-block;
+        text-align: left;
+    }
+    .move {
+        color: #9ccfd8;
+    }
+    .White {
+        font-weight: bold;
+        color: #ebbcba;
+    }
+    .white {
+        font-weight: bold;
+        color: #ebbcba;
+    }
+    .Black {
+        font-weight: bold;
+        color: #907aa9;
+    }
+    .black {
+        font-weight: bold;
+        color: #907aa9;
+    }
+    .bg {
+        background: #1f1d2e;
+        padding: 10px;
+    }
+
+    /* US Licence Plates */
+    .Rear {
+        color: #ebbcba;
+    }
+    .Both {
+        color: #9ccfd8;
+    }
+    .Both* {
+        color: #c4a7e7;
+    }
+
+    /* Tooltips */
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #1f1d2e;
+        color: #ebbcba;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        font-size: 14px;
+        top: 50%;
+        margin-left: 180px; /* Use half of the width (120/2 = 60), to center the tooltip */
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+
+    @font-face {
+        font-family: cozette;
+        src: url("_cozette.ttf");
+    }
+
+</style>

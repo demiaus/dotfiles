@@ -83,7 +83,7 @@ set listchars=tab:>-,trail:·,nbsp:_
 set list
 set sidescroll=8
 set noshowmatch
-set spell
+set nospell
 set tws=100x50
 
 " "CMDLINE"

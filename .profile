@@ -59,6 +59,7 @@ export MW_SESSION="$(<~/.mw.apikey)"
 export CITY="$(<~/.location)"
 export MAC_NURA="$(<~/.mac_nura)"
 export MAC_BTR011="$(<~/.mac_btr011)"
+export LOC="$(<~/.loc)"
 
 #!/bin/sh
 if [ "$TERM" = "linux" ]; then
