@@ -18,8 +18,8 @@ static const double inactiveopacity = 0.875f;   /* Window opacity when it's inac
 static       Bool   bUseOpacity     = False;    /* Starts with opacity on any unfocused windows */
 
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
-static const char *fonts[]				 = { "CozetteVector Nerd Font:size=18:antialias=true:autohint=true", "DejaVu Sans Mono:size=18:antialias=true:autohint=true", };
-static const char dmenufont[]			 =	 "CozetteVector Nerd Font:size=16:antialias=true:autohint=true";
+static const char *fonts[]				 = { "CozetteVector Nerd Font:size=12:antialias=true:autohint=true", "DejaVu Sans Mono:size=18:antialias=true:autohint=true", };
+static const char dmenufont[]			 =	 "CozetteVector Nerd Font:size=18:antialias=true:autohint=true";
 
 /* Rosé Pine https://rosepinetheme.com/palette */
 static const char col_base[]			= "#191724";
@@ -34,9 +34,9 @@ static const char col_hiL[]				= "#21202e";
 static const char col_hiM[]				= "#403d52";
 static const char col_hiH[]				= "#524f67";
 static const char *colors[][3]			= {
-	/*				fg			bg			border		*/
-	[SchemeNorm] = { col_rose,	col_base,	col_surface	},
-	[SchemeSel]  = { col_foam,	col_base,	col_foam	},
+	/*				fg			bg				border		*/
+	[SchemeNorm] = { col_rose,	col_overlay,	col_surface	},
+	[SchemeSel] = { col_foam,	col_overlay,	col_foam	},
 };
 
 /* tagging */
@@ -86,7 +86,7 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[]			= { "dmenu_run_history", "-l", "3", NULL };
 
-static const char *termcmd[]			= { "/home/ami/.local/bin/terminal", NULL };
+static const char *termcmd[]			= { "/home/ami/.local/bin/st", NULL };
 static const char *browsercmd[]			= { "/home/ami/.local/bin/browser",	NULL };
 /* volume */
 static const char *volmutetogglecmd[]	= { "vol.sh", "mute", NULL };
@@ -107,10 +107,9 @@ static const char *shutdowncmd[]		= { "systemctl", "poweroff", NULL };
 static const char *rebootcmd[]			= { "systemctl", "reboot",	NULL };
 /* input */
 static const char *emojicmd[]			= { "dmenu-emoji.sh", NULL };
-<<<<<<< HEAD
 static const char *fencmd[]				= { "pretty_fen.sh", NULL };
 static const char *randcmd[]			= { "rand.sh", NULL };
-static const char *fencmd[]				= { "pretty_fen.sh", NULL };
+static const char *lockcmd[]			= { "slock", NULL };
 
 /* key definitions */
 #define MODKEY	Mod4Mask
@@ -149,6 +148,7 @@ static const Key keys[] = {
 	{ MODKEY,				XK_o,			spawn,				{.v = ocrcmd			} },
 	{ MODKEY,				XK_c,			spawn,				{.v = fencmd			} },
 	{ MODKEY,				XK_r,			spawn,				{.v = randcmd			} },
+	{ MODKEY|TERMMOD,		XK_l,			spawn,				{.v = lockcmd		    } },
 	{ MODKEY,				XK_b,			togglebar,			{0} },
 	{ MODKEY|ShiftMask, 	XK_j,			rotatestack,		{.i = +1 } },
 	{ MODKEY|ShiftMask, 	XK_k,			rotatestack,		{.i = -1 } },

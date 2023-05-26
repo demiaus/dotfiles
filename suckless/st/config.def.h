@@ -103,7 +103,7 @@ float alpha = 1.0;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* Rosé Pine */
-  "#191724", /* 0 base */
+	"#26233a", /* 0 overlay */
 	"#eb6f92", /* 1 love */
 	"#9ccfd8", /* 2 foam */
 	"#f6c177", /* 3 gold */
@@ -122,7 +122,7 @@ static const char *colorname[] = {
 
 	[255] = 0,
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#191724", /* 0 base */
+	"#26233a", /* 0 overlay */
 	"#9ccfd8", /* 2 foam */
 	"#ebbcba", /* 6 rose */
 	"#e0def4", /* 7 text */
