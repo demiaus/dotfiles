@@ -160,15 +160,14 @@ function! GetXresColor()
     execute "normal! ciw" . l:hex
 endfunction
 
-" function! Fen()
-"     execute 'normal! gg0f d$0'
-"     let l:a = 1
-"     while a == 1
-"         a = execute 'normal! /\d"zz@zi.'
-"     endwhile
-"     endfor
-"     execute 'normal! :s/\//\/\r/g:%s/\(.\)/\1 /g:%s/ $//'
-" endfunction
+function! ReplaceColors()
+    :%s/#C12737/#9ccfd8/ig
+    :%s/#E0E0E0/#1f1d2e/ig
+    :%s/#FEFEE9/#ebbcba/ig
+    :%s/#C6ECFF/#26233a/ig
+    :%s/#646464/#1f1d2e/ig
+    :%s/#0978AB/#ebbcba/ig
+endfunction
 
 " }}}///////////////////////////////////////////////////////////////////////////
 
@@ -279,7 +278,7 @@ nnoremap <Leader>ia :set nrformats+=alpha<CR>
 nnoremap <Leader>iA :set nrformats-=alpha<CR>
 nnoremap <Leader>ih :set nrformats+=hex<CR>
 nnoremap <Leader>iH :set nrformats-=hex<CR>
-=======
+
 " Don't close accidentally
 nnoremap ZZ :q
 
