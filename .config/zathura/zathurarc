@@ -24,7 +24,7 @@ set scroll-step 100
 set zoom-min 10
 set guioptions ""
 
-set font "CozetteVector Nerd Font 16"
+set font "Monocraft 14"
 
 # Soho vibes for Zathura: Rosé Pine
 
