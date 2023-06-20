@@ -55,6 +55,8 @@ bind O fillcmdline tabopen
 "
 unbind d
 bind x tabclose
+bind <Space>a hint -A
+bind <Space>i hint -i
 
 " Youtube's a bitch, but these seem to work
 bindurl ^http(s)?:\/\/(www\.)?youtube\.com\/watch\?v=.*$ --mode=normal w !s xdotool key Left
