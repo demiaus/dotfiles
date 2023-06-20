@@ -49,8 +49,6 @@ call plug#begin()
     Plug 'tpope/vim-surround'
     Plug 'tridactyl/vim-tridactyl'
     Plug 'vimwiki/vimwiki'
-    Plug 'wellle/targets.vim'
-    Plug 'wellle/visual-split.vim'
 call plug#end()
 
 "}}}////////////////////////////////////////////////////////////////////////////
