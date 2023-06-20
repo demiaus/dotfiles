@@ -18,8 +18,8 @@ static const double inactiveopacity = 0.875f;   /* Window opacity when it's inac
 static       Bool   bUseOpacity     = False;    /* Starts with opacity on any unfocused windows */
 
 /* https://aur.archlinux.org/packages/nerd-fonts-cozette-ttf */
-static const char *fonts[]				 = { "CozetteVector Nerd Font:size=12:antialias=true:autohint=true", "DejaVu Sans Mono:size=18:antialias=true:autohint=true", };
-static const char dmenufont[]			 =	 "CozetteVector Nerd Font:size=18:antialias=true:autohint=true";
+static const char *fonts[]				 = { "Monocraft:size=12:antialias=true:autohint=true", "DejaVu Sans Mono:size=12:antialias=true:autohint=true", };
+static const char dmenufont[]			 =	 "Monocraft:size=18:antialias=true:autohint=true";
 
 /* Rosé Pine https://rosepinetheme.com/palette */
 static const char col_base[]			= "#191724";
