@@ -1,5 +1,8 @@
 <style>
+
+
     /* CENTER CONTAINER */
+
     .container {
         height: 200px;
         position: relative;
@@ -11,6 +14,7 @@
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+        height: auto;
     }
     .left_align {
         text-align: left;
@@ -26,14 +30,111 @@
     }
     .header {
         padding: 30px;
-        font-size: 24px;
+        font-size: 22px;
     }
     .extra {
         font-size: 16px;
         font-style: italic;
+        margin: 10px;
     }
+
+
+    /* ESPAÑOL */
+
+    .header .espanol {
+        color: #f6c177;
+        background: #1f1d2e;
+        border: 3px solid #eb6f92;
+        padding: 5px;
+    }
+    .attrs	{
+        font-size: 14px;
+        font-style: italic;
+    }
+    .comment {
+        color: #6e6a86;
+        font-size: 75%;
+        margin: 5px;
+    }
+    .hint {
+        font-size: 14px;
+    }
+
+    mark {
+        background-color: #908caa;
+        color: #1f1d2e;
+        opacity: .5;
+    }
+    ol { 
+        margin: 0 auto;
+        padding: 0;
+        max-width:100%;
+        width:max-content;
+        counter-reset: item;
+    }
+    ol li {
+        display: block;
+    }
+    li {
+        list-style-position: inside;
+        margin: 0 1em;
+        padding:2pt 5pt;
+    }
+    li+li {
+        border-top: 1px dotted #908caa;
+    }
+    ol li:before {
+        content: counter(item) ". ";
+        counter-increment: item;
+        font-weight: bold;
+    }
+    l {
+        display:inline-block;
+    }
+    .tags {
+        font-size: 10pt;
+        line-height: 1.4;
+        color: gray;
+        width: min-content;
+        text-align: right;
+        position: fixed;
+        bottom: 2pt;
+        right: 2pt;
+    }
+
+
+    /* SVENSKA */
+
+    .header .svenska {
+        color: #f6c177;
+        background: #1f1d2e;
+        border: 3px solid #31748f;
+        padding: 5px;
+    }
+
+    .header .english {
+        color: #eb6f92;
+        background: #1f1d2e;
+        border: 3px solid #31748f;
+        padding: 5px;
+    }
+    .header .suomi {
+        color: #31748f;
+        background: #1f1d2e;
+        border: 3px solid #e0def4;
+        padding: 5px;
+    }
+
+    .esim {
+        padding-top: 15px;
+        font-size: 16px;
+        font-style: italic;
+    }
+
+
+    /* MAANTIETO */
+
     .namn {
-        padding: 10px;
         font-size: 16px;
         font-style: italic;
     }
@@ -42,11 +143,12 @@
         font-size: 16px;
         font-style: italic;
     }
-    .extra .filler {
-        color: #26233a;
-    }
     .question {
         padding: 15px;
+    }
+    .question_left {
+        padding: 15px;
+        text-align: left;
     }
     .hl {
         color: #9ccfd8;
@@ -58,66 +160,47 @@
     .answer {
         padding: 15px;
         color: #9ccfd8;
-        /* font-weight: bold; */
-    }
-    .answer .filler {
-        color: #26233a;
     }
     .hl-rose {
         color: #ebbcba;
     }
 
-    /* MAP */
-    .type {
-        font-size: 70%;
-        font-weight: bold;
-        margin-bottom: .25em;
-        text-transform: uppercase;
-        color: #ebbcba;
-    }
-    .value {
-        font-size: 120%;
-        color: #9ccfd8;
-    }
-    .sub {
-        padding: 5px;
-        font-style: italic;
-    }
-    .info {
-        font-size: 90%;
-        font-style: italic;
-        margin: .75em auto;
-        max-width: 30em;
-    }
 
     /* INPUT */
+
     .card input {
+        max-width: 200px;
+        text-align: center;
         font-family: default_font;
-        font-size: 20px;
         background-color: #26233a;
         border: 2px solid #26233a;
-        border-radius: 0px;
+        border-radius: 0px !important;
         padding: 10px;
-        text-align: center;
     }
     input[type=text] {
+        max-width: 200px;
+        font-size: 16px !important;
         text-align: left;
+        color: #e0def4;
         border: 2px solid #ebbcba;
-        color: #9ccfd8;
-        -webkit-transition: 0.5s;
+        border-radius: 0px;
     }
     input[type=text]:focus {
-        border: 2px solid #ebbcba;
-        background: #1f1d2e;
         color: #9ccfd8;
+        background: #1f1d2e;
+        border: 2px solid #ebbcba;
+        border-radius: 0px;
     }
     .typeGood {
+        font-size: 16px !important;
         background: #9ccfd8 !important;
     }
     .typeMissed {
+        font-size: 16px !important;
         background: #f6c177 !important;
     }
     .typeBad {
+        font-size: 16px !important;
         background: #eb6f92 !important;
     }
     .cloze {
@@ -127,6 +210,7 @@
 
 
     /* IMAGE */
+
     .image {
         width: 400px;
         margin: auto;
@@ -137,24 +221,25 @@
         margin: auto;
         padding: 10px;
     }
-    .kuva {
-        width: 250px;
+    .smaller_image {
+        width: 100px;
         margin: auto;
         padding: 10px;
     }
 
 
     /* CHESS */
+
     .solution {
         font-size: 18px;
         color: #e0def4;
         background: #1f1d2e;
         text-align: left;
         display: inline-block;
-        border: 3px solid #26233a;
+        border: 3px solid #1f1d2e;
         border-radius: 0px;
         padding: 15px;
-        margin: 15px;
+        /* margin: 15px; */
     }
     .solution:hover {
         color: #ebbcba;
@@ -162,47 +247,23 @@
         border: 3px solid #9ccfd8;
         transition-duration: 1s;
     }
-    .solution_filler {
-        font-size: 18px;
-        color: #26233a;
-        background: #26233a;
-        text-align: left;
-        display: inline-block;
-        border: 3px solid #26233a;
-        border-radius: 0px;
-        padding: 15px;
-        margin: 15px;
-    }
     .to_move {
         font-size: 18px;
         color: #e0def4;
         background: #1f1d2e;
-        text-align: center;
+        text-align: left;
         display: inline-block;
-        border: 3px solid #26233a;
+        border: 3px solid #1f1d2e;
         border-radius: 0px;
         padding: 15px;
-        margin: 15px;
-    }
-    .to_move_filler {
-        font-size: 18px;
-        color: #26233a;
-        background: #26233a;
-        text-align: center;
-        display: inline-block;
-        border: 3px solid #26233a;
-        border-radius: 0px;
-        padding: 15px;
-        margin: 15px;
-    }
-    .to_move .filler {
-        color: #26233a;
-        background: #26233a;
+        /* margin: 15px; */
     }
     .name {
-        padding: 10px;
         display: inline-block;
         text-align: left;
+        background: #1f1d2e;
+        padding: 15px;
+        /* margin: 15px; */
     }
     .move {
         color: #9ccfd8;
@@ -223,12 +284,34 @@
         font-weight: bold;
         color: #907aa9;
     }
-    .bg {
+    .blunder {
+        color: #eb6f92;
+        font-weight: bold;
+    }
+    .mistake {
+        color: #f6c177;
+        font-weight: bold;
+    }
+    .follow-up {
+        font-size: 14px;
+        color: #e0def4;
         background: #1f1d2e;
-        padding: 10px;
+        text-align: left;
+        display: inline-block;
+        border: 3px solid #1f1d2e;
+        border-radius: 0px;
+        padding: 15px;
+    }
+    .variation {
+        height: auto;
+        width: 300px;
+        overflow: hidden;
+        display: inline-block;
+        text-align: left;
     }
 
-    /* US Licence Plates */
+    /* US LICENCE PLATES */
+
     .Rear {
         color: #ebbcba;
     }
@@ -239,26 +322,29 @@
         color: #c4a7e7;
     }
 
-    /* Tooltips */
+
+    /* TOOLTIPS */
 
     .tooltip {
         position: relative;
-        display: inline-block;
     }
 
     .tooltip .tooltiptext {
         visibility: hidden;
-        width: 120px;
+        max-width: 150px; 
+        height: auto;
         background-color: #1f1d2e;
-        color: #ebbcba;
-        text-align: center;
-        padding: 5px 0;
+        color: #9ccfd8;
+        border: 3px solid #ebbcba;
+        text-align: left;
+        padding: 15px;
+        margin: 15px;
         border-radius: 0px;
         position: absolute;
         z-index: 1;
         font-size: 14px;
         top: 50%;
-        margin-left: 180px; /* Use half of the width (120/2 = 60), to center the tooltip */
+        left: -50%;
     }
 
     .tooltip:hover .tooltiptext {
