@@ -25,13 +25,13 @@ CWD = os.path.dirname(os.path.realpath(__file__))
 CSS_STYLE = """
 <style type="text/css">
 input.ftb {    
-    border-radius: 5px;
-    border: 1px solid;
+    border-radius: 0px;
+    border: 3px solid #ebbcba;
     width: 150px;
     min-width: 120px;
     max-width: 400px;
-    padding: 3px;    
-    margin: 2px;
+    padding: 8px;    
+    margin: 8px;
 }
 input.st-incomplete {
     background-color: #f6c177;

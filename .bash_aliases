@@ -27,6 +27,7 @@ alias :wq='exit'
 alias destroy='shred -zu'
 alias o='xdg-open'
 alias yt='yt-dlp'
+alias dl='yt-dlp'
 alias yta='yt-dlp -x'
 alias myip='curl ipinfo.io'
 alias isup='ps aux | grep'
@@ -44,6 +45,8 @@ alias nura="bluetoothctl connect $MAC_NURA"
 alias dic='sdcv'
 alias keyb=". ~/.xprofile"
 alias dic='sdcv'
+alias pacman='pacman --needed'
+alias yay='yay --needed'
 
 # Make some noise
 alias whitenoise='play -n synth whitenoise'
