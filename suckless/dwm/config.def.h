@@ -50,7 +50,6 @@ static const Rule rules[] = {
 	{ "trayer",				NULL,		NULL,			1 << 8,		0,			0,			0,			0,			1,		-1,		0			},
 	{ "stalonetray",		NULL,		NULL,			1 << 8,		0,			0,			0,			1,			1,		-1,		0			},
 	{ "trayer",				NULL,		NULL,			1 << 8,		0,			0,			0,			1,			1,		-1,		0			},
-	{ "Gimp",				NULL,		NULL,			1 << 2,		1,			1,			0,			0,			1,		-1,		0			},
 	{ "LibreWolf",			NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "qutebrowser",		NULL,		NULL,			1 << 1,		1,			0,			0,			0,			1,		-1,		0			},
 	{ "MuseScore3",			NULL,		NULL,			1 << 8,		1,			0,			0,			0,			1,		-1,		0			},
