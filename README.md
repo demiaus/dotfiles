@@ -1,4 +1,4 @@
-# demiaus' dotfiles
+# demiaus' dotfiles [archived until I get my arch-based machine back]
 - os: [arch](https://archlinux.org/) / [endeavouros](https://endeavouros.com/)
 - wm: [dwm](https://dwm.suckless.org/)
 - shell: [bash](https://www.gnu.org/software/bash/)
